@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/home.css" />
+		<link rel="stylesheet" href="css/app.css" />
+	</head>
+
+	<body>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-chevron">
+					<!--<li class="list4-list">
+						<a href="#">
+							<h2>感知中国 走进秘鲁--APEC“人与自然”艺术展举行</h2>
+							<div class="list4-vido">
+								<img src="images/muwu.jpg">
+							</div>
+							<p><span class="index-shi">视频</span><span>专题</span><span>88评论</span><span>四小时之前</span><span class="index-close"></span></p>
+						</a>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					//					var table = document.body.querySelector('.mui-table-view');
+					//					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					//					for(var i = cells.length, len = i + 3; i < len; i++) {
+					//						var li = document.createElement('li');
+					//						li.className = 'mui-table-view-cell';
+					//						//						li.innerHTML = '<video width="320" height="240" controls="controls" autoplay="autoplay"><source src="/i/movie.ogg" type="video/ogg" /><source src="http://wvideo.spriteapp.cn/video/2016/1214/5850a69e12216_wpd.mp4" type="video/mp4" /><source src="/i/movie.webm" type="video/webm" /><object data="/i/movie.mp4" width="320" height="240"><embed width="320" height="240" src="/i/movie.swf" /></object></video>';
+					//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+					//						//下拉刷新，新纪录插到最前面；
+					//						table.insertBefore(li, table.firstChild);
+					//					}
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+				}, 1500);
+			}
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+					//					var table = document.body.querySelector('.mui-table-view');
+					//					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					//					for(var i = cells.length, len = i + 20; i < len; i++) {
+					//						var li = document.createElement('li');
+					//						li.className = 'mui-table-view-cell';
+					//						//						li.innerHTML = '<h2>点击该链接来播放这个对象</h2><a href="http://wvideo.spriteapp.cn/video/2016/1214/5850a69e12216_wpd.mp4">播放视频文件</a>';
+					//						//						li.innerHTML = '<embed src="http://player.youku.com/player.php/sid/XMzI2NTc4NTMy/v.swf"width="480"height="400"type="application/x-shockwave-flash"></embed>';
+					//						li.innerHTML = '<video width="320" height="240" controls="controls"><source src="/i/movie.ogg" type="video/ogg" /><source src="http://wvideo.spriteapp.cn/video/2016/1214/5850a69e12216_wpd.mp4" type="video/mp4" /><source src="/i/movie.webm" type="video/webm" /><object data="/i/movie.mp4" width="320" height="240"><embed width="320" height="240" src="/i/movie.swf" /></object></video>'
+					//							//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+					//						table.appendChild(li);
+					//					}
+				}, 1500);
+			}
+			if(mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						//						mui('#pullrefresh').pullRefresh().pullupLoading();
+
+					}, 1000);
+
+				});
+			} else {
+				mui.ready(function() {
+					//					mui('#pullrefresh').pullRefresh().pullupLoading();
+				});
+			}
+			mui.ajax('http://api.budejie.com/api/api_open.php?market=anzhi&udid=862949026831409&a=list&c=video&os=4.2.2&client=android&userID=11936713&page=1&per=20&visiting=11936713&mac=30%3A92%3Af6%3Add%3A13%3A58&ver=4.2.0&maxtime=', {
+				data: {
+
+				},
+				dataType: 'json', //服务器返回json格式数据
+				type: 'get', //HTTP请求类型
+				timeout: 10000, //超时时间设置为10秒；
+				success: function(data) {
+					var table = document.body.querySelector('.mui-table-view');
+					for(var i = 0; i < data.list.length; i++) {
+						var li = document.createElement('li');
+						//						li.innerHTML = '<video width="320" height="240" controls="controls" autoplay="autoplay"><source src="/i/movie.ogg" type="video/ogg" /><source src="http://wvideo.spriteapp.cn/video/2016/1214/5850a69e12216_wpd.mp4" type="video/mp4" /><source src="/i/movie.webm" type="video/webm" /><object data="/i/movie.mp4" width="320" height="240"><embed width="320" height="240" src="/i/movie.swf" /></object></video>';
+						li.className = 'list4-list';
+						li.innerHTML = '<a id="' + (data.list[i].videouri) + '" href="#"><h2>' + (data.list[i].text) + '</h2><div class="list4-vido"><img src="' + (data.list[i].bimageuri) + '"></div><p><span class="index-shi">视频</span><span>专题</span><span>' + (data.list[i].playcount) + '浏览</span><span>四小时之前</span><span class="index-close"></span></p></a>';
+						//下拉刷新，新纪录插到最前面；
+						table.insertBefore(li, table.firstChild);
+					}
+				},
+				error: function(xhr, type, errorThrown) {
+					console.log(2);
+				}
+			});
+
+			mui('.mui-table-view').on('tap', 'a', function() {
+				var id = this.getAttribute("id");
+				console.log(id);
+				mui.openWindow({
+					url: 'demo_videoPlaySimple.html',
+					id: id,
+					createNew: false, //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+				});
+			})
+		</script>
+	</body>
+
+</html>

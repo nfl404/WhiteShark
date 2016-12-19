@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+			html,
+			body {
+				background-color: #FFFFFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background: white;">
+			<h1 class="mui-title">视频</h1>
+		</header>
+		<div class="mui-content"></div>
+	</body>
+	<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			//启用双击监听
+			mui.init({
+				gestureConfig: {
+					doubletap: true
+				},
+				subpages: [{
+					url: 'videoList.html',
+					id: 'videoList.html',
+					styles: {
+						top: '45px',
+						bottom: '0px',
+					}
+				}]
+			});
+
+			var contentWebview = null;
+			document.querySelector('body').addEventListener('doubletap', function() {
+				if(contentWebview == null) {
+					contentWebview = plus.webview.currentWebview().children()[0];
+				}
+				contentWebview.evalJS("mui('#pullrefresh').pullRefresh().scrollTo(0,0,100)");
+			});
+		</script>
+
+</html>

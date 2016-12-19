@@ -1,0 +1,64 @@
+<!-- 
+        作者：dailc rayChenDay
+        时间：2016-03-10 17:51:20
+        描述：  html5 播放实现方案
+    PC浏览器,手机浏览器,plus下 实现方案不一样
+       注意:  在hbuild的测试调试服务器上,currentTime设置无效的,
+        请放到其它成熟第三方服务器上,才能正确测试出效果(比如tomcat,wampserver)
+    android,ios手机不受影响    
+    另外,内联播放需要在manifest里配置,参考111行
+-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>Video 示例</title>
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/demo_videoPlaySimple.css" />
+		<style>
+			video {
+				margin: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">视频</h1>
+		</header>
+		<div class="mui-content">
+			<div id="videoContainer">
+				<!--
+                	让ios支持内联播放,必须添加 webkit-playsinline 标签
+                -->
+				<video  id="videoMedia" controls="controls" preload width="320" height="240" webkit-playsinline>
+					<source id="sourceId" src="" type='video/mp4'>
+					<p>浏览器不支持Html5 Video!</p>
+				</video>
+				<img id="videoMediaDefaultImg" src="images/img_clickToPlay.png" />
+			</div>
+			<div id="TypeSwitch" style="display: none;">
+				<button id="inlinePlayBtn" class="switchBtn choosed">内敛播放</button>
+				<button id="noInlinePlayBtn" class="switchBtn ">非内联播放</button>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/zepto.min.js"></script>
+		<script type="text/javascript" src="js/demo_videoPlaySimple.js"></script>
+		<script>
+			mui.init();
+			mui.plusReady(function() {
+//				http://wvideo.spriteapp.cn/video/2016/1214/5850a69e12216_wpd.mp4
+				var id = plus.webview.currentWebview().id;
+				document.getElementById("videoMedia").src = id;
+				console.log('info id::::' + id);
+				document.getElementById("videoMedia").play();
+			});
+		</script>
+
+	</body>
+
+</html>

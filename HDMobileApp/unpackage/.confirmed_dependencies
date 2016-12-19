@@ -1,0 +1,152 @@
+{
+  "home.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "images/logo.png",
+      "css/app.css",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "images/search.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "info.html",
+      "js/common.js",
+      "js/home.js",
+      "css/home.css",
+      "search.html"
+    ],
+    "refer": [
+      "info.html",
+      "search.html"
+    ]
+  },
+  "index.html": {
+    "resources": [
+      "home.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/index.js"
+    ],
+    "refer": [
+      "home.html",
+      "find.html",
+      "trend.html",
+      "mine.html"
+    ]
+  },
+  "info.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/mui.previewimage.js",
+      "images/shuijiao.jpg",
+      "js/mui.min.js",
+      "js/common.js",
+      "css/inof.css",
+      "js/info.js"
+    ]
+  },
+  "mine.html": {
+    "resources": [
+      "js/app.js",
+      "images/qihoo.png",
+      "css/feedback-page.css",
+      "mine/login.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "mine/setting.html",
+      "css/mine.css",
+      "js/mine.js"
+    ],
+    "refer": [
+      "mine/login.html",
+      "mine/setting.html"
+    ]
+  },
+  "search.html": {
+    "resources": [
+      "images/back.png",
+      "home.html",
+      "css/search.css",
+      "libs/jquery-1.8.3.min.js",
+      "js/search.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/search.png",
+      "list.html"
+    ],
+    "refer": [
+      "home.html",
+      "list.html"
+    ]
+  },
+  "mine/login.html": {
+    "resources": [
+      "js/app.js",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/feedback-page.css"
+    ]
+  },
+  "list.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "js/mui.previewimage.js",
+      "images/shuijiao.jpg",
+      "search.html",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "search.html"
+    ]
+  },
+  "find.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "videoList.html"
+    ],
+    "refer": [
+      "videoList.html"
+    ]
+  },
+  "trend.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ]
+  },
+  "mine/setting.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ]
+  },
+  "videoList.html": {
+    "refer": [
+      "demo_videoPlaySimple.html"
+    ]
+  },
+  "demo_videoPlaySimple.html": {
+    "resources": [
+      "css/demo_videoPlaySimple.css",
+      "images/img_clickToPlay.png",
+      "js/demo_videoPlaySimple.js",
+      "js/mui.min.js",
+      "js/zepto.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf"
+    ]
+  }
+}
