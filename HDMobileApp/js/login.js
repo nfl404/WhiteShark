@@ -107,9 +107,12 @@
 					if(!flag) {
 						alert("请发送正确的手机号");
 					} else {
-						//ajax.
-						ajax('send_code',phoneBox.value);
-						document.getElementById("obtain").onclick=function(){time(this);}
+						if(network) {
+							ajax('send_code',phoneBox.value);
+							document.getElementById("obtain").onclick=function(){time(this);}
+						} else {
+							mui.toast("当前网络不给力，请稍后再试");
+						}
 					}
 
 				});
@@ -137,7 +140,11 @@
 								
 								
 							};
-						 	ajax();
+						 	if(network) {
+								ajax();
+							} else {
+								mui.toast("当前网络不给力，请稍后再试");
+							}
 						 } else{
 						 	alert("不能为空！");
 						 }

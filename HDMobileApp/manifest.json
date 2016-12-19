@@ -280,7 +280,10 @@
 					"js/common.js",
 					"js/mui.min.js",
 					"css/mui.min.css",
-					"css/feedback-page.css"
+					"css/feedback-page.css",
+					"css/login.css",
+					"js/login.js",
+					"fonts/mui.ttf"
 				],
 				"refer": [],
 				"priority": 0

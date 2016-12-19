@@ -1,10 +1,21 @@
 mui.init();
 (function($) {
-
+	var network = true;
+	if(mui.os.plus) {
+			mui.plusReady(function() {
+				if(plus.networkinfo.getCurrentType() == plus.networkinfo.CONNECTION_NONE) {
+					network = false;
+				}
+			});
+		}
 	var ws;
 	mui.plusReady(function plusReady() {
 		ws = plus.device.uuid.toString();
-		ajax();
+		if(network) {
+					ajax();
+				} else {
+					mui.toast("当前网络不给力，请稍后再试");
+				}
 	});
 
 	var obj;
@@ -50,7 +61,11 @@ mui.init();
 	document.getElementById("mylogin").addEventListener('tap', function() {
 
 		//					window.open ('mine/login.html');
-		ajax();
+		if(network) {
+					ajax();
+				} else {
+					mui.toast("当前网络不给力，请稍后再试");
+				}
 
 	});
 	//版本号
