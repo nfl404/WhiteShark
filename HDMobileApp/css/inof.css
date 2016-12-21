@@ -249,6 +249,7 @@
 	border-left: 2px solid #555555;
 	margin-bottom: 20px;
 	overflow: hidden;
+	background: white;
 }
 .Associated ul li h3{
 	font-size: 1.2rem;
