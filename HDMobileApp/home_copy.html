@@ -153,9 +153,9 @@
 							
 							<div class="mui-scroll">
 								<ul id="list0" class="mui-table-view">
-									<div class="banner"><img src="images/banner.png"></div>
-									<!--卡片一-->
-									<div class="card1">
+									<!--<div class="banner"><img src="images/banner.png"></div>-->
+									
+									<!--<div class="card1">
 										<a href="info.html">
 										<div class="card_tit">
 											<p class="card_time"><em></em><span>2015.6.23  15：00</span></p>
@@ -183,7 +183,7 @@
 										</div>
 										</a>
 									</div>
-									<!--卡片2-->
+									
 									<div class="card2">
 										<a href="info.html">
 										<div class="card_tit">
@@ -211,7 +211,7 @@
 										</a>
 									</div>
 									
-									<!--卡片三-->
+									
 									<div class="card3">
 										<a href="info.html">
 										<div class="card_tit">
@@ -240,7 +240,7 @@
 											</p>
 										</div>
 										</a>
-									</div>
+									</div>-->
 									
 								</ul>
 							</div>
@@ -306,6 +306,7 @@
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<ul id="list8" class="mui-table-view">
+									
 								</ul>
 							</div>
 						</div>
@@ -316,8 +317,194 @@
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.pullToRefresh.js"></script>
 		<script src="js/mui.pullToRefresh.material.js"></script>
-		<script src="js/home.js"></script>
+		<!--<script src="js/home.js"></script>-->
 		<script src="js/common.js"></script>
+		
+		<script>
+			mui.init();
+
+			
+			(function($) {
+				
+			var waiting;
+			var tab_type = 1;
+			var agnix = function (ul,type,subtype,page,id,action){
+//				var tab_type = catidWithIndex(tab_type);
+//					{
+//						type: 1,
+//						subtype:0,
+//						page: 1,
+//					}
+				var data;
+				if(action == "referesh"){
+					data = {
+						type:type,
+						subtype:subtype,
+						page:page,
+						id:id,
+						action:action,
+					}
+					
+				}else{
+					data = {
+						type:type,
+						subtype:subtype,
+						page:page,
+					}
+				}
+				mui.ajax('http://192.168.0.112/fuwu/api/article.php',{
+					data:data,
+					dataType:'json',//服务器返回json格式数据
+					type:'post',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					success:function(data){
+//						console.log('success:::'+ data.list);
+//						console.log('success:::' + JSON.stringify(data.list));
+//						for(int i = 0; i < data.list.length;i++){
+//							console.log('success:::'+ data.list[i].toString());
+//						}
+//						alert("6666  "+data.list[0].introduce);
+						if(data.status == "200"){
+							
+						}
+
+					},
+					error:function(xhr,type,errorThrown){
+						Common.closeWaiting(waiting);
+					}
+				});
+			};
+//			agnix(tab_type);
+
+			var createFragment = function(ul, index, data, reverse) {
+	//		var length = ul.querySelectorAll('li').length;
+			var fragment = document.createDocumentFragment();
+			var li;
+			console.log(data.list[0].title);
+			for(var i = 0; i < data..length; i++) {
+//				ctimeWithIndex(index, data.list[i].ctime);
+				li = document.createElement('li');
+				
+				
+//				var table = document.body.querySelector('.mui-slider-group .mui-table-view');
+				li = document.createElement('li');
+				li.className = 'mui-table-view-cell mui-media';
+				var num = 0;
+				console.log('success:::' + JSON.stringify(data));
+//							alert(200);
+				li.innerHTML = '<div class="card1"><a href="info.html"><div class="card_tit"><p class="card_time"><em></em><span>'+(data.result[0].addtime)+'</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><img src='+(data.result[0].arr[1])+'><img src='+(data.result[0].arr[1])+'><img src='+(data.result[0].arr[1])+'></div><h2>'+data.result[0].introduce+'</h2></div><div class="card_number"><p class="card_xi"><em></em><span>'+(data.result[0].hits)+'</span></p><p class="card_du"><em></em><span>'+(data.result[0].likes)+'</span></p></div></a></div>'
+//						卡片2
+//						li.innerHTML = '<div class="card2"><a href="info.html"><div class="card_tit"><p class="card_time"><em></em><span>'+(data.list[0].addtime)+'</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src='+(data.list[0].arr[1])+'></div><h2>'+data.list[0].introduce+'</h2></div><div class="card_number"><p class="card_xi"><em></em><span>'+(data.list[0].hits)+'</span></p><p class="card_du"><em></em><span>'+(data.list[0].likes)+'</span></p></div></a></div>'
+//						卡片3
+//						i.innerHTML = '<div class="card3"><a href="info.html"><div class="card_tit"><p class="card_time"><em></em><span>'+(data.list[0].addtime)+'</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>'+data.list[0].introduce+'</h2><p>'+data.list[0].introduce+'</p></div><div class="card3_pic"><img src='+(data.list[0].arr[1])+'></div></div><div class="card_number"><p class="card_xi"><em></em><span>'+(data.list[0].hits)+'</span></p><p class="card_du"><em></em><span>'+(data.list[0].likes)+'</span></p></div></a></div>'
+
+//						table.appendChild(li);
+//				        Common.closeWaiting(waiting);
+				
+			
+				
+				
+				fragment.appendChild(li);
+				Common.closeWaiting(waiting);
+			}
+			return fragment;
+		};
+			
+			var catidWithIndex = function(index) {
+			var catid;
+			switch(index) {
+				case 0:
+					{
+						catid = 1; //推荐
+					}
+					break;
+				case 1:
+					{
+						catid = 2; //热点
+					}
+					break;
+				case 2:
+					{
+						catid = 3; //上海
+					}
+					break;
+				case 3:
+					{
+						catid = 376; //社会
+					}
+					break;
+				case 4:
+					{
+						catid = 373; //娱乐
+					}
+					break;
+				case 5:
+					{
+						catid = 371; //科技
+					}
+					break;
+				default:
+					break;
+			}
+			return catid;
+		};
+			mui.plusReady(function() {
+				waiting = Common.showWaiting();
+				mui('.mui-slider-group .mui-table-view').each(function(index, element) {
+	//				ajax(element, index, false, 1);
+//					agnix(element, index, false, 1);
+					agnix(1,0,1);
+					mui('#list'+(index)+'').on('tap', 'a', function() {
+						var id = this.getAttribute('id');
+						var href = this.href;
+						var type = this.getAttribute("open-type");
+						mui.openWindow({
+							id: id,
+							url: this.href,
+							styles: {
+								popGesture: 'close',
+							},
+							createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+						});
+					});
+				})
+			});
+		
+		
+			$.ready(function() {
+				//循环初始化所有下拉刷新，上拉加载。
+				$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+					$(pullRefreshEl).pullToRefresh({
+						down: {
+							callback: function() {
+								var self = this;
+								setTimeout(function() {
+									var ul = self.element.querySelector('.mui-table-view');
+									agnix(ul,1,0,2);
+									self.endPullDownToRefresh();
+								}, 1000);
+							}
+						},
+						up: {
+							callback: function() {
+								var self = this;
+								setTimeout(function() {
+									var ul = self.element.querySelector('.mui-table-view');
+//									var page = pageWithReverseAndIndex(index);
+//									ajax(ul, index, false, page);
+									agnix(ul,0,1,1,"referesh");
+									self.endPullUpToRefresh();
+								}, 1000);
+							}
+						}
+					});
+				});
+			});
+				
+			})(mui);
+			
+		</script>
+		
 	</body>
 
 </html>
