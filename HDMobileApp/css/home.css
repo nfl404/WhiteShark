@@ -82,3 +82,8 @@ html,
 			.mui-slider-indicator.mui-segmented-control {
 				background-color: #efeff4;
 			}
+			.bar_img{
+				width: 20px;
+				height: 20px;
+				margin-top: 10px;
+			}

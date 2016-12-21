@@ -92,11 +92,11 @@ mui.init();
 	//设置全局beforeSend
 	$.ajaxSettings.beforeSend = function(xhr, setting) {
 		//beforeSend演示,也可在$.ajax({beforeSend:function(){}})中设置单个Ajax的beforeSend
-		console.log('beforeSend:::' + JSON.stringify(setting));
+//		console.log('beforeSend:::' + JSON.stringify(setting));
 	};
 	//设置全局complete
 	$.ajaxSettings.complete = function(xhr, status) {
-			console.log('complete:::' + status);
+//			console.log('complete:::' + status);
 		}
 		//监听“plusready”事件
 

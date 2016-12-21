@@ -2947,7 +2947,7 @@ select:focus {
 }
 
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-	color: red;
+	color: #333a4d;
 	border-bottom: 2px solid red !important;
 	background: 0 0;
 }

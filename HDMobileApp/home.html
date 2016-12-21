@@ -10,34 +10,128 @@
 		<!--App自定义的css-->
 		<link rel="stylesheet" href="css/home.css" />
 		<link rel="stylesheet" href="css/app.css" />
+		<style>
+			
+			.top_page{
+				margin: 0;
+				padding: 0;
+			}
+			.top_right{
+				margin: 0;
+				padding: 0;
+			}
+			.list1{
+				overflow: hidden;
+				padding: 10px;
+				border-bottom: 1px solid #DDDDDD;
+			}
+			.list1 .list_pic{
+				overflow: hidden;
+				margin: 10px 0;
+				width: 90px;
+				height: 90px;
+			}
+			.bottom_page{
+				margin: 0;
+				padding: 0;
+				float: left;
+    			width: 56%;
+			}
+			.bottom_page_right{
+				/*margin: 0;*/
+				
+				margin: 15px,5px,0;
+				float: right;
+			}
+			.list2-list{
+				overflow: hidden;
+				padding: 10px;
+				border-bottom: 1px solid #DDDDDD;
+			}
+			.list2-left h2{
+				font-size: 1.2rem;
+				color: #666666;
+				line-height: 1.6rem;
+				margin: 0;
+			}
+			.list2-left{
+				float: left;
+				width: 56%;
+			}
+			.list2-left h2{
+				height: 4.8rem;
+			}
+			.list2-left p{
+				overflow: hidden;
+				padding: 0;
+				text-indent: 0;
+				font-size: 0.6rem;
+				line-height: 0.6rem;
+				margin: 10px 0;
+			}
+			.list2-left p span{
+				margin-left: 10px;
+			}
+			.list2-left p span:first-child{
+				margin-left: 0;
+			}
+			.list2-list img{
+				float: right;
+				width: 40%;
+				height: 6.4rem;
+			}
+		</style>
 	</head>
 
 	<body>
-		<header id="search" class="mui-bar mui-bar-nav" style="background: white;">
-			<h1 class="logo">华地资讯</h1>
+		<!--<header class="mui-bar mui-bar-nav" style="background: white;">
+			<!--<h1 class="logo">华地资讯</h1>
 			<a class="search" href="search.html">搜索你想要的商品</a>
+			<h1 class="mui-title">华地艺术</h1>
+			<!--<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">发送</button>
+			<img id="search" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-right" src="../images/search.png>
+			
+			
+		</header>-->
+		
+		
+		<header class="mui-bar mui-bar-nav">
+			<img id="search" src="images/search.png" class="mui-pull-right bar_img"></img>
+			<!--<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">发送</button>-->
+			<h1 class="mui-title ">华地艺术资讯</h1>
 		</header>
+		
+		
 		<div class="mui-content">
 			<div id="slider" class="mui-slider mui-fullscreen">
 				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 					<div class="mui-scroll mui-scroll-wrapper">
 						<a class="mui-control-item mui-active" href="#item1mobile">
-							推荐
+							头条
 						</a>
 						<a class="mui-control-item" href="#item2mobile">
-							热点
+							艺术家
 						</a>
 						<a class="mui-control-item" href="#item3mobile">
-							上海
+							书画
 						</a>
 						<a class="mui-control-item" href="#item4mobile">
-							社会
+							艺术品
 						</a>
 						<a class="mui-control-item" href="#item5mobile">
-							娱乐
+							访谈
 						</a>
 						<a class="mui-control-item" href="#item6mobile">
-							科技
+							古玩
+						</a>
+						<a class="mui-control-item" href="#item7mobile">
+							展览
+						</a>
+						<a class="mui-control-item" href="#item8mobile">
+							艺术市场
+						</a>
+						<a class="mui-control-item" href="#item9mobile">
+							收藏品
 						</a>
 					</div>
 				</div>
@@ -91,14 +185,158 @@
 							</div>
 						</div>
 					</div>
+					<div id="item7mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="list6" class="mui-table-view">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item8mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="list7" class="mui-table-view">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item9mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="list8" class="mui-table-view">
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.pullToRefresh.js"></script>
 		<script src="js/mui.pullToRefresh.material.js"></script>
-		<script src="js/home.js"></script>
+		<!--<script src="js/home.js"></script>-->
 		<script src="js/common.js"></script>
+		<script>
+			mui.init();
+			(function($) {
+				var tab_type = 1;
+				var waiting;
+				var agnix = function (ul, index, reverse, page){
+					var tab_type = catidWithIndex(index);
+					mui.ajax('http://192.168.0.112/fuwu/api/article.php',{
+						data:{
+							type: 2,
+							subtype:0,
+							page: 1,
+						},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						timeout:10000,//超时时间设置为10秒；
+						success:function(data){
+	//						console.log('success:::'+ data.list);
+							console.log('success:::' + JSON.stringify(data.list));
+	//						for(int i = 0; i < data.list.length;i++){
+	//							console.log('success:::'+ data.list[i].toString());
+	//						}
+//							alert("6666  "+data.list[0].introduce);
+							
+							var table = document.body.querySelector('.mui-slider-group .mui-table-view');
+	//						var cells = document.body.querySelectorAll('.mui-table-view');
+							
+							var li = document.createElement('li');
+							li.className = 'mui-table-view-cell mui-media';
+							li.innerHTML = '<a class="mui-navigate-right">'+data.list[0].introduce+'</a>';
+							
+							
+	//						<div class="mui-card">
+	//							<div class="mui-card-header">
+	//								<p class="top_page">2015.6.12</p>
+	//								<h5 class="top_right">华地艺术网专稿</h5>
+	//							</div>
+	//							<div class="mui-card-content">
+	//								<div class="mui-card-content-inner" style="position: relative; overflow: hidden;">
+	//									<img src="images/cbd.jpg" />
+	//									<p class="bottom_page">海外被誉为施工安徽军工和谁打的广佛厉害</p>
+	//									<p style="position: absolute; bottom: -8px; right: 5px;">2549</p>
+	//								</div>
+	//							</div>
+	//						</div>
+							
+	//						'<div class="mui-card">'
+							
+							table.appendChild(li);
+							Common.closeWaiting(waiting);
+						},
+						error:function(xhr,type,errorThrown){
+	//						alert(2);
+							Common.closeWaiting(waiting);
+						}
+					});
+				};
+//				agnix(tab_type);
+				
+			mui.plusReady(function() {
+				waiting = Common.showWaiting();
+				mui('.mui-slider-group .mui-table-view').each(function(index, element) {
+					agnix(element, index, false, 2);
+					mui('#list'+(index)+'').on('tap', 'a', function() {
+						var id = this.getAttribute('id');
+						var href = this.href;
+						var type = this.getAttribute("open-type");
+						mui.openWindow({
+							id: id,
+							url: this.href,
+							styles: {
+								popGesture: 'close',
+							},
+							createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+						});
+					});
+				})
+			});
+			
+			var catidWithIndex = function(index) {
+			var catid;
+			switch(index) {
+				case 0:
+					{
+						catid = 1; //推荐
+					}
+					break;
+				case 1:
+					{
+						catid = 2; //热点
+					}
+					break;
+				case 2:
+					{
+						catid = 3; //上海
+					}
+					break;
+				case 3:
+					{
+						catid = 4; //社会
+					}
+					break;
+				case 4:
+					{
+						catid = 5; //娱乐
+					}
+					break;
+				case 5:
+					{
+						catid = 6; //科技
+					}
+					break;
+				default:
+					break;
+			}
+			return catid;
+		};	
+				
+		})(mui);
+		</script>
 	</body>
 
 </html>

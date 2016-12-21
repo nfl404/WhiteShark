@@ -1,0 +1,499 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!--标准mui.css-->
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<!--App自定义的css-->
+		<link rel="stylesheet" href="css/home.css" />
+		<link rel="stylesheet" href="css/app.css" />
+		<style>
+			
+			.top_page{
+				margin: 0;
+				padding: 0;
+			}
+			.top_right{
+				margin: 0;
+				padding: 0;
+			}
+			.list1{
+				overflow: hidden;
+				padding: 10px;
+				border-bottom: 1px solid #DDDDDD;
+			}
+			.list1 .list_pic{
+				overflow: hidden;
+				margin: 10px 0;
+				width: 90px;
+				height: 90px;
+			}
+			.bottom_page{
+				margin: 0;
+				padding: 0;
+				float: left;
+    			width: 56%;
+			}
+			.bottom_page .bottom_context{
+				padding-top: 15px;
+			}
+			.bottom_page_right{
+				/*margin: 0;*/
+				
+				margin: 15px,5px,0;
+				float: right;
+			}
+			.list2-list{
+				overflow: hidden;
+				padding: 10px;
+				border-bottom: 1px solid #DDDDDD;
+			}
+			.list2-left h2{
+				font-size: 1.2rem;
+				color: #666666;
+				line-height: 1.6rem;
+				margin: 0;
+			}
+			.list2-left{
+				float: left;
+				width: 56%;
+			}
+			.list2-left h2{
+				height: 4.8rem;
+			}
+			.list2-left p{
+				overflow: hidden;
+				padding: 0;
+				text-indent: 0;
+				font-size: 0.6rem;
+				line-height: 0.6rem;
+				margin: 10px 0;
+			}
+			.list2-left p span{
+				margin-left: 10px;
+			}
+			.list2-left p span:first-child{
+				margin-left: 0;
+			}
+			.list2-list img{
+				float: right;
+				width: 40%;
+				height: 6.4rem;
+			}
+			.card3_img{
+				width: 93px;
+				height: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<header class="mui-bar mui-bar-nav" style="background: white;">
+			<!--<h1 class="logo">华地资讯</h1>
+			<a class="search" href="search.html">搜索你想要的商品</a>
+			<h1 class="mui-title">华地艺术</h1>
+			<!--<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">发送</button>
+			<img id="search" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-right" src="../images/search.png>
+			
+			
+		</header>-->
+		
+		
+		<header class="yiheader">
+			<!--<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">发送</button>-->
+			<h1 class="logos">华地艺术资讯</h1>
+			<div class="search-box" id="search">
+				<a href="search.html" class="search"></a>
+			</div>
+			
+		</header>
+		
+		
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll mui-scroll-wrapper">
+						<a class="mui-control-item mui-active" href="#item1mobile">
+							头条
+						</a>
+						<a class="mui-control-item" href="#item2mobile">
+							艺术家
+						</a>
+						<a class="mui-control-item" href="#item3mobile">
+							书画
+						</a>
+						<a class="mui-control-item" href="#item4mobile">
+							艺术品
+						</a>
+						<a class="mui-control-item" href="#item5mobile">
+							访谈
+						</a>
+						<a class="mui-control-item" href="#item6mobile">
+							古玩
+						</a>
+						<a class="mui-control-item" href="#item7mobile">
+							展览
+						</a>
+						<a class="mui-control-item" href="#item8mobile">
+							艺术市场
+						</a>
+						<a class="mui-control-item" href="#item9mobile">
+							收藏品
+						</a>
+					</div>
+				</div>
+				<!--<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-2"></div>-->
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						
+						<div id="scroll1" class="mui-scroll-wrapper">
+							
+							<div class="mui-scroll">
+								<ul id="list0" class="mui-table-view">
+									<div class="banner"><img src="images/banner.png"></div>
+									<!--卡片一-->
+									<div class="card1">
+										<a href="info.html">
+										<div class="card_tit">
+											<p class="card_time"><em></em><span>2015.6.23  15：00</span></p>
+											<p class="card_Source">华地艺术网专稿</p>
+										</div>
+										<div class="card1_nr">
+											<div class="card1_pic">
+												<img src="images/pic1.png">
+												<img src="images/pic2.png">
+												<img src="images/pic1.png">
+											</div>
+											<h2>
+												墨西哥写实绘画艺术家Omar Ortiz
+											</h2>
+										</div>
+										<div class="card_number">
+											<p class="card_xi">
+												<em></em>
+												<span>324</span>
+											</p>
+											<p class="card_du">
+												<em></em>
+												<span>324</span>
+											</p>
+										</div>
+										</a>
+									</div>
+									<!--卡片2-->
+									<div class="card2">
+										<a href="info.html">
+										<div class="card_tit">
+											<p class="card_time"><em></em><span>2015.6.23  15：00</span></p>
+											<p class="card_Source">华地艺术网专稿</p>
+										</div>
+										<div class="card2_nr">
+											<div class="card2_pic">
+												<img src="images/pic3.png">
+											</div>
+											<h2>
+												墨西哥写实绘画艺术家Omar Ortiz
+											</h2>
+										</div>
+										<div class="card_number">
+											<p class="card_xi">
+												<em></em>
+												<span>324</span>
+											</p>
+											<p class="card_du">
+												<em></em>
+												<span>324</span>
+											</p>
+										</div>
+										</a>
+									</div>
+									
+									<!--卡片三-->
+									<div class="card3">
+										<a href="info.html">
+										<div class="card_tit">
+											<p class="card_time"><em></em><span>2015.6.23  15：00</span></p>
+											<p class="card_Source">华地艺术网专稿</p>
+										</div>
+										<div class="card3_nr">
+											<div class="card3_tit">
+												<h2>
+													墨西哥写实绘画艺术家Omar Ortiz
+												</h2>
+												<p>在冉劲松的画前，观赏品味他这些年来的油画作品，他能不为流俗所累，抗拒潮流，在写实主义的崎岖小道上踽踽独行，这需要怎样的一种心境？他有世俗的忧伤，有对于平凡人的关爱，有对于弱势群体和无助者们的深切同情。</p>
+											</div>
+											<div class="card3_pic">
+												<img src="images/pic2.png">
+											</div>
+										</div>
+										<div class="card_number">
+											<p class="card_xi">
+												<em></em>
+												<span>324</span>
+											</p>
+											<p class="card_du">
+												<em></em>
+												<span>324</span>
+											</p>
+										</div>
+										</a>
+									</div>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="list1" class="mui-table-view">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="list2" class="mui-table-view">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item4mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="list3" class="mui-table-view">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item5mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="list4" class="mui-table-view">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item6mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="list5" class="mui-table-view">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item7mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="list6" class="mui-table-view">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item8mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="list7" class="mui-table-view">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item9mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="list8" class="mui-table-view">
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.pullToRefresh.js"></script>
+		<script src="js/mui.pullToRefresh.material.js"></script>
+		<!--<script src="js/home.js"></script>-->
+		<script src="js/common.js"></script>
+		<script>
+			mui.init();
+			var tab_type = 1;
+			var agnix = function (tab_type){
+//				var tab_type = catidWithIndex(tab_type);
+				mui.ajax('http://192.168.0.112/fuwu/api/article.php',{
+					data:{
+						type: tab_type,
+						subtype:0,
+						page: 1,
+					},
+					dataType:'json',//服务器返回json格式数据
+					type:'post',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					success:function(data){
+//						console.log('success:::'+ data.list);
+						console.log('success:::' + JSON.stringify(data.list));
+//						for(int i = 0; i < data.list.length;i++){
+//							console.log('success:::'+ data.list[i].toString());
+//						}
+						alert("6666  "+data.list[0].introduce);
+						
+						var table = document.body.querySelector('.mui-slider-group .mui-table-view');
+//						var cells = document.body.querySelectorAll('.mui-table-view');
+						var li = document.createElement('li');
+						
+						li.className = 'mui-table-view-cell mui-media';
+						li.innerHTML = '<a class="mui-navigate-right">'+data.list[0].introduce+'</a>';
+						li.innerHTML = '<div class="card1"><a href="info.html">'
+						
+						
+						
+//									<div class="card1">
+//										<a href="info.html">
+//										<div class="card_tit">
+//											<p class="card_time"><em></em><span>2015.6.23  15：00</span></p>
+//											<p class="card_Source">华地艺术网专稿</p>
+//										</div>
+//										<div class="card1_nr">
+//											<div class="card1_pic">
+//												<img src="images/pic1.png">
+//												<img src="images/pic2.png">
+//												<img src="images/pic1.png">
+//											</div>
+//											<h2>
+//												墨西哥写实绘画艺术家Omar Ortiz
+//											</h2>
+//										</div>
+//										<div class="card_number">
+//											<p class="card_xi">
+//												<em></em>
+//												<span>324</span>
+//											</p>
+//											<p class="card_du">
+//												<em></em>
+//												<span>324</span>
+//											</p>
+//										</div>
+//										</a>
+//									</div>
+					
+						
+						table.appendChild(li);
+					},
+					error:function(xhr,type,errorThrown){
+//						alert(2);
+					}
+				});
+			};
+			agnix(tab_type);
+			
+			var catidWithIndex = function(index) {
+			var catid;
+			switch(index) {
+				case 0:
+					{
+						catid = 1; //推荐
+					}
+					break;
+				case 1:
+					{
+						catid = 2; //热点
+					}
+					break;
+				case 2:
+					{
+						catid = 3; //上海
+					}
+					break;
+				case 3:
+					{
+						catid = 376; //社会
+					}
+					break;
+				case 4:
+					{
+						catid = 373; //娱乐
+					}
+					break;
+				case 5:
+					{
+						catid = 371; //科技
+					}
+					break;
+				default:
+					break;
+			}
+			return catid;
+		};
+			
+//			(function($) {
+//				//成功响应的回调函数
+//				var success = function(response) {
+//					alert(25);
+//					var dataType = 'json';
+//					if (dataType === 'json') {
+//						response = JSON.stringify(response);
+//						alert("response:"+response);
+//					} else if (dataType === 'xml') {
+//						response = new XMLSerializer().serializeToString(response).replace(/</g, "&lt;").replace(/>/g, "&gt;");
+//					}
+//					obj = eval('(' + response + ')');
+////					close.log(obj);
+//					console.log('数据源:::' + obj);
+////					var nname = obj.name;
+////					alert("obj:::"+nname);
+////					var table = document.body.querySelector('.mui-table-view');
+////					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+////					var nnn = document.getElementById("list1");
+////					nnn.innerHTML = '<a class="mui-navigate-right">'+nname+'</a>';
+////					table.appendChild(nnn);
+//				};
+//				var ajax = function() {
+//					//利用RunJS的Echo Ajax功能测试
+//					alert(0);
+//					var url = 'http://192.168.0.112/fuwu/api/article.php';
+//					//请求方式，默认为Get；
+//					var type = 'get';
+//					//预期服务器范围的数据类型
+//					var dataType = 'json';
+//					//发送数据
+////					var data = {
+////						name: "haha",
+////						version: "pre-release",
+////						author: "chb",
+////						description: "最接近原生APP体验的高性能前端框架"
+////					};
+//					url = url + (dataType === 'html' ? 'text' : dataType);
+////					console.log('url:::' + url);
+////					respnoseEl.innerHTML = '正在请求中...';
+//					if (type === 'get') {
+//						if (dataType === 'json') {
+//							$.getJSON(url, success);
+//						} else {
+//							$.get(url, success, dataType);
+//						}
+//					} else if (type === 'post') {
+//						
+//						$.post(url,  success, dataType);
+//					}
+//				};
+//				
+////				mui.plusReady(function() {
+//					ajax();
+////				});
+//				//设置全局beforeSend
+//				$.ajaxSettings.beforeSend = function(xhr, setting) {
+//					//beforeSend演示,也可在$.ajax({beforeSend:function(){}})中设置单个Ajax的beforeSend
+//					console.log('beforeSend:::' + JSON.stringify(setting));
+//				};
+//				//设置全局complete
+//				$.ajaxSettings.complete = function(xhr, status) {
+//					console.log('complete:::' + status);
+//				}
+//			})(mui);
+			
+		</script>
+	</body>
+
+</html>
