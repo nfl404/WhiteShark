@@ -80,5 +80,186 @@ html,
 			}
 			
 			.mui-slider-indicator.mui-segmented-control {
-				background-color: #efeff4;
+				background-color: #F2F2F1;
 			}
+			.bar_img{
+				width: 20px;
+				height: 20px;
+				margin-top: 10px;
+			}
+			body{
+				background: #F2F2F1 !important;
+			}
+.yiheader{
+	position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height:44px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #f2f2f1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.logos{
+	width: 120px;
+	height: 32px;
+	background: url(../images/logo.png) center center no-repeat;
+	background-size: 80%;
+	text-indent: -99999em;
+	margin: auto;
+	display: block;
+	margin-top: 3px;
+}
+.search-box{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 0;
+	right: 10px;
+}
+.search-box a{
+	display: block;
+	width:30px;
+	height: 30px;
+	background: url(../images/search.png) center center no-repeat;
+}
+.banner{
+	width: 100%;
+	margin: 1rem 0;
+}
+.card1{
+	margin: 10px;
+	border-radius: 3px;
+	box-shadow: 0 0 4px #999;
+	padding:3px 5px;
+}
+.card_tit{
+	overflow: hidden;
+	padding-bottom: 0.25rem;
+	border-bottom: 1px dotted #CCCCCC;
+	margin-top: 0.25rem;
+}
+.card_tit p.card_time{
+	margin: 0;
+	float: left;
+	line-height: 24px;
+}
+.card_time em{
+	float: left;
+	width: 24px;
+	height: 24px;
+	background: url(../images/time_cion.png) center center no-repeat;
+	margin-right: .25rem;
+}
+.card_tit p.card_Source{
+	float: right;
+	margin-right: 10px;
+	font-size: 0.875rem;
+	line-height: 24px;
+	margin: 0;
+}
+.card1_nr{
+	overflow: hidden;
+}
+.card1_pic{
+	overflow: hidden;
+	margin: 10px 0;
+}
+.card1_pic img{
+	float: left;
+	width: 31.33% !important;
+	margin: 0 1%;
+}
+.card1_nr h2{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 1.2rem;
+	color: #000000;
+	margin: 10px 0;
+}
+.card_number{
+	overflow: hidden;
+	clear: both;
+}
+.card_number p{
+	float: right;
+	margin-right: 10px;
+	line-height: 21px;
+}
+.card_number p.card_xi em{
+	float: left;
+	width: 21px;
+	height: 21px;
+	background: url(../images/zan_icon.png) center center no-repeat;
+}
+.card_number p.card_xi span{
+	line-height: 21px;
+	float: left;
+	margin-left: 3px;
+}
+.card_number p.card_du em{
+	float: left;
+	width: 21px;
+	height: 21px;
+	background: url(../images/yan_icon.png) center center no-repeat;
+}
+.card_number p.card_du span{
+	line-height: 21px;
+	float: left;
+	margin-left: 3px;
+}
+.card2,.card3{
+	margin: 10px;
+	border-radius: 3px;
+	box-shadow: 0 0 4px #999;
+	padding:3px 5px;
+	overflow: hidden;
+}
+
+.card2_nr{
+	overflow: hidden;
+}
+.card2_nr .card2_pic img{
+	width: 100%;
+	overflow: hidden;
+}
+.card2_nr h2{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 1.2rem;
+	color: #000000;
+	margin: 10px 0;
+}
+.card3 .card3_tit{
+	float: left;
+	width: 47%;
+	margin-right: 5%;
+}
+.card3 .card3_tit h2{
+	height: 3.6rem;
+	font-size: 1.2rem;
+	color: #000000;
+	margin: 10px 0;
+	line-height: 1.8rem;
+	overflow: hidden;
+	text-align: left;
+}
+.card3 .card3_tit p{
+	font-size: 0.75rem;
+	color: #666666;
+	line-height: 1.2rem;
+	height:6rem;
+	overflow: hidden;
+	text-align: justify;
+	text-indent: 2rem;
+}
+.card3_pic{
+	float: right;
+	width: 47%;
+	margin-top: 10px;
+}
