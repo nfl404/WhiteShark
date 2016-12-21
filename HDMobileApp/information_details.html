@@ -18,54 +18,23 @@
 	</head>
 
 	<body contextmenu="return false;">
-		<header class="mui-bar mui-bar-nav">
+		<header class="mui-bar mui-bar-nav" style="background: white;">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">资讯详情</h1>
 		</header>
 		<div class="mui-content">
 			<div class="mui-content-padded">
 				<div class="Article">
-					<iframe src="http://192.168.0.112/fuwu/file/201612/20/1.html" scrolling="no" frameborder="0"></iframe>
+					<iframe src="http://192.168.0.112/fuwu/file/201612/20/1.html" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="reinitIframeEND();"></iframe>
 				</div>
 			</div>
 			<div class="ass_tit">
 				<span>关联新闻</span>
 			</div>
 			<div class="Associated">
-				<ul class="mui-table-view"style="background: #efeff4;">
-					<li>
-						<a href="#">
-							<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
-							<p>华地艺术网专稿</p>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
-							<p>华地艺术网专稿</p>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
-							<p>华地艺术网专稿</p>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
-							<p>华地艺术网专稿</p>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
-							<p>华地艺术网专稿</p>
-						</a>
-					</li>
+				<ul id="list" class="mui-table-view mui-table-view-chevron" style="background: #efeff4;">
 				</ul>
 			</div>
-
 		</div>
 		<footer>
 			<div class="operation">
@@ -73,18 +42,18 @@
 					<div class="oper_xie">
 						<span id="xie">写评论...</span>
 						<div class="oper_two" id="shuru" style="display: none;">
-							<textarea></textarea>
+							<textarea id="contentId" placeholder="写评论"></textarea>
 							<button type="submit">提交</button>
 						</div>
 					</div>
 					<div class="oper_du">
 						<a href="#">
-							<em></em>
+							<em id="comment_list"></em>
 							<span>324</span>
 						</a>
 					</div>
 					<div class="oper_zan">
-						<em></em>
+						<em id="like"></em>
 						<span>324</span>
 					</div>
 				</div>
@@ -96,7 +65,7 @@
 	<!--<script src="js/mui.zoom.js"></script>
 	<script src="js/mui.previewimage.js"></script>-->
 	<!--<script src="js/common.js"></script>-->
-	<script src="js/info.js"></script>
+	<!--<script src="js/info.js"></script>-->
 	<script>
 		$("#shuru").hide();
 		$("#xie").click(
@@ -104,6 +73,146 @@
 				$("#shuru").show();
 			}
 		);
+
+		$("#shuru button").click(function() {
+			var content = document.getElementById("contentId").value;
+			sendComment(1, 1, content);
+			$("#shuru").hide();
+		});
+
+		function reinitIframe() {
+			var iframe = document.getElementById("iframepage");
+			try {
+				var bHeight = iframe.contentWindow.document.body.scrollHeight;
+				var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+				var height = Math.max(bHeight, dHeight);
+				iframe.height = height;
+			} catch(ex) {}
+		}
+
+		var timer1 = window.setInterval("reinitIframe()", 500); //定时开始  
+
+		function reinitIframeEND() {
+			var iframe = document.getElementById("iframepage");
+			try {
+				var bHeight = iframe.contentWindow.document.body.scrollHeight;
+				var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+				var height = Math.max(bHeight, dHeight);
+				iframe.height = height;
+			} catch(ex) {}
+			// 停止定时  
+			window.clearInterval(timer1);
+		}
+
+		mui.init();
+		/**
+		 * 	推荐列表跳转
+		 */
+		mui('#list').on('tap', 'a', function() {
+			var id = this.getAttribute('href');
+			var href = this.href;
+			mui.openWindow({
+				id: id,
+				url: this.href,
+			});
+		});
+		$("#like").click(
+			function() {
+				sendLike(1);
+			}
+		);
+
+		/**
+		 * 	ajax请求控制台日志，手机debug可查看控制台日志。
+		 */
+		$.ajax({
+			beforeSend: function(xhr, setting) {
+				console.log('beforeSend:::' + JSON.stringify(setting));
+			}
+		});
+		$.ajax({
+			complete: function(xhr, status) {
+				console.log('complete:::' + status);
+			}
+		});
+
+		/**
+		 * 获取推荐资讯列表请求
+		 * @param {Object} articleId  文章id
+		 */
+		var getInformationList = function(articleId) {
+			mui.ajax('http://192.168.0.112/fuwu/api/article.php', {
+				data: {
+					action: 'check',
+					id: 1
+				},
+				dataType: 'json', //服务器返回html格式数据
+				type: 'post', //HTTP请求类型
+				timeout: 10000, //超时时间设置为10秒；
+				success: function(data) {
+					var result = JSON.stringify(data);
+					console.log(result)
+					var table = document.body.querySelector('.mui-table-view');
+					for(var i = 0; i < data.result.length; i++) {
+						console.log('标题:::' + data.result[i].arr[0]);
+						var li = document.createElement('li');
+						li.innerHTML = '<a href="information_details.html"><h3>' + (data.result[i].arr[0]) + '</h3><p>华地艺术网专稿</p></a>';
+						table.appendChild(li);
+					}
+				},
+				error: function(xhr, type, errorThrown) {
+					console.log('获取推荐资讯列表请求 失败!!!');
+				}
+			});
+		};
+		getInformationList();
+
+		/**
+		 * 发送评论请求
+		 * @param {Object} articleId
+		 */
+		var sendComment = function(userId, articleId, commentContent) {
+			mui.ajax('http://192.168.0.112/fuwu/api/addValue.php', {
+				data: {
+					action: 'comment',
+					userid: userId,
+					articleid: articleId,
+					content: commentContent
+				},
+				dataType: 'json', //服务器返回json格式数据
+				type: 'post', //HTTP请求类型
+				timeout: 10000, //超时时间设置为10秒；
+				success: function(data) {
+					alert('评论已成功...')
+				},
+				error: function(xhr, type, errorThrown) {
+					console.log('发送评论请求 失败!!!');
+				}
+			});
+		};
+
+		/**
+		 * 发送点赞请求
+		 * @param {Object} userId 用户id
+		 * @param {Object} articleId 文章id
+		 */
+		var sendLike = function(articleId) {
+			mui.ajax('http://192.168.0.112/fuwu/api/addValue.php', {
+				data: {
+					action: 'like',
+					id: articleId
+				},
+				dataType: 'json', //服务器返回json格式数据
+				type: 'post', //HTTP请求类型
+				timeout: 10000, //超时时间设置为10秒；
+				success: function(data) {
+					alert('点赞已成功...');
+				},
+				error: function(xhr, type, errorThrown) {
+					console.log('发送点赞请求 失败!!!');
+				}
+			});
+		};
 	</script>
 
 </html>
