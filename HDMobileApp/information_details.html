@@ -1,0 +1,109 @@
+<!-- 
+      information_details.html
+      Nieplus，资讯详情页
+      
+      Created by 华地文化 on 2016-12-19.
+      Copyright 2016 华地文化. All rights reserved.
+ -->
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/inof.css" />
+	</head>
+
+	<body contextmenu="return false;">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">资讯详情</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<div class="Article">
+					<iframe src="http://192.168.0.112/fuwu/file/201612/20/1.html" scrolling="no" frameborder="0"></iframe>
+				</div>
+			</div>
+			<div class="ass_tit">
+				<span>关联新闻</span>
+			</div>
+			<div class="Associated">
+				<ul class="mui-table-view"style="background: #efeff4;">
+					<li>
+						<a href="#">
+							<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
+							<p>华地艺术网专稿</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
+							<p>华地艺术网专稿</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
+							<p>华地艺术网专稿</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
+							<p>华地艺术网专稿</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
+							<p>华地艺术网专稿</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<footer>
+			<div class="operation">
+				<div class="oper_one">
+					<div class="oper_xie">
+						<span id="xie">写评论...</span>
+						<div class="oper_two" id="shuru" style="display: none;">
+							<textarea></textarea>
+							<button type="submit">提交</button>
+						</div>
+					</div>
+					<div class="oper_du">
+						<a href="#">
+							<em></em>
+							<span>324</span>
+						</a>
+					</div>
+					<div class="oper_zan">
+						<em></em>
+						<span>324</span>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript" src="libs/jquery-1.8.3.min.js"></script>
+	<!--<script src="js/mui.zoom.js"></script>
+	<script src="js/mui.previewimage.js"></script>-->
+	<!--<script src="js/common.js"></script>-->
+	<script src="js/info.js"></script>
+	<script>
+		$("#shuru").hide();
+		$("#xie").click(
+			function() {
+				$("#shuru").show();
+			}
+		);
+	</script>
+
+</html>

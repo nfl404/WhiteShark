@@ -14,19 +14,111 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav" style="background: white;">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 id="title" class="mui-title"></h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #333333;"></a>
 		</header>
 		<div class="mui-content">
 			<div id="introduce" class="mui-content-padded">
-				
+				<div class="Article">
+					<div class="art_tit">
+						<h1>墨西哥写实绘画艺术家Omar Ortiz</h1>
+						<p>
+							<span>华地艺术网专稿</span>
+							<span>2015.6.23</span>
+							<span>15:00</span>
+						</p>
+					</div>
+					<div class="art_nr">
+						<p>
+							说起新疆，你一定会想到天池;提到西藏，则一定会想到高原;谈到美术创作，你的脑海中一定会有让自己印象深刻的边疆民族题材作品。从历史上看，特别是新中国成立以来，中国美术刮起了“最炫民族风”。边疆地区独特的自然风光和少数民族的文化习俗，拓展了画家的视野，为他们的创作提供了充足的养分和更多的表现空间。李焕民的《初踏黄金路》、董希文的《春到西藏》、黄胄的《洪荒风雪》等表现边疆民族题材的美术作品，都在新中国美术史上留下了浓墨重彩的一笔。
+						</p>
+						<img src="images/pic1.png">
+						<p>
+							通过这一系列的展览，通过对边疆民族题材美术的梳理，我们也发现了一些现象。首先，像新疆和西藏，在新中国成立之前，很少有少数民族画家用绘画去表现他们本民族的生活，虽然有唐卡这些民族民间美术，但都不是创作型的作品。之后，随着新中国美术教育对少数民族美术人才的培养，出现了阿鸽等一批优秀的少数民族画家，这些画家通过在高等美术院校的专业学习后，回到地方上创作了很多表现本民族题材的作品。其次，我们发现大量的内地画家开始热衷于边疆民族题材的作品。
+						</p>
+						<img src="images/pic2.png">
+						<p>
+							这些现象都是新中国美术的重要组成部分，边疆民族题材的美术创作也成为了20世纪后半叶中国美术发展的主要潮流。从另一个角度来说，民族题材也为20世纪中国美术的现代性转型提供了丰富的资源。比如潘世勋的油画作品《我们走在大路上》，以写实的手法表现少数民族群众的欢天喜地，但是在服饰的表现上有很多现代因素。
+						</p>
+					</div>
+				</div>
+				<div class="ass_tit">
+						<span>关联新闻</span>
+					</div>
+				<div class="Associated">
+					<ul>
+						<li>
+							<a href="#">
+								<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
+								<p>华地艺术网专稿</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
+								<p>华地艺术网专稿</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
+								<p>华地艺术网专稿</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
+								<p>华地艺术网专稿</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<h3>书写的现代主义终结：从井上有一李瑜焕到张羽</h3>
+								<p>华地艺术网专稿</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="operation">
+					<div class="oper_one">
+						<div class="oper_xie">
+							<span id="xie">写评论...</span>
+							<div class="oper_two" id="shuru" style="display: none;">
+								<textarea></textarea>
+								<button type="submit">提交</button>
+							</div>
+						</div>
+						<div class="oper_du">
+							<a href="#">
+								<em></em>
+								<span>324</span>
+							</a>
+						</div>
+						<div class="oper_zan">
+							<em></em>
+							<span>324</span>
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</div>
 	</body>
 	<script src="js/mui.min.js"></script>
-	<script src="js/mui.zoom.js"></script>
-	<script src="js/mui.previewimage.js"></script>
-	<script src="js/common.js"></script>
+	<script type="text/javascript" src="libs/jquery-1.8.3.min.js"></script>
+	<!--<script src="js/mui.zoom.js"></script>
+	<script src="js/mui.previewimage.js"></script>-->
+	<!--<script src="js/common.js"></script>-->
 	<script src="js/info.js"></script>
+	<script>
+		$("#shuru").hide();
+		$("#xie").click(
+			function() {
+				$("#shuru").show();
+			}
+		);
+		$("#shuru button").click(function(){
+			$("#shuru").hide();
+		});
+	</script>
 
 </html>
