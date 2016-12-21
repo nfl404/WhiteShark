@@ -13,8 +13,7 @@
 			"js/common.js",
 			"js/home.js",
 			"css/home.css",
-			"search.html",
-			"images/cbd.jpg"
+			"search.html"
 		],
 		"refer": [
 			"info.html",
@@ -49,8 +48,7 @@
 			"js/common.js",
 			"css/inof.css",
 			"js/info.js"
-		],
-		"refer": []
+		]
 	},
 	"mine.html": {
 		"resources": [
@@ -98,8 +96,7 @@
 			"css/login.css",
 			"js/login.js",
 			"fonts/mui.ttf"
-		],
-		"refer": []
+		]
 	},
 	"list.html": {
 		"resources": [
@@ -131,31 +128,17 @@
 		"resources": [
 			"js/mui.min.js",
 			"css/mui.min.css"
-		],
-		"refer": []
+		]
 	},
 	"mine/setting.html": {
 		"resources": [
 			"css/mui.min.css",
-			"js/mui.min.js",
-			"images/logo.png",
-			"js/setting.js",
-			"js/mui.locker.js",
-			"js/feedback.js",
-			"css/setting.css",
-			"js/mui.view.js"
-		],
-		"refer": []
+			"js/mui.min.js"
+		]
 	},
 	"videoList.html": {
 		"refer": [
 			"demo_videoPlaySimple.html"
-		],
-		"resources": [
-			"css/home.css",
-			"js/mui.min.js",
-			"css/app.css",
-			"css/mui.min.css"
 		]
 	},
 	"demo_videoPlaySimple.html": {
@@ -167,26 +150,6 @@
 			"js/zepto.min.js",
 			"css/mui.min.css",
 			"fonts/mui.ttf"
-		],
-		"refer": []
-	},
-	"home_copy.html": {
-		"resources": [
-			"css/home.css",
-			"js/mui.pullToRefresh.js",
-			"js/common.js",
-			"images/logo.png",
-			"js/mui.min.js",
-			"css/app.css",
-			"js/mui.pullToRefresh.material.js",
-			"css/mui.min.css",
-			"images/search.png",
-			"js/home.js",
-			"images/muwu.jpg",
-			"images/shuijiao.jpg",
-			"images/yuantiao.jpg",
-			"images/cbd.jpg"
-		],
-		"refer": []
+		]
 	}
 }

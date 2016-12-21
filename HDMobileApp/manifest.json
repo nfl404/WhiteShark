@@ -205,8 +205,7 @@
 					"js/common.js",
 					"js/home.js",
 					"css/home.css",
-					"search.html",
-					"images/cbd.jpg"
+					"search.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -324,24 +323,13 @@
 			"mine/setting.html": {
 				"resources": [
 					"css/mui.min.css",
-					"js/mui.min.js",
-					"images/logo.png",
-					"js/setting.js",
-					"js/mui.locker.js",
-					"js/feedback.js",
-					"css/setting.css",
-					"js/mui.view.js"
+					"js/mui.min.js"
 				],
 				"refer": [],
 				"priority": 0
 			},
 			"videoList.html": {
-				"resources": [
-					"css/home.css",
-					"js/mui.min.js",
-					"css/app.css",
-					"css/mui.min.css"
-				],
+				"resources": [],
 				"refer": [
 					"demo_videoPlaySimple.html"
 				],
@@ -356,26 +344,6 @@
 					"js/zepto.min.js",
 					"css/mui.min.css",
 					"fonts/mui.ttf"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"home_copy.html": {
-				"resources": [
-					"css/home.css",
-					"js/mui.pullToRefresh.js",
-					"js/common.js",
-					"images/logo.png",
-					"js/mui.min.js",
-					"css/app.css",
-					"js/mui.pullToRefresh.material.js",
-					"css/mui.min.css",
-					"images/search.png",
-					"js/home.js",
-					"images/muwu.jpg",
-					"images/shuijiao.jpg",
-					"images/yuantiao.jpg",
-					"images/cbd.jpg"
 				],
 				"refer": [],
 				"priority": 0

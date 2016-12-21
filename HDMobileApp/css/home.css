@@ -80,19 +80,13 @@ html,
 			}
 			
 			.mui-slider-indicator.mui-segmented-control {
-<<<<<<< HEAD
-				background-color: #efeff4;
-=======
 				background-color: #F2F2F1;
->>>>>>> b9c10a37d3c6d5a8c7628ae923ca753ec2272618
 			}
 			.bar_img{
 				width: 20px;
 				height: 20px;
 				margin-top: 10px;
 			}
-<<<<<<< HEAD
-=======
 			body{
 				background: #F2F2F1 !important;
 			}
@@ -269,4 +263,3 @@ html,
 	width: 47%;
 	margin-top: 10px;
 }
->>>>>>> b9c10a37d3c6d5a8c7628ae923ca753ec2272618

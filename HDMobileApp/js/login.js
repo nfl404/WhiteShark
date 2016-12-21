@@ -151,7 +151,7 @@
 
 				});
 				
-				//设置全局beforeSend
+					//设置全局beforeSend
 				$.ajaxSettings.beforeSend = function(xhr, setting) {
 					//beforeSend演示,也可在$.ajax({beforeSend:function(){}})中设置单个Ajax的beforeSend
 					console.log('beforeSend:::' + JSON.stringify(setting));
