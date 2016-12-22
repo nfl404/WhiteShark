@@ -21,15 +21,16 @@
 					}
 					obj = eval('(' + response + ')');
 //					if(response)
-					if(obj.result=="200"){
-						alert("获取验证码成功");
-//						document.getElementById("obtain").onclick=function(){time(this);}
-//						$("#obtain").focus();
-//						document.getElementsByTagName('button')[1].innerHTML = '正在发送';
-					}else {
-						alert("验证码获取失败");
+				if(obj.status == "200"){
+						if(obj.result=="200"){
+							alert("获取验证码成功");
+	//						document.getElementById("obtain").onclick=function(){time(this);}
+	//						$("#obtain").focus();
+	//						document.getElementsByTagName('button')[1].innerHTML = '正在发送';
+						}else {
+							alert("验证码获取失败");
+						}
 					}
-
 				};
 				//登录回调
 				var obj1;
@@ -43,15 +44,15 @@
 					}
 					obj1 = eval('(' + response + ')');
 //					alert("登录成功"+response);
-					
-					if(obj1.result=="200"){
-//						document.getElementsByTagName('button')[1].innerHTML = '正在发送';
-						window.open ('home.html');
-						
-					}else {
-						alert("验证码已过期，请重新登录");
+					if(obj1.status == "200"){
+						if(obj1.result=="200"){
+	//						document.getElementsByTagName('button')[1].innerHTML = '正在发送';
+							window.open ('home.html');
+							
+						}else {
+							alert("验证码已过期，请重新登录");
+						}
 					}
-
 				};
 				
 				

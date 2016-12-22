@@ -338,7 +338,8 @@
 			"videoList.html": {
 				"resources": [],
 				"refer": [
-					"demo_videoPlaySimple.html"
+					"demo_videoPlaySimple.html",
+					"information_details.html"
 				],
 				"priority": 0
 			},
@@ -377,6 +378,20 @@
 					"css/mui.min.css",
 					"info.html",
 					"search.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"information_details.html": {
+				"resources": [
+					"images/zan_icon.png",
+					"images/guanlian.png",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"libs/jquery-1.8.3.min.js",
+					"css/inof.css",
+					"images/xie_icon.png"
 				],
 				"refer": [],
 				"priority": 0
