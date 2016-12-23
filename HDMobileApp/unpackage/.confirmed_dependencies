@@ -56,7 +56,8 @@
       "libs/jquery-1.8.3.min.js",
       "images/xie_icon.png",
       "images/zan_icon.png"
-    ]
+    ],
+    "refer": []
   },
   "mine.html": {
     "resources": [
@@ -104,7 +105,8 @@
       "css/login.css",
       "js/login.js",
       "fonts/mui.ttf"
-    ]
+    ],
+    "refer": []
   },
   "list.html": {
     "resources": [
@@ -136,7 +138,8 @@
     "resources": [
       "js/mui.min.js",
       "css/mui.min.css"
-    ]
+    ],
+    "refer": []
   },
   "mine/setting.html": {
     "resources": [
@@ -146,14 +149,18 @@
       "js/mui.locker.js",
       "js/feedback.js",
       "css/setting.css",
-      "js/mui.view.js"
-    ]
+      "js/mui.view.js",
+      "images/logo.png",
+      "fonts/mui.ttf"
+    ],
+    "refer": []
   },
   "videoList.html": {
     "refer": [
       "demo_videoPlaySimple.html",
       "information_details.html"
-    ]
+    ],
+    "resources": []
   },
   "demo_videoPlaySimple.html": {
     "resources": [
@@ -164,7 +171,8 @@
       "js/zepto.min.js",
       "css/mui.min.css",
       "fonts/mui.ttf"
-    ]
+    ],
+    "refer": []
   },
   "home_copy.html": {
     "resources": [
@@ -191,7 +199,8 @@
     ],
     "refer": [
       "info.html",
-      "search.html"
+      "search.html",
+      "idHtml.html"
     ]
   },
   "information_details.html": {
@@ -204,6 +213,15 @@
       "libs/jquery-1.8.3.min.js",
       "css/inof.css",
       "images/xie_icon.png"
+    ],
+    "refer": []
+  },
+  "idHtml.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/app.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
     ]
   }
 }
