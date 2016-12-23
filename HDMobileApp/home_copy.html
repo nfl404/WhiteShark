@@ -11,60 +11,69 @@
 		<link rel="stylesheet" href="css/home.css" />
 		<link rel="stylesheet" href="css/app.css" />
 		<style>
+			.top_page {
+				margin: 0;
+				padding: 0;
+			}
 			
-			.top_page{
+			.top_right {
 				margin: 0;
 				padding: 0;
 			}
-			.top_right{
-				margin: 0;
-				padding: 0;
-			}
-			.list1{
+			
+			.list1 {
 				overflow: hidden;
 				padding: 10px;
 				border-bottom: 1px solid #DDDDDD;
 			}
-			.list1 .list_pic{
+			
+			.list1 .list_pic {
 				overflow: hidden;
 				margin: 10px 0;
 				width: 90px;
 				height: 90px;
 			}
-			.bottom_page{
+			
+			.bottom_page {
 				margin: 0;
 				padding: 0;
 				float: left;
-    			width: 56%;
+				width: 56%;
 			}
-			.bottom_page .bottom_context{
+			
+			.bottom_page .bottom_context {
 				padding-top: 15px;
 			}
-			.bottom_page_right{
+			
+			.bottom_page_right {
 				/*margin: 0;*/
-				
-				margin: 15px,5px,0;
+				margin: 15px, 5px, 0;
 				float: right;
 			}
-			.list2-list{
+			
+			.list2-list {
 				overflow: hidden;
 				padding: 10px;
 				border-bottom: 1px solid #DDDDDD;
 			}
-			.list2-left h2{
+			
+			.list2-left h2 {
 				font-size: 1.2rem;
 				color: #666666;
 				line-height: 1.6rem;
 				margin: 0;
 			}
-			.list2-left{
+			
+			.list2-left {
 				float: left;
 				width: 56%;
 			}
-			.list2-left h2{
+			
+			.list2-left h2 {
 				height: 4.8rem;
 			}
-			.list2-left p{
+			
+			.list2-left p {
 				overflow: hidden;
 				padding: 0;
 				text-indent: 0;
@@ -72,18 +81,22 @@
 				line-height: 0.6rem;
 				margin: 10px 0;
 			}
-			.list2-left p span{
+			
+			.list2-left p span {
 				margin-left: 10px;
 			}
-			.list2-left p span:first-child{
+			
+			.list2-left p span:first-child {
 				margin-left: 0;
 			}
-			.list2-list img{
+			
+			.list2-list img {
 				float: right;
 				width: 40%;
 				height: 6.4rem;
 			}
-			.card3_img{
+			
+			.card3_img {
 				width: 93px;
 				height: 100px;
 			}
@@ -100,18 +113,16 @@
 			
 			
 		</header>-->
-		
-		
+
 		<header class="yiheader">
 			<!--<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">发送</button>-->
 			<h1 class="logos">华地艺术资讯</h1>
 			<div class="search-box" id="search">
 				<a href="search.html" class="search"></a>
 			</div>
-			
+
 		</header>
-		
-		
+
 		<div class="mui-content">
 			<div id="slider" class="mui-slider mui-fullscreen">
 				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
@@ -148,14 +159,14 @@
 				<!--<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-2"></div>-->
 				<div class="mui-slider-group">
 					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
-						
+
 						<div id="scroll1" class="mui-scroll-wrapper">
-							
+
 							<div class="mui-scroll">
 								<ul id="list0" class="mui-table-view">
-									<div class="banner"><img src="images/banner.png"></div>
-									<!--卡片一-->
-									<div class="card1">
+									<!--<div class="banner"><img src="images/banner.png"></div>-->
+
+									<!--<div class="card1">
 										<a href="info.html">
 										<div class="card_tit">
 											<p class="card_time"><em></em><span>2015.6.23  15：00</span></p>
@@ -183,7 +194,7 @@
 										</div>
 										</a>
 									</div>
-									<!--卡片2-->
+									
 									<div class="card2">
 										<a href="info.html">
 										<div class="card_tit">
@@ -211,7 +222,7 @@
 										</a>
 									</div>
 									
-									<!--卡片三-->
+									
 									<div class="card3">
 										<a href="info.html">
 										<div class="card_tit">
@@ -240,8 +251,8 @@
 											</p>
 										</div>
 										</a>
-									</div>
-									
+									</div>-->
+
 								</ul>
 							</div>
 						</div>
@@ -306,6 +317,7 @@
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<ul id="list8" class="mui-table-view">
+
 								</ul>
 							</div>
 						</div>
@@ -316,8 +328,268 @@
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.pullToRefresh.js"></script>
 		<script src="js/mui.pullToRefresh.material.js"></script>
-		<script src="js/home.js"></script>
+		<!--<script src="js/home.js"></script>-->
 		<script src="js/common.js"></script>
+
+		<script>
+			mui.init();
+
+			(function($) {
+				var deceleration = mui.os.ios ? 0.003 : 0.0009;
+				$('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration: deceleration
+				});
+
+				var waiting;
+				var tab_type = 1;//ul, index, reverse, page
+				var agnix = function(ul, index, reverse,page, id) {
+					var type_index = catidWithIndex(index);
+					//var tab_type = catidWithIndex(tab_type);
+					//{
+					//	type: 1,
+					//	subtype:0,
+					//	page: 1,
+					//}
+					var data;
+					if(reverse) {
+						data = {
+							type: type_index,
+							subtype: 0,
+							page: page,
+							id: id,
+							action: "referesh",
+						}
+
+					} else {
+						data = {
+							type: index,
+							subtype: 0,
+							page: page,
+						}
+					}
+					mui.ajax('http://192.168.0.112/fuwu/api/article.php', {
+						data: data,
+						dataType: 'json', //服务器返回json格式数据
+						type: 'post', //HTTP请求类型
+						timeout: 10000, //超时时间设置为10秒；
+						success: function(data) {
+//							console.log('success:::' + data.result);
+							console.log('success:::' + JSON.stringify(data.result));
+							console.log('借口:::' + data);
+							//alert("6666  "+data.list[0].introduce);
+							if(data.status == "200"){
+								alert("调用样式");
+								if(reverse) {
+									ul.insertBefore(createFragment(ul, index, data, true), ul.firstChild);
+									} else {
+									ul.appendChild(createFragment(ul, index, data));
+									}
+								}
+
+						},
+						error: function(xhr, type, errorThrown) {
+							alert(100);
+							//Common.closeWaiting(waiting);
+						}
+					});
+				};
+				//agnix(tab_type);
+				
+				var catidWithIndex = function(index) {
+					var catid;
+					switch(index) {
+						case 0:
+							{
+								catid = 1; //头条
+							}
+							break;
+						case 1:
+							{
+								catid = 2; //艺术家
+							}
+							break;
+						case 2:
+							{
+								catid = 3; //书画
+							}
+							break;
+						case 3:
+							{
+								catid = 4; //艺术品
+							}
+							break;
+						case 4:
+							{
+								catid = 5; //访谈
+							}
+							break;
+						case 5:
+							{
+								catid = 6; //古玩
+							}
+							break;
+						case 6:
+							{
+								catid = 7; //展览
+							}
+							break;
+						case 7:
+							{
+								catid = 8; //艺术市场
+							}
+							break;
+						case 8:
+							{
+								catid = 9; //收藏品
+							}
+							break;
+						default:
+							break;
+					}
+					return catid;
+				};
+				var page0 = 1;
+				var page1 = 1;
+				var page2 = 1;
+				var page3 = 1;
+				var page4 = 1;
+				var pageWithReverseAndIndex = function(index) {
+					var page;
+					switch(index) {
+						//推荐
+						case 0:
+							{
+								page0++;
+								page = page0;
+							}
+							break;
+							//热点
+						case 1:
+							{
+								page1++;
+								page = page1;
+							}
+							break;
+							//上海
+						case 2:
+							{
+								page2++;
+								page = page2;
+							}
+							break;
+							//社会
+						case 3:
+							{
+								page3++;
+								page = page3;
+							}
+							break;
+							//娱乐
+						case 4:
+							{
+								page4++;
+								page = page4;
+							}
+							break;
+							//科技
+						case 5:
+							{
+								page5++;
+								page = page5;
+							}
+							break;
+						default:
+							break;
+					}
+					return page;
+				};
+
+				mui.plusReady(function() {
+					//				waiting = Common.showWaiting();
+					mui('.mui-slider-group .mui-table-view').each(function(index, element) {
+						//				ajax(element, index, false, 1);
+//						agnix(element, index, 1, 0, 1);
+						agnix(element, index, false, 1);
+						mui('#list' + (index) + '').on('tap', 'a', function() {
+							var id = this.getAttribute('id');
+							var href = this.href;
+							var type = this.getAttribute("open-type");
+							mui.openWindow({
+								id: id,
+								url: this.href,
+								styles: {
+									popGesture: 'close',
+								},
+								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+							});
+						});
+					})
+				});
+
+				var createFragment = function(ul, index, data, reverse) {
+					alert("样式展示");
+						var fragment = document.createDocumentFragment();
+						var li;
+						
+						for(var i = 0; i < data.result.length; i++) {
+							console.log(data.result[i].addtime);
+							li = document.createElement('li');
+							//	li = document.createElement('li');
+							if(i<2) {
+								li.className = 'mui-table-view-cell mui-media';
+								li.innerHTML = '<div class="card1"><a href="info.html"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><img src=' + (data.result[i].arr[1]) + '><img src=' + (data.result[i].arr[1]) + '><img src=' + (data.result[i].arr[1]) + '></div><h2>' + data.result[i].introduce + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+							} else if(i < 4) {
+								//卡片2
+								li.className = 'mui-table-view-cell mui-media';
+								li.innerHTML = '<div class="card2"><a href="info.html"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.list[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src=' + (data.list[i].arr[1]) + '></div><h2>' + data.list[i].introduce + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.list[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.list[i].likes) + '</span></p></div></a></div>'
+							} else {
+								//卡片3
+								li.className = 'mui-table-view-cell mui-media';
+								li.innerHTML = '<div class="card3"><a href="info.html"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.list[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.list[i].introduce + '</h2><p>' + data.list[i].introduce + '</p></div><div class="card3_pic"><img src=' + (data.list[i].arr[1]) + '></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.list[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.list[i].likes) + '</span></p></div></a></div>'
+							}
+							//table.appendChild(li);
+							//Common.closeWaiting(waiting);
+							fragment.appendChild(li);
+//							Common.closeWaiting(waiting);
+						}
+						return fragment;
+					};
+					
+				$.ready(function() {
+					//循环初始化所有下拉刷新，上拉加载。
+					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+						$(pullRefreshEl).pullToRefresh({
+							down: {
+								callback: function() {
+									var self = this;
+									setTimeout(function() {
+										var ul = self.element.querySelector('.mui-table-view');
+										//ajax(ul, index, true, 1);
+										agnix(ul, index, true, 1);
+										self.endPullDownToRefresh();
+									}, 1000);
+								}
+							},
+							up: {
+								callback: function() {
+									var self = this;
+									setTimeout(function() {
+										var ul = self.element.querySelector('.mui-table-view');
+										var page = pageWithReverseAndIndex(index);
+//										ajax(ul, index, false, page);
+										agnix(ul, index, false, page,4);
+										self.endPullUpToRefresh();
+									}, 1000);
+								}
+							}
+						});
+					});	
+				});
+			})(mui);
+		</script>
+
 	</body>
 
 </html>

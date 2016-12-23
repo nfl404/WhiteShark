@@ -28,18 +28,20 @@ mui.init();
 			response = new XMLSerializer().serializeToString(response).replace(/</g, "&lt;").replace(/>/g, "&gt;");
 		}
 		obj = eval('(' + response + ')');
-		if(obj.result == "200") {
+		if(obj.status == "200"){
+			if(obj.result == "200") {
 			document.getElementById("islogin").innerHTML = "已登录";
-		} else {
-			mui.openWindow({
-				id: 'login.html',
-				url: 'mine/login.html',
-				styles: {
-					popGesture: 'close',
-				},
-				createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
-			});
-			document.getElementById("islogin").innerHTML = "未登录";
+			} else {
+				mui.openWindow({
+					id: 'login.html',
+					url: 'mine/login.html',
+					styles: {
+						popGesture: 'close',
+					},
+					createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+				});
+				document.getElementById("islogin").innerHTML = "未登录";
+			}
 		}
 
 	};

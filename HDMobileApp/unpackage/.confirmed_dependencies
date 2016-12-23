@@ -26,13 +26,15 @@
 			"js/mui.min.js",
 			"fonts/mui.ttf",
 			"css/mui.min.css",
-			"js/index.js"
+			"js/index.js",
+			"home_copy.html"
 		],
 		"refer": [
 			"home.html",
 			"find.html",
 			"trend.html",
-			"mine.html"
+			"mine.html",
+			"home_copy.html"
 		]
 	},
 	"info.html": {
@@ -47,7 +49,13 @@
 			"js/mui.min.js",
 			"js/common.js",
 			"css/inof.css",
-			"js/info.js"
+			"js/info.js",
+			"images/pic2.png",
+			"images/guanlian.png",
+			"images/pic1.png",
+			"libs/jquery-1.8.3.min.js",
+			"images/xie_icon.png",
+			"images/zan_icon.png"
 		]
 	},
 	"mine.html": {
@@ -138,7 +146,8 @@
 	},
 	"videoList.html": {
 		"refer": [
-			"demo_videoPlaySimple.html"
+			"demo_videoPlaySimple.html",
+			"information_details.html"
 		]
 	},
 	"demo_videoPlaySimple.html": {
@@ -150,6 +159,46 @@
 			"js/zepto.min.js",
 			"css/mui.min.css",
 			"fonts/mui.ttf"
+		]
+	},
+	"home_copy.html": {
+		"resources": [
+			"js/mui.pullToRefresh.js",
+			"js/mui.pullToRefresh.material.js",
+			"images/banner.png",
+			"images/nav_bg.png",
+			"images/search.png",
+			"css/home.css",
+			"images/yan_icon.png",
+			"images/time_cion.png",
+			"images/pic2.png",
+			"images/zan_icon.png",
+			"js/common.js",
+			"images/pic1.png",
+			"images/logo.png",
+			"css/app.css",
+			"images/pic3.png",
+			"images/nav_bgs.png",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"info.html",
+			"search.html"
+		],
+		"refer": [
+			"info.html",
+			"search.html"
+		]
+	},
+	"information_details.html": {
+		"resources": [
+			"images/zan_icon.png",
+			"images/guanlian.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"libs/jquery-1.8.3.min.js",
+			"css/inof.css",
+			"images/xie_icon.png"
 		]
 	}
 }
