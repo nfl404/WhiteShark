@@ -330,7 +330,14 @@
 			"mine/setting.html": {
 				"resources": [
 					"css/mui.min.css",
-					"js/mui.min.js"
+					"js/mui.min.js",
+					"js/setting.js",
+					"js/mui.locker.js",
+					"js/feedback.js",
+					"css/setting.css",
+					"js/mui.view.js",
+					"images/logo.png",
+					"fonts/mui.ttf"
 				],
 				"refer": [],
 				"priority": 0
@@ -379,7 +386,9 @@
 					"info.html",
 					"search.html"
 				],
-				"refer": [],
+				"refer": [
+					"idHtml.html"
+				],
 				"priority": 0
 			},
 			"information_details.html": {
@@ -392,6 +401,16 @@
 					"libs/jquery-1.8.3.min.js",
 					"css/inof.css",
 					"images/xie_icon.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"idHtml.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0

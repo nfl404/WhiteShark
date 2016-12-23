@@ -21,16 +21,15 @@
 					}
 					obj = eval('(' + response + ')');
 //					if(response)
+				console.log("获取验证码：：：："+JSON.stringify(obj.status));
 				if(obj.status == "200"){
-						if(obj.result=="200"){
 							alert("获取验证码成功");
 	//						document.getElementById("obtain").onclick=function(){time(this);}
 	//						$("#obtain").focus();
 	//						document.getElementsByTagName('button')[1].innerHTML = '正在发送';
-						}else {
+					}else {
 							alert("验证码获取失败");
 						}
-					}
 				};
 				//登录回调
 				var obj1;
@@ -44,15 +43,23 @@
 					}
 					obj1 = eval('(' + response + ')');
 //					alert("登录成功"+response);
+					
 					if(obj1.status == "200"){
-						if(obj1.result=="200"){
 	//						document.getElementsByTagName('button')[1].innerHTML = '正在发送';
-							window.open ('home.html');
+//							window.open ('home_copy.html');
+							mui.openWindow({
+								id: 'home_copy.html',
+								url: 'home_copy.html',
+								styles: {
+									popGesture: 'close',
+								},
+								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+							});
 							
-						}else {
+
+					}else {
 							alert("验证码已过期，请重新登录");
 						}
-					}
 				};
 				
 				
