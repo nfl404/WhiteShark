@@ -29,9 +29,10 @@ mui.init();
 		}
 		obj = eval('(' + response + ')');
 		if(obj.status == "200"){
-			if(obj.result == "200") {
+//			if(obj.result == "200") {
 			document.getElementById("islogin").innerHTML = "已登录";
-			} else {
+//			} 
+		}else {
 				mui.openWindow({
 					id: 'login.html',
 					url: 'mine/login.html',
@@ -42,7 +43,6 @@ mui.init();
 				});
 				document.getElementById("islogin").innerHTML = "未登录";
 			}
-		}
 
 	};
 	var ajax = function() {

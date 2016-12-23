@@ -330,7 +330,12 @@
 			"mine/setting.html": {
 				"resources": [
 					"css/mui.min.css",
-					"js/mui.min.js"
+					"js/mui.min.js",
+					"js/setting.js",
+					"js/mui.locker.js",
+					"js/feedback.js",
+					"css/setting.css",
+					"js/mui.view.js"
 				],
 				"refer": [],
 				"priority": 0
