@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/home.css" />
+		<link rel="stylesheet" href="css/app.css" />
+
+		<style type="text/css">
+			.comment {
+				overflow: hidden;
+			}
+			
+			.comment ul {
+				padding: 0;
+				margin: 10px 10px;
+			}
+			
+			.comment li {
+				overflow: hidden;
+				margin-bottom: 20px;
+				padding: 10px;
+				background-color: #FFFFFF;
+				box-shadow: 0 0 3px #999999;
+			}
+			
+			.comment li p.commne_nr {
+				color: #333;
+				text-align: justify;
+				line-height: 1.2rem;
+			}
+			
+			.comment li p.comment_peo {
+				overflow: hidden;
+			}
+			
+			.comment li p.comment_peo img {
+				float: left;
+				width: 24px;
+			}
+			
+			.comment li p.comment_peo span {
+				font-size: 0.875rem;
+				line-height: 24px;
+				margin-left: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-chevron">
+					<!--<li>
+						<div class="comment">
+							<ul>
+								<li>
+									<p class="commne_nr">在冉劲松的画前，观赏品味他这些年来的油画作品，他能不为流俗所累，抗拒潮流，在写实主义的崎岖小道上踽踽独行，这需要怎样的一种心境？他有世俗的忧伤，有对于平凡人的关爱，有对于弱势群体和无助者们的深切同情。</p>
+									<p class="comment_peo"><img src="images/toupic.png"><span>评论人</span></p>
+									<p class="comment">
+										<span>2015.6.23</span><span>3：00am</span>
+									</p>
+								</li>
+							</ul>
+						</div>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.zoom.js"></script>
+		<script src="js/mui.previewimage.js"></script>
+		<script src="js/common.js"></script>
+		<script>
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				console.log('info id::::' + self.age);
+			});
+			var refresh = true; //true为下拉刷新，false为上拉加载
+			var page = 1; //页数
+			var commentFirstId = 0; //评论列表第一条id
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					page = 1;
+					refresh = true;
+					getCommetnList(1, commentFirstId, 1, true);
+				}, 1500);
+			};
+
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					page++;
+					refresh = false;
+					getCommetnList(1, commentFirstId, page, false);
+				}, 1500);
+			};
+
+			/**
+			 * 	获取评论列表
+			 */
+			var getCommetnList = function(articleId, commentId, page, refresh) {
+				var waiting = Common.showWaiting();
+				var data;
+				if(refresh) {
+					data = {
+						action: 'comment',
+						id: commentId,
+						articleid: articleId,
+						page: 1
+					}
+				} else {
+					data = {
+						action: 'comment',
+						articleid: articleId,
+						page: page
+					}
+				}
+				mui.ajax('http://192.168.0.112/fuwu/api/article.php', {
+					data: data,
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(data) {
+						Common.closeWaiting(waiting);
+						console.log('data:::::' + JSON.stringify(data));
+						var table = document.body.querySelector('.mui-table-view');
+						for(var i = 0; i < data.result.length; i++) {
+							if(i == 0) {
+								commentFirstId = data.result[i].id;
+							}
+							var li = document.createElement('li');
+							li.innerHTML = '<div class="comment"><ul><li><p class="commne_nr">' + (data.result[i].comment) + '</p><p class="comment_peo"><img src="images/toupic.png"><span>' + (data.result[i].name) + '</span></p><p class="comment"><span>' + (data.result[i].regtime) + '</span><span></span></p></li></ul></div>';
+							//下拉刷新，新纪录插到最前面；
+							if(refresh) {
+								table.appendChild(li, table.firstChild);
+							} else {
+								table.appendChild(li, table.lastChild);
+							}
+						}
+
+						if(refresh) {
+							mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+						} else {
+							mui('#pullrefresh').pullRefresh().endPullupToRefresh(); //参数为true代表没有更多数据了。
+						}
+					},
+					error: function(xhr, type, errorThrown) {
+						console.log('error');
+						Common.closeWaiting(waiting);
+						if(refresh) {
+							mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+						} else {
+							mui('#pullrefresh').pullRefresh().endPullupToRefresh(); //参数为true代表没有更多数据了。
+						}
+					}
+				});
+			};
+
+			getCommetnList(1, commentFirstId, 1, refresh);
+		</script>
+	</body>
+
+</html>

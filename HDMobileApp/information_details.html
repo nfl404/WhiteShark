@@ -62,9 +62,9 @@
 	</body>
 	<script src="js/mui.min.js"></script>
 	<script type="text/javascript" src="libs/jquery-1.8.3.min.js"></script>
-	<!--<script src="js/mui.zoom.js"></script>
-	<script src="js/mui.previewimage.js"></script>-->
-	<!--<script src="js/common.js"></script>-->
+	<script src="js/mui.zoom.js"></script>
+	<script src="js/mui.previewimage.js"></script>
+	<script src="js/common.js"></script>
 	<!--<script src="js/info.js"></script>-->
 	<script>
 		$("#shuru").hide();
@@ -105,22 +105,62 @@
 		}
 
 		mui.init();
+
+		function getCookie(c_name) {
+			if(document.cookie.length > 0) {
+				c_start = document.cookie.indexOf(c_name + "=")
+				if(c_start != -1) {
+					c_start = c_start + c_name.length + 1
+					c_end = document.cookie.indexOf(";", c_start)
+					if(c_end == -1) c_end = document.cookie.length
+					return unescape(document.cookie.substring(c_start, c_end))
+				}
+			}
+			return ""
+		}
+
+//		function setCookie(c_name, value, expiredays) {
+//			var exdate = new Date()
+//			exdate.setDate(exdate.getDate() + expiredays)
+//			document.cookie = c_name + "=" + escape(value) +
+//				((expiredays == null) ? "" : "; expires=" + exdate.toGMTString())
+//		}
+//		setCookie('name', '123');
+		self = plus.webview.currentWebview();
+		var articleId = self.articleId;
+		var articleUrl = self.articleUrl;
+		var articleLike = self.articleLike;
+		console.log('文章id：：：' + articleId + '文章url：：：' + articleUrl + '文章like：：：：' + articleLike);
+
 		/**
 		 * 	推荐列表跳转
 		 */
 		mui('#list').on('tap', 'a', function() {
 			var id = this.getAttribute('href');
 			var href = this.href;
+			var articleid = document.getElementById("articleid").value;
+			var cook = getCookie('name');
 			mui.openWindow({
 				id: id,
 				url: this.href,
+				extras: {
+					articleId: articleid,
+					articleUrl: 'adsfasdfasdfasdfasdf',
+					articleLike: cook,
+				}
 			});
 		});
+
 		$("#like").click(
 			function() {
 				sendLike(1);
 			}
 		);
+		$("#comment_list").click(function() {
+			mui.openWindow({
+				url: 'comment.html',
+			});
+		});
 
 		/**
 		 * 	ajax请求控制台日志，手机debug可查看控制台日志。
@@ -141,6 +181,7 @@
 		 * @param {Object} articleId  文章id
 		 */
 		var getInformationList = function(articleId) {
+			var waiting = Common.showWaiting();
 			mui.ajax('http://192.168.0.112/fuwu/api/article.php', {
 				data: {
 					action: 'check',
@@ -150,17 +191,18 @@
 				type: 'post', //HTTP请求类型
 				timeout: 10000, //超时时间设置为10秒；
 				success: function(data) {
+					Common.closeWaiting(waiting);
 					var result = JSON.stringify(data);
-					console.log(result)
+					console.log('result：：：：' + result);
 					var table = document.body.querySelector('.mui-table-view');
 					for(var i = 0; i < data.result.list.length; i++) {
-						console.log('标题:::' + data.result.list[i].arr[0]);
 						var li = document.createElement('li');
-						li.innerHTML = '<a href="information_details.html"><h3>' + (data.result.list[i].arr[0]) + '</h3><p>华地艺术网专稿</p></a>';
+						li.innerHTML = '<input type="hidden" value="2" id="articleid"/><a id="" href="information_details.html"><h3>' + (data.result.list[i].arr[0]) + '</h3><p>华地艺术网专稿</p></a>';
 						table.appendChild(li);
 					}
 				},
 				error: function(xhr, type, errorThrown) {
+					Common.closeWaiting(waiting);
 					console.log('获取推荐资讯列表请求 失败!!!');
 				}
 			});
@@ -172,6 +214,7 @@
 		 * @param {Object} articleId
 		 */
 		var sendComment = function(userId, articleId, commentContent) {
+			var waiting = Common.showWaiting();
 			mui.ajax('http://192.168.0.112/fuwu/api/addValue.php', {
 				data: {
 					action: 'comment',
@@ -183,9 +226,11 @@
 				type: 'post', //HTTP请求类型
 				timeout: 10000, //超时时间设置为10秒；
 				success: function(data) {
+					Common.closeWaiting(waiting);
 					alert('评论已成功...')
 				},
 				error: function(xhr, type, errorThrown) {
+					Common.closeWaiting(waiting);
 					console.log('发送评论请求 失败!!!');
 				}
 			});
@@ -197,6 +242,7 @@
 		 * @param {Object} articleId 文章id
 		 */
 		var sendLike = function(articleId) {
+			var waiting = Common.showWaiting();
 			mui.ajax('http://192.168.0.112/fuwu/api/addValue.php', {
 				data: {
 					action: 'like',
@@ -206,9 +252,11 @@
 				type: 'post', //HTTP请求类型
 				timeout: 10000, //超时时间设置为10秒；
 				success: function(data) {
+					Common.closeWaiting(waiting);
 					alert('点赞已成功...');
 				},
 				error: function(xhr, type, errorThrown) {
+					Common.closeWaiting(waiting);
 					console.log('发送点赞请求 失败!!!');
 				}
 			});
