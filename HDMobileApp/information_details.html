@@ -153,10 +153,10 @@
 					var result = JSON.stringify(data);
 					console.log(result)
 					var table = document.body.querySelector('.mui-table-view');
-					for(var i = 0; i < data.result.length; i++) {
-						console.log('标题:::' + data.result[i].arr[0]);
+					for(var i = 0; i < data.result.list.length; i++) {
+						console.log('标题:::' + data.result.list[i].arr[0]);
 						var li = document.createElement('li');
-						li.innerHTML = '<a href="information_details.html"><h3>' + (data.result[i].arr[0]) + '</h3><p>华地艺术网专稿</p></a>';
+						li.innerHTML = '<a href="information_details.html"><h3>' + (data.result.list[i].arr[0]) + '</h3><p>华地艺术网专稿</p></a>';
 						table.appendChild(li);
 					}
 				},
