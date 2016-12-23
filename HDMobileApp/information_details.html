@@ -119,13 +119,13 @@
 			return ""
 		}
 
-//		function setCookie(c_name, value, expiredays) {
-//			var exdate = new Date()
-//			exdate.setDate(exdate.getDate() + expiredays)
-//			document.cookie = c_name + "=" + escape(value) +
-//				((expiredays == null) ? "" : "; expires=" + exdate.toGMTString())
-//		}
-//		setCookie('name', '123');
+		//		function setCookie(c_name, value, expiredays) {
+		//			var exdate = new Date()
+		//			exdate.setDate(exdate.getDate() + expiredays)
+		//			document.cookie = c_name + "=" + escape(value) +
+		//				((expiredays == null) ? "" : "; expires=" + exdate.toGMTString())
+		//		}
+		//		setCookie('name', '123');
 		self = plus.webview.currentWebview();
 		var articleId = self.articleId;
 		var articleUrl = self.articleUrl;
@@ -143,6 +143,9 @@
 			mui.openWindow({
 				id: id,
 				url: this.href,
+				styles: {
+					popGesture: 'close',
+				},
 				extras: {
 					articleId: articleid,
 					articleUrl: 'adsfasdfasdfasdfasdf',
@@ -159,6 +162,9 @@
 		$("#comment_list").click(function() {
 			mui.openWindow({
 				url: 'comment.html',
+				styles: {
+					popGesture: 'close',
+				}
 			});
 		});
 

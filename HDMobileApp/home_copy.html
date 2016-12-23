@@ -104,21 +104,10 @@
 	</head>
 
 	<body>
-		<!--<header class="mui-bar mui-bar-nav" style="background: white;">
-			<!--<h1 class="logo">华地资讯</h1>
-			<a class="search" href="search.html">搜索你想要的商品</a>
-			<h1 class="mui-title">华地艺术</h1>
-			<!--<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">发送</button>
-			<img id="search" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-right" src="../images/search.png>
-			
-			
-		</header>-->
-
 		<header class="yiheader">
-			<!--<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">发送</button>-->
 			<h1 class="logos">华地艺术资讯</h1>
-			<div class="search-box" id="search">
-				<a href="search.html" class="search"></a>
+			<div class="search-box" id="searchId">
+				<a class="search"></a>
 			</div>
 
 		</header>
@@ -159,100 +148,9 @@
 				<!--<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-2"></div>-->
 				<div class="mui-slider-group">
 					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
-
 						<div id="scroll1" class="mui-scroll-wrapper">
-
 							<div class="mui-scroll">
 								<ul id="list0" class="mui-table-view">
-									<!--<div class="banner"><img src="images/banner.png"></div>-->
-
-									<!--<div class="card1">
-										<a href="info.html">
-										<div class="card_tit">
-											<p class="card_time"><em></em><span>2015.6.23  15：00</span></p>
-											<p class="card_Source">华地艺术网专稿</p>
-										</div>
-										<div class="card1_nr">
-											<div class="card1_pic">
-												<img src="images/pic1.png">
-												<img src="images/pic2.png">
-												<img src="images/pic1.png">
-											</div>
-											<h2>
-												墨西哥写实绘画艺术家Omar Ortiz
-											</h2>
-										</div>
-										<div class="card_number">
-											<p class="card_xi">
-												<em></em>
-												<span>324</span>
-											</p>
-											<p class="card_du">
-												<em></em>
-												<span>324</span>
-											</p>
-										</div>
-										</a>
-									</div>
-									
-									<div class="card2">
-										<a href="info.html">
-										<div class="card_tit">
-											<p class="card_time"><em></em><span>2015.6.23  15：00</span></p>
-											<p class="card_Source">华地艺术网专稿</p>
-										</div>
-										<div class="card2_nr">
-											<div class="card2_pic">
-												<img src="images/pic3.png">
-											</div>
-											<h2>
-												墨西哥写实绘画艺术家Omar Ortiz
-											</h2>
-										</div>
-										<div class="card_number">
-											<p class="card_xi">
-												<em></em>
-												<span>324</span>
-											</p>
-											<p class="card_du">
-												<em></em>
-												<span>324</span>
-											</p>
-										</div>
-										</a>
-									</div>
-									
-									
-									<div class="card3">
-										<a href="info.html">
-										<div class="card_tit">
-											<p class="card_time"><em></em><span>2015.6.23  15：00</span></p>
-											<p class="card_Source">华地艺术网专稿</p>
-										</div>
-										<div class="card3_nr">
-											<div class="card3_tit">
-												<h2>
-													墨西哥写实绘画艺术家Omar Ortiz
-												</h2>
-												<p>在冉劲松的画前，观赏品味他这些年来的油画作品，他能不为流俗所累，抗拒潮流，在写实主义的崎岖小道上踽踽独行，这需要怎样的一种心境？他有世俗的忧伤，有对于平凡人的关爱，有对于弱势群体和无助者们的深切同情。</p>
-											</div>
-											<div class="card3_pic">
-												<img src="images/pic2.png">
-											</div>
-										</div>
-										<div class="card_number">
-											<p class="card_xi">
-												<em></em>
-												<span>324</span>
-											</p>
-											<p class="card_du">
-												<em></em>
-												<span>324</span>
-											</p>
-										</div>
-										</a>
-									</div>-->
-
 								</ul>
 							</div>
 						</div>
@@ -325,16 +223,15 @@
 				</div>
 			</div>
 		</div>
-		<input type="hidden" id="idvalue"/>
+		<input type="hidden" id="idvalue" />
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.pullToRefresh.js"></script>
 		<script src="js/mui.pullToRefresh.material.js"></script>
-		<!--<script src="js/home.js"></script>-->
 		<script src="js/common.js"></script>
 
 		<script>
 			mui.init();
-					
+
 			(function($) {
 				var deceleration = mui.os.ios ? 0.003 : 0.0009;
 				$('.mui-scroll-wrapper').scroll({
@@ -342,45 +239,48 @@
 					indicators: true, //是否显示滚动条
 					deceleration: deceleration
 				});
-			
+				
+				mui("#searchId").on('tap', 'a', function() {
+							mui.openWindow({
+								url: 'search.html'
+							});
+						})
+				
 				var createFragment = function(ul, index, data, reverse) {
-					
-//				alert("样式展示");
+
 					var fragment = document.createDocumentFragment();
 					var li;
-					console.log("dasfas   "+JSON.stringify(data))
+					console.log("dasfas   " + JSON.stringify(data))
 					for(var i = 0; i < data.result.length; i++) {
 						//获取服务器传输过来的值→详情界面
-						mui(".mui-slider-group .mui-scroll").on('tap','mui-table-view-cell mui-media',function(){
-						  //获取id
-						  var id = this.getAttribute(data.result[i].id);
-						  var likes = this.getAttribute(data.result[i].likes);
-						  var deburl = this.getAttribute(data.result[i].deburl);
-						  //传值给详情页面，通知加载新数据
-//						  mui.fire(detail,'getDetail',{id:id});
-						  //打开新闻详情
-						  mui.openWindow({
-						     extras:{
-						     	likes:likes,
-						     	id:id,
-						     	deburl:deburl,
-						     }
-						  });
-						}) 
-						
+						mui(".mui-slider-group .mui-scroll").on('tap', 'mui-table-view-cell mui-media', function() {
+							//传值给详情页面，通知加载新数据
+							var id = this.getAttribute(data.result[i].id);
+							var likes = this.getAttribute(data.result[i].likes);
+							var deburl = this.getAttribute(data.result[i].deburl);
+							//打开新闻详情
+							mui.openWindow({
+								extras: {
+									likes: likes,
+									id: id,
+									deburl: deburl,
+								}
+							});
+						})
+
 						li = document.createElement('li');
-						var num = Math.round(Math.random()*2+1);
+						var num = Math.round(Math.random() * 2 + 1);
 						if(num == 1) {
 							li.className = 'mui-table-view-cell mui-media';
-							li.innerHTML = '<div class="card1"><a href="info.html"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><img src= http://' + (data.result[i].arr[1]) + '><img src=http://' + (data.result[i].arr[2]) + '><img src=http://' + (data.result[i].arr[3]) + '></div><h2>' + data.result[i].introduce + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+							li.innerHTML = '<div class="card1"><a href="information_details.html"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><img src= http://' + (data.result[i].arr[1]) + '><img src=http://' + (data.result[i].arr[2]) + '><img src=http://' + (data.result[i].arr[3]) + '></div><h2>' + data.result[i].introduce + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 						} else if(num == 2) {
 							//卡片2
 							li.className = 'mui-table-view-cell mui-media';
-							li.innerHTML = '<div class="card2"><a href="info.html"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src=http://' + (data.result[i].arr[1]) + '></div><h2>' + data.result[i].introduce + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+							li.innerHTML = '<div class="card2"><a href="information_details.html"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src=http://' + (data.result[i].arr[1]) + '></div><h2>' + data.result[i].introduce + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 						} else {
 							//卡片3
 							li.className = 'mui-table-view-cell mui-media';
-							li.innerHTML = '<div class="card3"><a href="info.html"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].introduce + '</h2><p>' + data.result[i].introduce + '</p></div><div class="card3_pic"><img src=http://' + (data.result[i].arr[1]) + '></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+							li.innerHTML = '<div class="card3"><a href="information_details.html"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].introduce + '</h2><p>' + data.result[i].introduce + '</p></div><div class="card3_pic"><img src=http://' + (data.result[i].arr[1]) + '></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 						}
 						fragment.appendChild(li);
 						Common.closeWaiting(waiting);
@@ -389,8 +289,8 @@
 				};
 				var latestId;
 				var waiting;
-				var tab_type = 1;//ul, index, reverse, page
-				var agnix = function(ul, index, reverse,page, id) {
+				var tab_type = 1; //ul, index, reverse, page
+				var agnix = function(ul, index, reverse, page, id) {
 					var type_index = catidWithIndex(index);
 					var data;
 					if(reverse) {
@@ -412,31 +312,26 @@
 					mui.ajax('http://192.168.0.112/fuwu/api/article.php', {
 						data: data,
 						dataType: 'json', //服务器返回json格式数据
-						
-						
 						type: 'post', //HTTP请求类型
 						timeout: 10000, //超时时间设置为10秒；
 						success: function(data) {
 							console.log('success:::' + JSON.stringify(data.result));
-//							
-							if(data.status == "200"){
+							//							
+							if(data.status == "200") {
 								if(reverse) {
 									ul.insertBefore(createFragment(ul, index, data, true), ul.firstChild);
-									} else {
+								} else {
 									ul.appendChild(createFragment(ul, index, data));
-									}
 								}
+							}
 							Common.closeWaiting(waiting);
 						},
 						error: function(xhr, type, errorThrown) {
-							alert(100);
 							Common.closeWaiting(waiting);
 						}
 					});
 				};
-				
-				 
-				
+
 				var catidWithIndex = function(index) {
 					var catid;
 					switch(index) {
@@ -564,16 +459,16 @@
 							break;
 						default:
 							break;
-							
+
 					}
 					return page;
 				};
 
 				mui.plusReady(function() {
 					waiting = Common.showWaiting();
-					
+
 					mui('.mui-slider-group .mui-table-view').each(function(index, element) {
-						agnix(element, index, 0, 0,1);
+						agnix(element, index, 0, 0, 1);
 						mui('#list' + (index) + '').on('tap', 'a', function() {
 							var id = this.getAttribute('id');
 							var href = this.href;
@@ -589,7 +484,7 @@
 						});
 					})
 				});
-					
+
 				$.ready(function() {
 					//循环初始化所有下拉刷新，上拉加载。
 					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
@@ -600,7 +495,7 @@
 									setTimeout(function() {
 										var ul = self.element.querySelector('.mui-table-view');
 										var page = pageWithReverseAndIndex(index);
-										agnix(ul, index, true,1);
+										agnix(ul, index, true, 1);
 										self.endPullDownToRefresh();
 									}, 1000);
 								}
@@ -611,14 +506,14 @@
 									setTimeout(function() {
 										var ul = self.element.querySelector('.mui-table-view');
 										var page = pageWithReverseAndIndex(index);
-										latestId=document.getElementById("idvalue").value;
-										agnix(ul, index, false, page,latestId);
+										latestId = document.getElementById("idvalue").value;
+										agnix(ul, index, false, page, latestId);
 										self.endPullUpToRefresh();
 									}, 1000);
 								}
 							}
 						});
-					});	
+					});
 				});
 			})(mui);
 		</script>
