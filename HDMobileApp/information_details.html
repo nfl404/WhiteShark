@@ -24,8 +24,8 @@
 		</header>
 		<div class="mui-content">
 			<div class="mui-content-padded">
-				<div class="Article">
-					<iframe src="http://192.168.0.112/fuwu/file/201612/20/1.html" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="reinitIframeEND();"></iframe>
+				<div class="Article" id="article_details">
+					<!--<iframe src="" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="reinitIframeEND();"></iframe>-->
 				</div>
 			</div>
 			<div class="ass_tit">
@@ -49,12 +49,12 @@
 					<div class="oper_du">
 						<a href="#">
 							<em id="comment_list"></em>
-							<span>324</span>
+							<span id="comment_num">0</span>
 						</a>
 					</div>
 					<div class="oper_zan">
 						<em id="like"></em>
-						<span>324</span>
+						<span id="like_num">0</span>
 					</div>
 				</div>
 			</div>
@@ -74,11 +74,11 @@
 			}
 		);
 
-//		$("#shuru button").click(function() {
-//			var content = document.getElementById("contentId").value;
-//			sendComment(1, 1, content);
-//			$("#shuru").hide();
-//		});
+		//		$("#shuru button").click(function() {
+		//			var content = document.getElementById("contentId").value;
+		//			sendComment(1, 1, content);
+		//			$("#shuru").hide();
+		//		});
 		mui('#shuru').on('tap', 'button', function() {
 			var content = document.getElementById("contentId").value;
 			sendComment(1, 1, content);
@@ -110,15 +110,19 @@
 		}
 
 		mui.init();
-		var wself;
-		mui.plusReady(
-			wself = plus.webview.currentWebview();
-		);
-		
-			var articleId = wself.id;
-			var articleUrl = wself.deburl;
-			var articleLike = wself.likes;
-		console.log('文章id：：：' + articleId + '文章url：：：' + articleUrl + '文章like：：：：' + articleLike);
+		var articleId;
+		var articleUrl;
+		var articleLike;
+		mui.plusReady(function() {
+			self = plus.webview.currentWebview();
+			$("#like_num").text(self.likes);
+			articleId = self.articleid;
+			articleUrl = self.articleurl;
+			articleLike = self.likes;
+			var article_details = document.getElementById("article_details");
+			article_details.innerHTML = '<iframe src='+(articleUrl)+' id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="reinitIframeEND();"></iframe>';
+			console.log('文章id：：：' + articleId + '文章url：：：' + articleUrl + '文章like：：：：' + articleLike);
+		});
 
 		/**
 		 * 	推荐列表跳转
@@ -126,7 +130,7 @@
 		mui('#list').on('tap', 'a', function() {
 			var id = this.getAttribute('href');
 			var href = this.href;
-//			var articleid = document.getElementById("articleid").value;
+			//			var articleid = document.getElementById("articleid").value;
 			mui.openWindow({
 				id: id,
 				url: this.href,
@@ -134,9 +138,9 @@
 					popGesture: 'close',
 				},
 				extras: {
-//					articleId: articleid,
-//					articleUrl: 'adsfasdfasdfasdfasdf',
-//					articleLike: cook,
+					//					articleId: articleid,
+					//					articleUrl: 'adsfasdfasdfasdfasdf',
+					//					articleLike: cook,
 				}
 			});
 		});
@@ -186,7 +190,8 @@
 				success: function(data) {
 					Common.closeWaiting(waiting);
 					var result = JSON.stringify(data);
-//					console.log('result：：：：' + result);
+					//										console.log('result：：：：' + result);
+					$("#comment_num").text(data.result.commentnum);
 					var table = document.body.querySelector('.mui-table-view');
 					for(var i = 0; i < data.result.list.length; i++) {
 						var li = document.createElement('li');
