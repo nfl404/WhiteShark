@@ -227,6 +227,7 @@
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.pullToRefresh.js"></script>
 		<script src="js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript" src="libs/jquery-1.8.3.min.js"></script>
 		<script src="js/common.js"></script>
 
 		<script>
@@ -239,18 +240,18 @@
 					indicators: true, //是否显示滚动条
 					deceleration: deceleration
 				});
-				
+
 				mui("#searchId").on('tap', 'a', function() {
-							mui.openWindow({
-								url: 'search.html'
-							});
-						})
-				
+					mui.openWindow({
+						url: 'search.html'
+					});
+				})
+
 				var createFragment = function(ul, index, data, reverse) {
 
 					var fragment = document.createDocumentFragment();
 					var li;
-					console.log("dasfas   " + JSON.stringify(data))
+					//					console.log("dasfas   " + JSON.stringify(data))
 					for(var i = 0; i < data.result.length; i++) {
 						//获取服务器传输过来的值→详情界面
 						mui(".mui-slider-group .mui-scroll").on('tap', 'mui-table-view-cell mui-media', function() {
@@ -272,15 +273,15 @@
 						var num = Math.round(Math.random() * 2 + 1);
 						if(num == 1) {
 							li.className = 'mui-table-view-cell mui-media';
-							li.innerHTML = '<div class="card1"><a href="information_details.html"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><img src= http://' + (data.result[i].arr[1]) + '><img src=http://' + (data.result[i].arr[2]) + '><img src=http://' + (data.result[i].arr[3]) + '></div><h2>' + data.result[i].introduce + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+							li.innerHTML = '<div class="card1"><a href="information_details.html"><input type="hidden" value="2" id="articleid"/><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><img src= http://' + (data.result[i].arr[1]) + '><img src=http://' + (data.result[i].arr[2]) + '><img src=http://' + (data.result[i].arr[3]) + '></div><h2>' + data.result[i].introduce + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 						} else if(num == 2) {
 							//卡片2
 							li.className = 'mui-table-view-cell mui-media';
-							li.innerHTML = '<div class="card2"><a href="information_details.html"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src=http://' + (data.result[i].arr[1]) + '></div><h2>' + data.result[i].introduce + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+							li.innerHTML = '<div class="card2"><a href="information_details.html"><div class="card_tit"><input type="hidden" value="2" id="articleid"/><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src=http://' + (data.result[i].arr[1]) + '></div><h2>' + data.result[i].introduce + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 						} else {
 							//卡片3
 							li.className = 'mui-table-view-cell mui-media';
-							li.innerHTML = '<div class="card3"><a href="information_details.html"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].introduce + '</h2><p>' + data.result[i].introduce + '</p></div><div class="card3_pic"><img src=http://' + (data.result[i].arr[1]) + '></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+							li.innerHTML = '<div class="card3"><a href="information_details.html"><input type="hidden" value="2" id="articleid"/><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].introduce + '</h2><p>' + data.result[i].introduce + '</p></div><div class="card3_pic"><img src=http://' + (data.result[i].arr[1]) + '></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 						}
 						fragment.appendChild(li);
 						Common.closeWaiting(waiting);
@@ -315,8 +316,7 @@
 						type: 'post', //HTTP请求类型
 						timeout: 10000, //超时时间设置为10秒；
 						success: function(data) {
-							console.log('success:::' + JSON.stringify(data.result));
-							//							
+							//							console.log('success:::' + JSON.stringify(data.result));					
 							if(data.status == "200") {
 								if(reverse) {
 									ul.insertBefore(createFragment(ul, index, data, true), ul.firstChild);
@@ -472,12 +472,15 @@
 						mui('#list' + (index) + '').on('tap', 'a', function() {
 							var id = this.getAttribute('id');
 							var href = this.href;
-							var type = this.getAttribute("open-type");
+							var likes = $(this).children('articleid').value;
 							mui.openWindow({
 								id: id,
 								url: this.href,
 								styles: {
 									popGesture: 'close',
+								},
+								extras: {
+									likes: likes
 								},
 								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
 							});

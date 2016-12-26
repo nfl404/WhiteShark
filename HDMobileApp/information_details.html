@@ -74,7 +74,12 @@
 			}
 		);
 
-		$("#shuru button").click(function() {
+//		$("#shuru button").click(function() {
+//			var content = document.getElementById("contentId").value;
+//			sendComment(1, 1, content);
+//			$("#shuru").hide();
+//		});
+		mui('#shuru').on('tap', 'button', function() {
 			var content = document.getElementById("contentId").value;
 			sendComment(1, 1, content);
 			$("#shuru").hide();
@@ -105,31 +110,14 @@
 		}
 
 		mui.init();
-
-		function getCookie(c_name) {
-			if(document.cookie.length > 0) {
-				c_start = document.cookie.indexOf(c_name + "=")
-				if(c_start != -1) {
-					c_start = c_start + c_name.length + 1
-					c_end = document.cookie.indexOf(";", c_start)
-					if(c_end == -1) c_end = document.cookie.length
-					return unescape(document.cookie.substring(c_start, c_end))
-				}
-			}
-			return ""
-		}
-
-		//		function setCookie(c_name, value, expiredays) {
-		//			var exdate = new Date()
-		//			exdate.setDate(exdate.getDate() + expiredays)
-		//			document.cookie = c_name + "=" + escape(value) +
-		//				((expiredays == null) ? "" : "; expires=" + exdate.toGMTString())
-		//		}
-		//		setCookie('name', '123');
-		self = plus.webview.currentWebview();
-		var articleId = self.articleId;
-		var articleUrl = self.articleUrl;
-		var articleLike = self.articleLike;
+		var wself;
+		mui.plusReady(
+			wself = plus.webview.currentWebview();
+		);
+		
+			var articleId = wself.id;
+			var articleUrl = wself.deburl;
+			var articleLike = wself.likes;
 		console.log('文章id：：：' + articleId + '文章url：：：' + articleUrl + '文章like：：：：' + articleLike);
 
 		/**
@@ -138,8 +126,7 @@
 		mui('#list').on('tap', 'a', function() {
 			var id = this.getAttribute('href');
 			var href = this.href;
-			var articleid = document.getElementById("articleid").value;
-			var cook = getCookie('name');
+//			var articleid = document.getElementById("articleid").value;
 			mui.openWindow({
 				id: id,
 				url: this.href,
@@ -147,9 +134,9 @@
 					popGesture: 'close',
 				},
 				extras: {
-					articleId: articleid,
-					articleUrl: 'adsfasdfasdfasdfasdf',
-					articleLike: cook,
+//					articleId: articleid,
+//					articleUrl: 'adsfasdfasdfasdfasdf',
+//					articleLike: cook,
 				}
 			});
 		});
@@ -199,7 +186,7 @@
 				success: function(data) {
 					Common.closeWaiting(waiting);
 					var result = JSON.stringify(data);
-					console.log('result：：：：' + result);
+//					console.log('result：：：：' + result);
 					var table = document.body.querySelector('.mui-table-view');
 					for(var i = 0; i < data.result.list.length; i++) {
 						var li = document.createElement('li');
