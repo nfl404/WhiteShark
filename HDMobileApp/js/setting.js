@@ -88,6 +88,7 @@
 					console.log(s);
 					document.getElementById("head-img").src = s;
 					document.getElementById("head-img1").src = s;
+					document.getElementById("img").src = s;
 					//变更大图预览的src
 					//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
 					document.querySelector("#__mui-imageview__group .mui-slider-item img").src = s + "?version=" + new Date().getTime();;;
@@ -113,6 +114,7 @@
 										var e = e.fullPath + "?version=" + new Date().getTime();
 										document.getElementById("head-img").src = e;
 										document.getElementById("head-img1").src = e;
+										document.getElementById("img").src = e;
 										//变更大图预览的src
 										//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
 										document.querySelector("#__mui-imageview__group .mui-slider-item img").src = e + "?version=" + new Date().getTime();;

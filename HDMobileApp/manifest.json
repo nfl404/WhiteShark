@@ -260,7 +260,8 @@
 					"css/mui.min.css",
 					"mine/setting.html",
 					"css/mine.css",
-					"js/mine.js"
+					"js/mine.js",
+					"js/setting.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -337,7 +338,8 @@
 					"css/setting.css",
 					"js/mui.view.js",
 					"images/logo.png",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"js/app.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -387,7 +389,8 @@
 					"search.html"
 				],
 				"refer": [
-					"idHtml.html"
+					"idHtml.html",
+					"information_details.html"
 				],
 				"priority": 0
 			},
@@ -400,7 +403,10 @@
 					"css/mui.min.css",
 					"libs/jquery-1.8.3.min.js",
 					"css/inof.css",
-					"images/xie_icon.png"
+					"images/xie_icon.png",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"js/common.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -409,6 +415,27 @@
 				"resources": [
 					"js/mui.min.js",
 					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"commentList.html": {
+				"resources": [
+					"css/home.css",
+					"css/app.css",
+					"js/common.js",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"comment.html": {
+				"resources": [
+					"commentList.html",
+					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"css/mui.min.css"
 				],
