@@ -120,7 +120,7 @@
 			articleUrl = self.articleurl;
 			articleLike = self.likes;
 			var article_details = document.getElementById("article_details");
-			article_details.innerHTML = '<iframe src='+(articleUrl)+' id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="reinitIframeEND();"></iframe>';
+			article_details.innerHTML = '<iframe src=' + (articleUrl) + ' id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="reinitIframeEND();"></iframe>';
 			console.log('文章id：：：' + articleId + '文章url：：：' + articleUrl + '文章like：：：：' + articleLike);
 		});
 
@@ -130,17 +130,19 @@
 		mui('#list').on('tap', 'a', function() {
 			var id = this.getAttribute('href');
 			var href = this.href;
-			//			var articleid = document.getElementById("articleid").value;
+			var articleid = this.getAttribute('id');
+			var likes = this.getAttribute('likes');
+			var articleurl = this.getAttribute('deburl');
 			mui.openWindow({
-				id: id,
-				url: this.href,
+				id: articleid,
+				url: href,
 				styles: {
 					popGesture: 'close',
 				},
 				extras: {
-					//					articleId: articleid,
-					//					articleUrl: 'adsfasdfasdfasdfasdf',
-					//					articleLike: cook,
+					articleid: articleid,
+					articleurl: articleurl,
+					likes: likes
 				}
 			});
 		});
@@ -190,12 +192,12 @@
 				success: function(data) {
 					Common.closeWaiting(waiting);
 					var result = JSON.stringify(data);
-					//										console.log('result：：：：' + result);
+					console.log('result：：：：' + result);
 					$("#comment_num").text(data.result.commentnum);
 					var table = document.body.querySelector('.mui-table-view');
 					for(var i = 0; i < data.result.list.length; i++) {
 						var li = document.createElement('li');
-						li.innerHTML = '<input type="hidden" value="2" id="articleid"/><a id="" href="information_details.html"><h3>' + (data.result.list[i].arr[0]) + '</h3><p>华地艺术网专稿</p></a>';
+						li.innerHTML = '<a id="" href="information_details.html" id="' + (data.result.list[i].id) + '" deburl="' + (data.result.list[i].deburl) + '" likes="' + (data.result.list[i].likes) + '"><h3>' + (data.result.list[i].arr[0]) + '</h3><p>华地艺术网专稿</p></a>';
 						table.appendChild(li);
 					}
 				},
