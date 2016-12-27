@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="css/puc.css">
+    <link rel="stylesheet" href="css/mui.min.css" />
+    <style>
+    	.search-box{
+			clear: both;
+			height: 44px;
+		    overflow: hidden;
+		    padding-left: 44px;
+		    background: #FFFFFF;
+		    width: 100%;
+		    margin-top: 44px;
+		}
+		.search-box .search{
+		    display: block;
+		    float: left;
+		    padding: 0 10px;
+		    width:75%;
+		    height: 30px;
+		    line-height: 30px;
+		    margin-bottom: 10px;
+		    color: #6D6D72;
+		    width: 60%;
+		    font-size: 12px;
+		    border: none;
+		    border-bottom: 1px solid #666;
+		    outline:none;
+		}
+		.search-box button{
+			float: right;
+			color: #FFFFFF;
+			background-color: #6daa25;
+			position: fixed;
+			top: 10px;
+			right: 10px;
+			z-index: 100;
+			border: none;
+		}
+    </style>
+    <title>修改名称</title>
+</head>
+<body>
+    <!--<div class="top">
+	    <a href="javascript:history.go(-1)" class="back lf"></a>
+	    <input type="text" class="search lf">
+	    <button type="submit" class="search_btn">搜索</button>
+	</div>-->
+	<header class="mui-bar mui-bar-nav" style="background: white;box-shadow: none;">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">修改昵称</h1>
+		
+	</header>
+	<div class="search-box">
+		<input type="text" class="search lf" placeholder="请输入昵称" value="">
+    	<button type="submit" class="search_btn">保存</button>
+	</div>
+    
+    <script src="libs/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/mui.min.js" ></script>
+</body>
+</html>

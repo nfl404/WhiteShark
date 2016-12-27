@@ -230,7 +230,6 @@ body {
 
 a {
 	text-decoration: none;
-	color: #007aff
 }
 
 a:active {
@@ -1151,7 +1150,6 @@ input[type=submit]:enabled:active {
 .mui-btn-link {
 	padding-top: 6px;
 	padding-bottom: 6px;
-	color: #007aff;
 	border: 0;
 	background-color: transparent
 }
@@ -1409,7 +1407,6 @@ input[type=submit]:enabled:active {
 	line-height: 44px;
 	top: 0;
 	padding: 0;
-	color: #cf2d28;
 	border: 0
 }
 

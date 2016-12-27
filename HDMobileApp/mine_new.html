@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mine_new.css" />
+	</head> 
+
+	<body>
+		<div class="mine_tit">
+			<h1>个人中心</h1>
+		</div>
+		<div class="user_box">
+			<img src="images/picuser.png">
+			<div class="user_name" id="name_gai">
+				<span>username<em cite="user_namexiu"></em></span>
+			</div>
+			<div class="user_tel">
+				<span class="user_tel_icon"></span>
+				<p>18503778776</p>
+			</div>
+		</div>
+		<div class="mine_main">
+			<p class="mine_main_bg"></p>
+			<div class="mine_box">
+				<a href="#" class="mine_ping">
+					<span></span>
+					<p>我的评论</p>
+				</a>
+				<a href="#" class="mine_she">
+					<span></span>
+					<p>设置</p>
+				</a>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script type="text/javascript" src="js/mine.js" ></script>
+		<script>
+				mui('#name_gai').on('tap', 'em', function() {
+				mui.openWindow({
+				id: 'name_xiu',
+				url: 'xiu_name.html',
+				styles: {
+					popGesture: 'close',
+				},
+				createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+			});
+			});
+	
+		</script>
+	</body>
+
+</html>

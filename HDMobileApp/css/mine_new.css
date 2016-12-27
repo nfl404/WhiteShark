@@ -1,0 +1,127 @@
+body{
+	background-color: #f2f2f1;
+	padding: 0 10px;
+	background: url(../images/mine_bg.jpg) top center no-repeat;
+	background-size: 100% 12rem;
+}
+.mine_tit h1{
+	line-height: 2.4rem;
+	font-size: 1.2rem;
+	text-align: center;
+	color: #616161;
+	font-weight: normal;
+}
+.user_box{
+	width: 84%;
+	margin: auto;
+	margin-top: 4rem;
+	height: 10rem;
+	background: #FFFFFF;
+	border-radius: 5px;
+	box-shadow:0 0px 5px #CCCCCC ;
+	 text-align: center;
+}
+.user_box img{
+	 width: 6rem;
+	 margin: auto;
+	 margin-top: -3rem;
+}
+
+.user_name span{
+	text-transform:capitalize;
+	color: #333333;
+	font-size: 1.2rem;
+	line-height: 2rem;
+	position: relative;
+}
+.user_name em{
+	position: absolute;
+	width: .8rem;
+	height: .8rem;
+	background: url(../images/xie_icon.png) no-repeat center center;
+	background-size:100% 100%;
+	margin-left: 10px;
+}
+.user_tel{
+	margin-top: 10px;
+	overflow: hidden;
+	text-align: center;
+}
+.user_tel_icon{
+	display: inline-block;
+	width: 1rem;
+	height: 1.2rem;
+	margin-top: .2rem;
+	background: url(../images/tel_icon.png) no-repeat center center;
+	background-size:100% 100% ;
+}
+.user_tel p{
+	display: inline-block;
+	line-height: 1.2rem;
+	font-size: 1.2rem;
+}
+.mine_main{
+	margin: 1rem 10px;
+	position: relative;
+}
+.mine_main_bg{
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #536597;
+	border-radius: 5px;
+	height: 10px;
+	width: 100%;
+}
+.mine_box{
+	position: absolute;
+	z-index: 10;
+	top: 5px;
+	width: 96%;
+	left: 2%;
+	border: 1px solid #DDDDDD;
+	overflow: hidden;
+}
+.mine_box a{
+	width: 50%;
+	float: left;
+	text-align: center;
+	height: 10rem;
+	background-color: #FFFFFF;
+	border-top: 1px solid #DDDDDD;
+	margin-top: -1px;
+	border-left: 1px solid #DDDDDD;
+	margin-left: -1px;
+	padding-bottom: 1rem;
+	overflow: hidden;
+}
+.mine_box a:active{
+	background-color: #C7C7CC;
+}
+.mine_box a p{
+	text-align: center;
+	line-height: 2rem;
+	overflow: hidden;
+	font-size: 1.2rem;
+	color: #666666;
+}
+.mine_ping span{
+	display: block;
+	width: 150px;
+	height: 80px;
+	margin: auto;
+	background: url(../images/ping_bg.png) no-repeat center top;
+	background-size: 70% ;
+	margin-top: 2rem;
+	
+}
+.mine_she span{
+	display: block;
+	width: 150px;
+	height: 80px;
+	margin: auto;
+	background: url(../images/she_bg.png) no-repeat center bottom;
+	background-size: 70% ;
+	margin-top: 2rem;
+}
