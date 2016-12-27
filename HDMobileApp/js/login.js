@@ -113,7 +113,7 @@
 					//正则表达式，判断是否为手机号
 					flag = reg.test(phoneBox.value);
 					if(!flag) {
-						alert("请发送正确的手机号");
+						alert("请输入正确的手机号");
 					} else {
 						if(network) {
 							ajax('send_code',phoneBox.value);
