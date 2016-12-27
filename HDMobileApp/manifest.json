@@ -386,7 +386,8 @@
 					"js/mui.min.js",
 					"css/mui.min.css",
 					"info.html",
-					"search.html"
+					"search.html",
+					"libs/jquery-1.8.3.min.js"
 				],
 				"refer": [
 					"idHtml.html",
@@ -408,7 +409,9 @@
 					"js/mui.previewimage.js",
 					"js/common.js"
 				],
-				"refer": [],
+				"refer": [
+					"comment.html"
+				],
 				"priority": 0
 			},
 			"idHtml.html": {
