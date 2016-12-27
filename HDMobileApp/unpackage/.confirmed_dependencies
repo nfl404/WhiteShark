@@ -254,5 +254,32 @@
     "refer": [
       "commentList.html"
     ]
+  },
+  "mine_new.html": {
+    "resources": [
+      "js/app.js",
+      "js/mine.js",
+      "css/mine_new.css",
+      "js/mui.min.js",
+      "images/mine_bg.jpg",
+      "css/mui.min.css",
+      "images/she_bg.png",
+      "images/xie_icon.png",
+      "images/ping_bg.png",
+      "images/tel_icon.png",
+      "images/picuser.png"
+    ],
+    "refer": [
+      "mine/login.html",
+      "xiu_name.html"
+    ]
+  },
+  "xiu_name.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "libs/jquery-1.8.3.min.js"
+    ]
   }
 }
