@@ -277,7 +277,8 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"images/search.png",
-					"list.html"
+					"list.html",
+					"images/search_search.png"
 				],
 				"refer": [],
 				"priority": 0

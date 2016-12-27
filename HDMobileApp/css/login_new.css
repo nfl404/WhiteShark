@@ -1,0 +1,142 @@
+
+body{
+	background: url(../images/login_bg.png) no-repeat;
+	background-position-y: 10%;
+	background-size:100% ;
+}
+.login_top{
+	overflow: hidden;
+	width: 100%;
+}
+.close_login{
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url(../images/close_login.png) no-repeat center center;
+	background-size:cover ;
+	font-size: 0 !important;
+}
+.login_mian{
+	overflow: hidden;
+	padding:0 5%;
+	margin-top: 25%;
+}
+.login_pic{
+	overflow: hidden;
+	text-align: center;
+}
+.login_pic img{
+	margin:1rem auto;
+	width: 30%;
+	
+}
+.one_box{
+	overflow: hidden;
+	clear: both;
+}
+.user_name{
+	overflow: hidden;
+	height: 50px;
+	width: 100%;
+	border: 1px solid #DDDDDD;
+	box-shadow:  0 0 5px #DDDDDD;
+	padding: 10px;
+	position: relative;
+}
+.user_name_icon{
+	float: left;
+	width: 24px;
+	height: 30px;
+	background: url(../images/phone_icon.png) no-repeat center center;
+	background-size:90%;
+	margin-right: 10px;
+}
+.user_name input.phone{
+	border: none;
+	width: 60%;
+	float: left;
+	padding: 0;
+	margin: 0;
+	line-height: 30px;
+	height: 30px;
+	padding-left: 20px;
+	border-left: 1px solid #DDDDDD;
+}
+.login_baocun{
+	height: 2rem;
+}
+.user_cuwu{
+	display: block;
+	height: 2rem;
+	line-height: 2rem;
+	text-align: center;
+	color: #e92038;
+	margin: 0;
+}
+.user_name em.user_cuwu_icon{
+	display: none;
+	width:24px;
+	height:24px;
+	position: absolute;
+	right: 10px;
+	top: 13px;
+	background: url(../images/user_cuwu.png) no-repeat center center;
+	background-size:cover ;
+}
+.user_name em.user_succee{
+	display: none;
+	width:24px;
+	height:24px;
+	position: absolute;
+	right: 10px;
+	top: 13px;
+	background: url(../images/user_name_succee.png) no-repeat center center;
+	background-size:cover ;
+}
+.user_yanm{
+	overflow: hidden;
+	height: 50px;
+	width: 100%;
+	border: 1px solid #DDDDDD;
+	box-shadow:  0 0 5px #DDDDDD;
+	padding: 10px;
+	position: relative;
+}
+.user_yanm span.user_ym_icon{
+	float: left;
+	width: 24px;
+	height: 30px;
+	background: url(../images/phone_yan.png) no-repeat center center;
+	background-size:90%;
+	margin-right: 10px;
+}
+.user_yanm input.shuru{
+	border: none;
+	width: 60%;
+	float: left;
+	padding: 0;
+	margin: 0;
+	line-height: 30px;
+	height: 30px;
+	padding-left: 20px;
+	border-left: 1px solid #DDDDDD;
+}
+.user_yanm input.inputac{
+	float: left;
+	width: 25%;
+	height: 30px;
+	border-radius: 3px;
+	font-size: 0.75rem;
+	text-align: center;
+	padding: 0;
+}
+
+.login_box{
+	overflow: hidden;
+	text-align: center;
+}
+.login_box button.login_in{
+	width: 50%;
+	height: 50px;
+	border-radius: 25px;
+}
