@@ -67,26 +67,25 @@
     <script>//Common.setValueForKey(obj1.result.name,"username");
     	mui.init();
     	(function($) {
+    		
+//  		document.getElementById("modify").addEventListener('tap', function() {
+//				var btnArray = ['否', '是'];
+//				mui.confirm('你以修改成功', '是否退出修改界面', btnArray, function(e) {
+//					if (e.index == 1) {
+////						info.innerText = '你刚确认MUI是个好框架';
+//						mui.back();
+//
+//						
+//					} else {
+////						info.innerText = 'MUI没有得到你的认可，继续加油'
+//						return;
+//					}
+//				})
+//			});
+    		
     		var newname = document.getElementById('oldname');
     		 //http://192.168.0.112/
     		document.getElementById("modify").addEventListener('tap', function(event) {
-    			alert(1);
-//  					mui.ajax('http://139.224.133.135/fuwu/api/addValue.php',{
-//  						data:{
-//  							action:"change",
-//  							id: plus.storage.getItem("userid"),
-//  							name:newname.value
-//  						},
-//  						dataType:'json',//服务器返回json格式数据
-//  						type:'post',//HTTP请求类型
-//  						timeout:10000,//超时时间设置为10秒；
-//  						success:function(data){
-//  							console.log('beforeSend:::' + JSON.stringify(data));
-//  						},
-//  							error:function(xhr,type,errorThrown){
-//  							
-//  						}
-//  					});
     						var obj1;
 							var success = function(response) {
 								var dataType = 'json';
@@ -97,7 +96,7 @@
 								}
 								obj1 = eval('(' + response + ')');
 								console.log("登录成功：：：：" + JSON.stringify(obj1));
-								if(obj1.status ==)
+//								if(obj1.status ==)
 							};
 							
 	    					var ajax = function() {
