@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+		<link href="../css/feedback-page.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/login_new.css" />
+
+	</head>
+
+	<body>
+		<div class="login_top">
+			<button type="button" class="mui-right mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-right">
+				<span class="mui-icon mui-icon-left-nav close_login"></span>
+			</button>
+		</div>
+		<div class="login_mian">
+			<div class="login_pic">
+				<img src="../images/picuser.png">
+			</div>
+			<form id="demo" autocomplete="off">
+				<div class="one_box">
+					<div class="user_name">
+						<span class="user_name_icon"></span>
+						<input class="phone tel" id="tel" type="tel" name="tel" placeholder="手机号">
+						<em class="user_cuwu_icon"></em>
+						<em class="user_succee"></em>
+					</div>
+					<div class="login_baocun" id="tiecuo">
+						
+					</div>
+				</div>
+				
+				<div class="one_box">
+					<div class="user_yanm">
+						<span class="user_ym_icon"></span>
+						<input id="code1" type="text" name="yanzhen" value="" placeholder="请输入验证码" class="shuru">
+						<input class="inputac" type="button" id="obtain" value="获取验证码" />
+					</div>
+					<div class="login_baocun">
+						<p class="user_cuwu">验证码输入错误</p>
+					</div>
+				</div>
+				<div class="login_box">
+					<button id='login' class="login_in">登录</button>
+				</div>
+			</form>
+		</div>
+		<script src="../libs/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="../js/input_demo.js" ></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.enterfocus.js"></script>
+		<script src="../js/app.js"></script>
+		<script src="../js/common.js"></script>
+		<script type="text/javascript" src="../js/login.js" ></script>
+		
+	</body>
+
+</html>
