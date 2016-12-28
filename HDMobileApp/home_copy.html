@@ -230,10 +230,8 @@
 		<script src="js/mui.pullToRefresh.material.js"></script>
 		<script type="text/javascript" src="libs/jquery-1.8.3.min.js"></script>
 		<script src="js/common.js"></script>
-
 		<script>
 			mui.init();
-
 			(function($) {
 				var deceleration = mui.os.ios ? 0.003 : 0.0009;
 				$('.mui-scroll-wrapper').scroll({
@@ -241,17 +239,19 @@
 					indicators: true, //是否显示滚动条
 					deceleration: deceleration
 				});
-
+				/**
+				 * 跳转搜索
+				 */
 				mui("#searchId").on('tap', 'a', function() {
 					mui.openWindow({
 						url: 'search.html'
 					});
-				})
+				});
 
 				var createFragment = function(ul, index, data, reverse) {
 					var fragment = document.createDocumentFragment();
 					var li;
-					console.log("dasfas   " + JSON.stringify(data));
+//					console.log("dasfas   " + JSON.stringify(data));
 					for(var i = 0; i < data.result.length; i++) {
 						li = document.createElement('li');
 						var num = Math.round(Math.random() * 2 + 1);
@@ -294,15 +294,13 @@
 							page: page,
 						}
 					}
-//					http://139.224.133.135/fuwu/api/login.php
-//					http://192.168.0.112/fuwu/api/article.php
 					mui.ajax(Common.domain + '/fuwu/api/article.php', {
 						data: data,
 						dataType: 'json', //服务器返回json格式数据
 						type: 'post', //HTTP请求类型
 						timeout: 10000, //超时时间设置为10秒；
 						success: function(data) {
-														console.log('success:::' + JSON.stringify(data));					
+							console.log('success:::' + JSON.stringify(data));					
 							if(data.status == "200") {
 								if(reverse) {
 									ul.insertBefore(createFragment(ul, index, data, true), ul.firstChild);

@@ -80,25 +80,26 @@
 				</div>
 				<div class="operation">
 					<div class="oper_one">
-						<div class="oper_xie">
-							<span id="xie">写评论...</span>
+						<div class="oper_xie" id="xie">
+							<span>写评论...</span>
 						</div>
 						<div class="oper_du">
 							<a href="#">
-								<em></em>
-								<span>324</span>
+								<em id="comment_list"></em>
+								<span id="comment_num">0</span>
 							</a>
 						</div>
 						<div class="oper_zan">
-							<em></em>
-							<span>324</span>
+							<em id="like"></em>
+							<span id="like_num">0</span>
 						</div>
 					</div>
 					<div class="oper_two" id="shuru" style="display: none;">
-						<form>
-							<textarea></textarea>
+						<div class="shuru_box">
+							<textarea id="contentId" placeholder="写评论"></textarea>
 							<button type="submit">提交</button>
-						</form>
+						</div>
+						<div class="shuru_bg"></div>
 					</div>
 				</div>
 			</div>
@@ -111,25 +112,31 @@
 	<!--<script src="js/common.js"></script>-->
 	<script src="js/info.js"></script>
 	<script>
-		 function stopPropagation(e) {  
-	        if (e.stopPropagation)  
-	            e.stopPropagation();  
-	        else  
-	            e.cancelBubble = true;  
-	    }  
-	  
-	    $(document).bind('click', function() {  
-	        $('#shuru').css('display', 'none');  
-	    });  
-	  
-	    $('#xie').bind('click', function(e) {  
-	        stopPropagation(e); 
-	        $("#shuru").show();
-	    });  
-	    $('#shuru').bind('click', function(e) {  
-	        stopPropagation(e); 
-	        $("this").show();
-	    }); 
+		$("#shuru").hide();
+		$("#xie").click(
+			function() {
+				$("#shuru").show();
+			}
+		);
+		$("#shuru").click(function (e) {
+		    var drag = $(".shuru_box"),
+		        dragel = $(".shuru_box")[0],
+		        target = e.target;
+		    if (dragel !== target && !$.contains(dragel, target)) {
+		       drag.parent().hide();
+		    }
+		});
+//		$("#shuru").
+		//		$("#shuru button").click(function() {
+		//			var content = document.getElementById("contentId").value;
+		//			sendComment(1, 1, content);
+		//			$("#shuru").hide();
+		//		});
+		mui('#shuru').on('tap', 'button', function() {
+			var content = document.getElementById("contentId").value;
+			sendComment(1, 1, content);
+			$("#shuru").hide();
+		});
 	</script>
 
 </html>

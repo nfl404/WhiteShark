@@ -429,7 +429,8 @@
 					"images/xie_icon.png",
 					"js/mui.zoom.js",
 					"js/mui.previewimage.js",
-					"js/common.js"
+					"js/common.js",
+					"information_details.html"
 				],
 				"refer": [
 					"comment.html"

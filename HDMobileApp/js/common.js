@@ -77,7 +77,9 @@
 		/**
 		 * 读取用户id
 		 */
-		getUserid: plus.storage.getItem("userid"),
+		getUserid: function() {
+			return plus.storage.getItem("userid")
+		},
 		/**
 		 * 修改或添加键值(key-value)对数据到应用数据存储中
 		 * @param {Object} value
