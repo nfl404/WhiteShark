@@ -280,7 +280,7 @@
 					var data;
 					if(reverse) {
 						data = {
-							type: type_index,
+							type: 1,
 							subtype: 0,
 							page: page,
 							id: id,
@@ -289,18 +289,20 @@
 
 					} else {
 						data = {
-							type: type_index,
+							type: 1,
 							subtype: 0,
 							page: page,
 						}
 					}
-					mui.ajax('http://192.168.0.112/fuwu/api/article.php', {
+//					http://139.224.133.135/fuwu/api/login.php
+//					http://192.168.0.112/fuwu/api/article.php
+					mui.ajax(Common.domain + '/fuwu/api/article.php', {
 						data: data,
 						dataType: 'json', //服务器返回json格式数据
 						type: 'post', //HTTP请求类型
 						timeout: 10000, //超时时间设置为10秒；
 						success: function(data) {
-							//							console.log('success:::' + JSON.stringify(data.result));					
+														console.log('success:::' + JSON.stringify(data));					
 							if(data.status == "200") {
 								if(reverse) {
 									ul.insertBefore(createFragment(ul, index, data, true), ul.firstChild);

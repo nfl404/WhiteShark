@@ -1,0 +1,107 @@
+body{
+	background: url(../images/banner.png) no-repeat top center #f1f2f6;
+	background-size: 100% 12rem;
+}
+.comment_top{
+	overflow: hidden;
+}
+.user_box{
+	width: 84%;
+	margin: auto;
+	margin-top: 4rem;
+	height: 10rem;
+	background: #FFFFFF;
+	border-radius: 5px;
+	box-shadow:0 0px 5px #CCCCCC ;
+	 text-align: center;
+}
+.user_box img{
+	 width: 6rem;
+	 margin: auto;
+	 margin-top: -3rem;
+}
+
+.user_name span{
+	text-transform:capitalize;
+	color: #333333;
+	font-size: 1.2rem;
+	line-height: 2rem;
+}
+.user_tel{
+	margin-top: 10px;
+	overflow: hidden;
+	text-align: center;
+}
+.user_tel_icon{
+	display: inline-block;
+	width: 1rem;
+	height: 1.2rem;
+	margin-top: .2rem;
+	background: url(../images/tel_icon.png) no-repeat center center;
+	background-size:100% 100% ;
+}
+.user_tel p{
+	display: inline-block;
+	line-height: 1.2rem;
+	font-size: 1.2rem;
+}
+.comment_tit{
+	margin: 1rem auto;
+	overflow: hidden;
+}
+.comment_tit h2{
+	display: block;
+	width: 160px;
+	height: 64px;
+	line-height: 64px;
+	text-align: center;
+	margin: auto;
+	background: url(../images/guanlian.png) no-repeat center center;
+	background-size:80%;
+	color: #FFFFFF;
+	font-size: 1.2rem;
+}
+.comment_nr{
+	overflow: hidden;
+}
+.comment_nr ul{
+	margin: 10px;
+	padding: 0px;
+}
+.comment_nr ul li{
+	list-style: none;
+	margin:10px 0;
+	padding: 10px;
+}
+.comment_list{
+	overflow: hidden;
+	background-color: #FFFFFF;
+	box-shadow: 0 0 5px #CCCCCC;
+	border-radius: 5px;
+}
+.comment_list a{
+	color: #333333;
+}
+.comment_list h3{
+	overflow: hidden;
+	white-space:nowrap ;
+	text-overflow: ellipsis;
+	font-size: 1.2rem;
+	margin-bottom: 10px;
+}
+.comment_list a p{
+	font-size: 0.875rem;
+}
+.comment_list span{
+	float: right;
+	font-size: 0.75rem;
+}
+.comment_list span em{
+	float: left;
+	width: 0.75rem;
+	height: 0.75rem;
+	background: url(../images/time_cion.png) no-repeat center center;
+	background-size:100% ;
+	margin-top: 5px;
+	margin-right: 5px;
+}
