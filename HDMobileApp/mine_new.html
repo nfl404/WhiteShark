@@ -7,13 +7,13 @@
 		<title></title>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/mine_new.css" />
-	</head> 
+	</head>
 
 	<body>
 		<div class="mine_tit">
 			<h1>个人中心</h1>
 		</div>
-		<div class="user_box">
+		<div class="user_box" id="hide_login">
 			<img src="images/picuser.png">
 			<div class="user_name" id="name_gai">
 				<span>username<em cite="user_namexiu"></em></span>
@@ -23,9 +23,10 @@
 				<p>18503778776</p>
 			</div>
 		</div>
-		<div class="no_user_box">
+		<div id="show_nologin" class="no_user_box" style="display: none;">
+			<!--block-->
 			<img src="images/nouser_pic.png">
-			<button class="login_now">登录</button>
+			<button class="login_now">未登录</button>
 		</div>
 		<div class="mine_main">
 			<p class="mine_main_bg"></p>
@@ -34,19 +35,23 @@
 					<span></span>
 					<p>我的评论</p>
 				</a>
-				<a href="#" class="mine_she">
+				<a href="#" class="mine_she" id="setting">
 					<span></span>
 					<p>设置</p>
 				</a>
 			</div>
 		</div>
+		<script src="js/mui.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script src="js/app.js"></script>
-		<script type="text/javascript" src="js/mine.js" ></script>
-		<script>
+<!--		<script type="text/javascript" src="js/mine.js"></script>-->	
+	<script>
+			///document.getElementById("show_nologin").style.display="block";  setting
+			mui.init();
+			(function($) {
 				mui('#name_gai').on('tap', 'em', function() {
 					mui.openWindow({
-					id: 'name_xiu',
+						id: 'name_xiu',
 						url: 'xiu_name.html',
 						styles: {
 							popGesture: 'close',
@@ -55,15 +60,134 @@
 					});
 				});
 				mui('.mine_box').on('tap', '#ping', function() {
-				mui.openWindow({
-				id: 'mine_comment',
-				url: 'mine_comment.html',
-				styles: {
-					popGesture: 'close',
-				},
-				createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
-			});
-			});
+					mui.openWindow({
+						id: 'mine_comment',
+						url: 'mine_comment.html',
+						styles: {
+							popGesture: 'close',
+						},
+						createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+					});
+				});
+				mui('.mine_box').on('tap', '#setting', function() {
+					mui.openWindow({
+						id: 'setting',
+						url: 'mine/setting.html',
+						styles: {
+							popGesture: 'close',
+						},
+						createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+					});
+				});
+
+				var network = true;
+				if(mui.os.plus) {
+					mui.plusReady(function() {
+						if(plus.networkinfo.getCurrentType() == plus.networkinfo.CONNECTION_NONE) {
+							network = false;
+						}
+					});
+				}
+				//初始化時判断是否登录
+				var ws;
+				mui.plusReady(function plusReady() {
+					ws = plus.device.uuid.toString();
+					if(network) {
+						ajax();
+					} else {
+						mui.toast("当前网络不给力，请稍后再试");
+					}
+				});
+
+				var obj;
+				//验证码回调函数
+				var success = function(response) {
+					var dataType = 'json';
+					if(dataType === 'json') {
+						response = JSON.stringify(response);
+					} else if(dataType === 'xml') {
+						response = new XMLSerializer().serializeToString(response).replace(/</g, "&lt;").replace(/>/g, "&gt;");
+					}
+					obj = eval('(' + response + ')');
+					console.log("判断登录：：：：" + JSON.stringify(obj.status));
+					if(obj.status == "200") {
+//						document.getElementById("islogin").innerHTML = "已登录";
+						document.getElementById("hide_login").style.display="block";
+						document.getElementById("show_nologin").style.display="none";
+					} else {
+						mui.openWindow({
+							id: 'login_new.html',
+							url: 'mine/login_new.html',
+							styles: {
+								popGesture: 'close',
+							},
+							createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+						});
+//						document.getElementById("islogin").innerHTML = "未登录";
+						document.getElementById("show_nologin").style.display="block";
+						document.getElementById("hide_login").style.display="none";
+					}
+
+				};
+				var ajax = function() {
+					//利用RunJS的Echo Ajax功能测试http://139.224.218.195/fuwu/api/
+					var url = 'http://139.224.218.195/fuwu/api/is_login.php';
+					//请求方式，默认为Get；
+					var type = 'post';
+					//预期服务器范围的数据类型
+					var dataType = 'json';
+					//发送数据
+					var data = {
+						mac: ws,
+					};
+					$.post(url, data, success, dataType);
+				};
+
+				//登录
+				document.getElementById("show_nologin").addEventListener('tap', function() {
+
+					//					window.open ('mine/login.html');
+					if(network) {
+						ajax();
+					} else {
+						mui.toast("当前网络不给力，请稍后再试");
+					}
+//					alert("我要登录");
+
+				});
+				//版本号
+//				document.getElementById("myvervice").addEventListener('tap', function() {
+//					alert("当前版本为1.0");
+//				});
+				//设置
+//				document.getElementById("mysetting").addEventListener('tap', function() {
+//					mui.openWindow({
+//						id: 'setting.html',
+//						url: 'mine/setting.html',
+//						styles: {
+//							popGesture: 'close',
+//						},
+//						createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+//					});
+//				});
+//				//公告
+//				document.getElementById("myannouncement").addEventListener('tap', function() {
+//
+//					alert("公告.........");
+//				});
+
+				//设置全局beforeSend
+				$.ajaxSettings.beforeSend = function(xhr, setting) {
+					//beforeSend演示,也可在$.ajax({beforeSend:function(){}})中设置单个Ajax的beforeSend
+					console.log('beforeSend:::' + JSON.stringify(setting));
+				};
+				//设置全局complete
+				$.ajaxSettings.complete = function(xhr, status) {
+						console.log('complete:::' + status);
+					}
+					//监听“plusready”事件
+
+			}(mui));
 		</script>
 	</body>
 
