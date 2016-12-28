@@ -46,11 +46,12 @@
 						<span id="like_num">0</span>
 					</div>
 				</div>
-				<div class="oper_two" id="shuru" style="display: none;">
-					<form>
+				<div class="oper_two" id="shuru">
+					<div class="shuru_box">
 						<textarea id="contentId" placeholder="写评论"></textarea>
 						<button type="submit">提交</button>
-					</form>
+					</div>
+					<div class="shuru_bg"></div>
 				</div>
 			</div>
 		</footer>
@@ -60,28 +61,32 @@
 	<script src="js/mui.zoom.js"></script>
 	<script src="js/mui.previewimage.js"></script>
 	<script src="js/common.js"></script>
-	<!--<script src="js/info.js"></script>-->
-	
-	<script>
-		 function stopPropagation(e) {  
-	        if (e.stopPropagation)  
-	            e.stopPropagation();  
-	        else  
-	            e.cancelBubble = true;  
-	    }  
-	  
-	    $(document).bind('click', function() {  
-	        $('#shuru').css('display', 'none');  
-	    });  
-	  
-	    $('#xie').bind('click', function(e) {  
-	        stopPropagation(e); 
-	        $("#shuru").show();
-	    });  
-	    $('#shuru').bind('click', function(e) {  
-	        stopPropagation(e); 
-	        $("this").show();
-	    }); 
+	<script> 
+		$("#shuru").hide();
+		$("#xie").click(
+			function() {
+				$("#shuru").show();
+			}
+		);
+		$("#shuru").click(function (e) {
+		    var drag = $(".shuru_box"),
+		        dragel = $(".shuru_box")[0],
+		        target = e.target;
+		    if (dragel !== target && !$.contains(dragel, target)) {
+		       drag.parent().hide();
+		    }
+		});
+//		$("#shuru").
+		//		$("#shuru button").click(function() {
+		//			var content = document.getElementById("contentId").value;
+		//			sendComment(1, 1, content);
+		//			$("#shuru").hide();
+		//		});
+		mui('#shuru').on('tap', 'button', function() {
+			var content = document.getElementById("contentId").value;
+			sendComment(1, 1, content);
+			$("#shuru").hide();
+		});
 
 		function reinitIframe() {
 			var iframe = document.getElementById("iframepage");
