@@ -59,35 +59,67 @@
 	</header>
 	<div class="search-box">
 		<input id = "oldname" type="text" class="search lf" placeholder="请输入昵称" >
-    	<button id = "modify" type="submit" class="search_btn">保存</button>
+    	<button id = "modify"  class="search_btn">保存</button>
 	</div>
     
     <script src="libs/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="js/mui.min.js" ></script>
-    <script>
+    <script>//Common.setValueForKey(obj1.result.name,"username");
+    	mui.init();
     	(function($) {
     		var newname = document.getElementById('oldname');
-    		
+    		 //http://192.168.0.112/
     		document.getElementById("modify").addEventListener('tap', function(event) {
-    					mui.ajax('http://192.168.0.112/fuwu/api/addValue.php',{
-    						data:{
-    							action:"change",
-    							id:
-    							name:newname.value
-    						},
-    						dataType:'json',//服务器返回json格式数据
-    						type:'post',//HTTP请求类型
-    						timeout:10000,//超时时间设置为10秒；
-    						success:function(data){
-    							
-    						},
-    						error:function(xhr,type,errorThrown){
-    							
-    						}
-    					});
+    			alert(1);
+//  					mui.ajax('http://139.224.133.135/fuwu/api/addValue.php',{
+//  						data:{
+//  							action:"change",
+//  							id: plus.storage.getItem("userid"),
+//  							name:newname.value
+//  						},
+//  						dataType:'json',//服务器返回json格式数据
+//  						type:'post',//HTTP请求类型
+//  						timeout:10000,//超时时间设置为10秒；
+//  						success:function(data){
+//  							console.log('beforeSend:::' + JSON.stringify(data));
+//  						},
+//  							error:function(xhr,type,errorThrown){
+//  							
+//  						}
+//  					});
+    						var obj1;
+							var success = function(response) {
+								var dataType = 'json';
+								if(dataType === 'json') {
+									response = JSON.stringify(response);
+								} else if(dataType === 'xml') {
+									response = new XMLSerializer().serializeToString(response).replace(/</g, "&lt;").replace(/>/g, "&gt;");
+								}
+								obj1 = eval('(' + response + ')');
+								console.log("登录成功：：：：" + JSON.stringify(obj1));
+								if(obj1.status ==)
+							};
+							
+	    					var ajax = function() {
+		//					var url = "http://192.168.0.112/fuwu/api/login.php";
+							var url = 'http://139.224.133.135/fuwu/api/addValue.php';
+							//请求方式，默认为Get；
+							var type = 'post';
+							//预期服务器范围的数据类型
+							var dataType = 'json';
+							//发送数据
+							var data = {
+								action:"change",
+	    						id: plus.storage.getItem("userid"),
+	    						name:newname.value
+							};
+							$.post(url, data, success, dataType);
+						};
+    					
+    				ajax();	
+    					
 				});
     		;}(mui));
-    	
     	
     	
     </script>

@@ -72,13 +72,15 @@
 		 * @param {Object} value
 		 */
 		setUserid: function(value) {
+			console.log(11111111111111111111);
 		 	plus.storage.setItem("userid",value);
 		},
 		/**
 		 * 读取用户id
 		 */
 		getUserid: function() {
-			return plus.storage.getItem("userid")
+			console.log(22222222222222222222);
+			return plus.storage.getItem("userid");
 		},
 		/**
 		 * 修改或添加键值(key-value)对数据到应用数据存储中
@@ -120,7 +122,20 @@
 				console.log('storage共存'+numKeys+'个值,'+'第'+i+'个'+keyNames[i]+'：'+values[i]);
 			}
 			
+		},
+		/**
+		 * 判断用户是否登录 
+		 */
+		setisLogin: function(value) {
+	 		plus.storage.setItem("islong",value);
+		},
+		/**
+		 * 读取值，如果是1表示登录，如果是0表示未登录
+		 */
+		getisLogin: function() {
+			return plus.storage.getItem("islong");
 		}
+		
 	};
 	return Common;
 }));
