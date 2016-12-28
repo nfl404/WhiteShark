@@ -47,10 +47,10 @@
 					</div>
 				</div>
 				<div class="oper_two" id="shuru" style="display: none;">
-					<form>
+					<!--<form>-->
 						<textarea id="contentId" placeholder="写评论"></textarea>
 						<button type="submit">提交</button>
-					</form>
+					<!--</form>-->
 				</div>
 			</div>
 		</footer>
@@ -82,6 +82,25 @@
 	        stopPropagation(e); 
 	        $("this").show();
 	    }); 
+	    
+	    $("#shuru").hide();
+		$("#xie").click(
+			function() {
+				$("#shuru").show();
+			}
+		);
+		//		$("#shuru button").click(function() {
+		//			var content = document.getElementById("contentId").value;
+		//			sendComment(1, 1, content);
+		//			$("#shuru").hide();
+		//		});
+		mui('#shuru').on('tap', 'button', function() {
+			var content = document.getElementById("contentId").value;
+			sendComment(1, 1, content);
+			$("#shuru").hide();
+		});
+	    
+	    
 
 		function reinitIframe() {
 			var iframe = document.getElementById("iframepage");
@@ -179,7 +198,7 @@
 		 */
 		var getInformationList = function(articleId) {
 			var waiting = Common.showWaiting();
-			mui.ajax('http://192.168.0.112/fuwu/api/article.php', {
+			mui.ajax(Common.domain+'/fuwu/api/article.php', {
 				data: {
 					action: 'check',
 					id: 1
@@ -213,7 +232,7 @@
 		 */
 		var sendComment = function(userId, articleId, commentContent) {
 			var waiting = Common.showWaiting();
-			mui.ajax('http://192.168.0.112/fuwu/api/addValue.php', {
+			mui.ajax(Common.domain+'/fuwu/api/addValue.php', {
 				data: {
 					action: 'comment',
 					userid: userId,
@@ -225,7 +244,8 @@
 				timeout: 10000, //超时时间设置为10秒；
 				success: function(data) {
 					Common.closeWaiting(waiting);
-					alert('评论已成功...')
+					mui.toast('评论已成功...');
+//					alert('评论已成功...')
 				},
 				error: function(xhr, type, errorThrown) {
 					Common.closeWaiting(waiting);
@@ -241,7 +261,7 @@
 		 */
 		var sendLike = function(articleId) {
 			var waiting = Common.showWaiting();
-			mui.ajax('http://192.168.0.112/fuwu/api/addValue.php', {
+			mui.ajax(Common.domain+'/fuwu/api/addValue.php', {
 				data: {
 					action: 'like',
 					id: articleId
@@ -251,7 +271,7 @@
 				timeout: 10000, //超时时间设置为10秒；
 				success: function(data) {
 					Common.closeWaiting(waiting);
-					alert('点赞已成功...');
+					mui.toast('点赞已成功...',{ duration:'short', type:'div' }) ;
 				},
 				error: function(xhr, type, errorThrown) {
 					Common.closeWaiting(waiting);
