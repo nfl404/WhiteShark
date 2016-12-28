@@ -9,7 +9,7 @@
 				}],
 				preloadLimit: 5 //预加载窗口数量限制(一旦超出,先进先出)默认不限制
 			});
-			var subpages = ['home_copy.html', 'trend.html', 'find.html', 'mine.html'];
+			var subpages = ['home_copy.html', 'trend.html', 'find.html', 'mine_new.html'];
 			var subpage_style = {
 				top: '0px',
 				bottom: '51px'
