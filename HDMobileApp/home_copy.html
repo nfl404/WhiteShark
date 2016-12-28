@@ -248,73 +248,34 @@
 					});
 				});
 
-				var createFragment = function(ul, index, data, reverse) {
+				var createFragment = function(ul, index, data) {
 					var fragment = document.createDocumentFragment();
 					var li;
-//					console.log("dasfas   " + JSON.stringify(data));
 					for(var i = 0; i < data.result.length; i++) {
 						li = document.createElement('li');
 						var num = Math.round(Math.random() * 2 + 1);
 						if(num == 1) {
 							li.className = 'mui-table-view-cell mui-media';
-							li.innerHTML = '<div class="card1"><a href="information_details.html" id="'+(data.result[i].id)+'" deburl="'+(data.result[i].deburl)+'" likes="'+(data.result[i].likes)+'"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><img src= ' + (data.result[i].arr[1]) + '><img src=' + (data.result[i].arr[2]) + '><img src=' + (data.result[i].arr[3]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+							li.innerHTML = '<div class="card1"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><img src= ' + (data.result[i].arr[1]) + '><img src=' + (data.result[i].arr[2]) + '><img src=' + (data.result[i].arr[3]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 						} else if(num == 2) {
 							//卡片2
 							li.className = 'mui-table-view-cell mui-media';
-							li.innerHTML = '<div class="card2"><a href="information_details.html" id="'+(data.result[i].id)+'" deburl="'+(data.result[i].deburl)+'" likes="'+(data.result[i].likes)+'"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src=' + (data.result[i].arr[1]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+							li.innerHTML = '<div class="card2"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src=' + (data.result[i].arr[1]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 						} else {
 							//卡片3
 							li.className = 'mui-table-view-cell mui-media';
-							li.innerHTML = '<div class="card3"><a href="information_details.html" id="'+(data.result[i].id)+'" deburl="'+(data.result[i].deburl)+'" likes="'+(data.result[i].likes)+'"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].arr[0] + '</h2><p>' + data.result[i].arr[0] + '</p></div><div class="card3_pic"><img src=' + (data.result[i].arr[1]) + '></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+							li.innerHTML = '<div class="card3"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].arr[0] + '</h2><p>' + data.result[i].arr[0] + '</p></div><div class="card3_pic"><img src=' + (data.result[i].arr[1]) + '></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 						}
 						fragment.appendChild(li);
 						Common.closeWaiting(waiting);
 					}
 					return fragment;
 				};
+				var firstId;
 				var latestId;
 				var waiting;
-				var tab_type = 1; //ul, index, reverse, page
-				var agnix = function(ul, index, reverse, page, id) {
-					var type_index = catidWithIndex(index);
-					var data;
-					if(reverse) {
-						data = {
-							type: 1,
-							subtype: 0,
-							page: page,
-							id: id,
-							action: "referesh",
-						}
-
-					} else {
-						data = {
-							type: 1,
-							subtype: 0,
-							page: page,
-						}
-					}
-					mui.ajax(Common.domain + '/fuwu/api/article.php', {
-						data: data,
-						dataType: 'json', //服务器返回json格式数据
-						type: 'post', //HTTP请求类型
-						timeout: 10000, //超时时间设置为10秒；
-						success: function(data) {
-							console.log('success:::' + JSON.stringify(data));					
-							if(data.status == "200") {
-								if(reverse) {
-									ul.insertBefore(createFragment(ul, index, data, true), ul.firstChild);
-								} else {
-									ul.appendChild(createFragment(ul, index, data));
-								}
-							}
-							Common.closeWaiting(waiting);
-						},
-						error: function(xhr, type, errorThrown) {
-							Common.closeWaiting(waiting);
-						}
-					});
-				};
+				var tab_type = 1;
+				var agnix;
 
 				var catidWithIndex = function(index) {
 					var catid;
@@ -369,89 +330,342 @@
 					}
 					return catid;
 				};
-				var page0 = 1;
-				var page1 = 1;
-				var page2 = 1;
-				var page3 = 1;
-				var page4 = 1;
-				var page5 = 1;
-				var page6 = 1;
-				var page7 = 1;
-				var page8 = 1;
-				var pageWithReverseAndIndex = function(index) {
-					var page;
+
+				var firstId0;
+				var firstId1;
+				var firstId2;
+				var firstId3;
+				var firstId4;
+				var firstId5;
+				var firstId6;
+				var firstId7;
+				var firstId8;
+
+				var setFirstIdWithTypeAndIndex = function(index, firstId) {
 					switch(index) {
-						//推荐
 						case 0:
 							{
-								page0++;
-								page = page0;
+								firstId0 = firstId;
 							}
 							break;
-							//热点
 						case 1:
 							{
-								page1++;
-								page = page1;
+								firstId1 = firstId;
 							}
 							break;
-							//上海
 						case 2:
 							{
-								page2++;
-								page = page2;
+								firstId2 = firstId;
 							}
 							break;
-							//社会
 						case 3:
 							{
-								page3++;
-								page = page3;
+								firstId3 = firstId;
 							}
 							break;
-							//娱乐
 						case 4:
 							{
-								page4++;
-								page = page4;
+								firstId4 = firstId;
 							}
 							break;
-							//科技
 						case 5:
 							{
-								page5++;
-								page = page5;
+								firstId5 = firstId;
 							}
 							break;
 						case 6:
 							{
-								page6++;
-								page = page6; //展览
+								firstId6 = firstId;
 							}
 							break;
 						case 7:
 							{
-								page7++;
-								page = page7; //艺术市场
+								firstId7 = firstId;
 							}
 							break;
 						case 8:
 							{
-								page8++;
-								page = page8; //收藏品
+								firstId8 = firstId;
 							}
 							break;
 						default:
 							break;
-
 					}
-					return page;
+				};
+
+				var getFirstIdWithTypeAndIndex = function(index) {
+					var value;
+					switch(index) {
+						case 0:
+							{
+								value = firstId0;
+							}
+							break;
+						case 1:
+							{
+								value = firstId1;
+							}
+							break;
+						case 2:
+							{
+								value = firstId2;
+							}
+							break;
+						case 3:
+							{
+								value = firstId3;
+							}
+							break;
+						case 4:
+							{
+								value = firstId4;
+							}
+							break;
+						case 5:
+							{
+								value = firstId5;
+							}
+							break;
+						case 6:
+							{
+								value = firstId6;
+							}
+							break;
+						case 7:
+							{
+								value = firstId7;
+							}
+							break;
+						case 8:
+							{
+								value = firstId8;
+							}
+							break;
+						default:
+							break;
+					}
+					return value;
+				};
+
+				var lastId0;
+				var lastId1;
+				var lastId2;
+				var lastId3;
+				var lastId4;
+				var lastId5;
+				var lastId6;
+				var lastId7;
+				var lastId8;
+
+				var setLastIdWithTypeAndIndex = function(index, lastId) {
+					switch(index) {
+						case 0:
+							{
+								lastId0 = lastId;
+							}
+							break;
+						case 1:
+							{
+								lastId1 = lastId;
+							}
+							break;
+						case 2:
+							{
+								lastId2 = lastId;
+							}
+							break;
+						case 3:
+							{
+								lastId3 = lastId;
+							}
+							break;
+						case 4:
+							{
+								lastId4 = lastId;
+							}
+							break;
+						case 5:
+							{
+								lastId5 = lastId;
+							}
+							break;
+						case 6:
+							{
+								lastId6 = lastId;
+							}
+							break;
+						case 7:
+							{
+								lastId7 = lastId;
+							}
+							break;
+						case 8:
+							{
+								lastId8 = lastId;
+							}
+							break;
+						default:
+							break;
+					}
+				};
+
+				var getLastIdWithTypeAndIndex = function(index) {
+					var value;
+					switch(index) {
+						case 0:
+							{
+								value = lastId0;
+							}
+							break;
+						case 1:
+							{
+								value = lastId1;
+							}
+							break;
+						case 2:
+							{
+								value = lastId2;
+							}
+							break;
+						case 3:
+							{
+								value = lastId3;
+							}
+							break;
+						case 4:
+							{
+								value = lastId4;
+							}
+							break;
+						case 5:
+							{
+								value = lastId5;
+							}
+							break;
+						case 6:
+							{
+								value = lastId6;
+							}
+							break;
+						case 7:
+							{
+								value = lastId7;
+							}
+							break;
+						case 8:
+							{
+								value = lastId8;
+							}
+							break;
+						default:
+							break;
+					}
+					return value;
 				};
 
 				mui.plusReady(function() {
+					/**
+					 * agnix列表请求
+					 * @param {Object} ul	tableView的ul
+					 * @param {Object} index 索引
+					 * @param {Object} type  0=首次请求，1=下拉刷新，2=上拉加载
+					 * @param {Object} id    列表id
+					 */
+					agnix = function(ul, index, type, id) {
+						var type_index = catidWithIndex(index);
+						var data;
+						switch(type) {
+							case 0:
+								{
+									data = {
+										type: type_index,
+										subtype: 0,
+									}
+								}
+								break;
+							case 1:
+								{
+									data = {
+										type: type_index,
+										subtype: 0,
+										id: id,
+										action: "referesh",
+									}
+								}
+								break;
+							case 2:
+								{
+									data = {
+										type: type_index,
+										subtype: 0,
+										id: id
+									}
+								}
+								break;
+							default:
+								break;
+						}
+						console.log('请求参数：：：：：'+JSON.stringify(data));
+						mui.ajax(Common.domain + '/fuwu/api/article.php', {
+							data: data,
+							dataType: 'json', //服务器返回json格式数据
+							type: 'post', //HTTP请求类型
+							timeout: 10000, //超时时间设置为10秒；
+							success: function(data) {
+								console.log('success:::' + JSON.stringify(data));
+								if(data.status == "200") {
+									switch(type) {
+										case 0:
+											{
+												if(data.result.length !== 0) {
+													setFirstIdWithTypeAndIndex(index, data.result[0].id);
+													setLastIdWithTypeAndIndex(index, data.result[data.result.length - 1].id);
+												}
+												ul.appendChild(createFragment(ul, index, data));
+												console.log(000000);
+											}
+											break;
+										case 1:
+											{
+												if(index === 0) {
+													if(data.result.length !== 0) {
+														setFirstIdWithTypeAndIndex(index, data.result[0].id);
+													}
+													ul.insertBefore(createFragment(ul, index, data), ul.firstChild);
+												} else {
+													if(data.result.length !== 0) {
+														setFirstIdWithTypeAndIndex(index, data.result[0].id);
+													}
+													ul.insertBefore(createFragment(ul, index, data), ul.firstChild);
+												}
+												console.log(111111);
+											}
+											break;
+										case 2:
+											{
+												setLastIdWithTypeAndIndex(index, data.result[data.result.length - 1].id);
+												ul.appendChild(createFragment(ul, index, data));
+												console.log(22222);
+											}
+											break;
+										default:
+											break;
+									}
+								}
+								Common.closeWaiting(waiting);
+							},
+							error: function(xhr, type, errorThrown) {
+								Common.closeWaiting(waiting);
+							}
+						});
+					};
+
+					/**
+					 *	首页列表遍历请求 
+					 */
 					waiting = Common.showWaiting();
 					mui('.mui-slider-group .mui-table-view').each(function(index, element) {
-						agnix(element, index, 0, 0, 1);
+						agnix(element, index, 0, 0);
 						mui('#list' + (index) + '').on('tap', 'a', function() {
 							var href = this.href;
 							var articleid = this.getAttribute('id');
@@ -471,7 +685,7 @@
 								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
 							});
 						});
-					})
+					});
 				});
 
 				$.ready(function() {
@@ -483,8 +697,9 @@
 									var self = this;
 									setTimeout(function() {
 										var ul = self.element.querySelector('.mui-table-view');
-										var page = pageWithReverseAndIndex(index);
-										agnix(ul, index, true, 1);
+										var firstId = getFirstIdWithTypeAndIndex(index);
+										console.log('sss' + firstId);
+										agnix(ul, index, 1, firstId);
 										self.endPullDownToRefresh();
 									}, 1000);
 								}
@@ -494,9 +709,9 @@
 									var self = this;
 									setTimeout(function() {
 										var ul = self.element.querySelector('.mui-table-view');
-										var page = pageWithReverseAndIndex(index);
-										latestId = document.getElementById("idvalue").value;
-										agnix(ul, index, false, page, latestId);
+										var lastId = getLastIdWithTypeAndIndex(index);
+										console.log('aaaa' + lastId);
+										agnix(ul, index, 2, lastId);
 										self.endPullUpToRefresh();
 									}, 1000);
 								}
