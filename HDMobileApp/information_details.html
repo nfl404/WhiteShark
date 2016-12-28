@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -46,11 +45,12 @@
 						<span id="like_num">0</span>
 					</div>
 				</div>
-				<div class="oper_two" id="shuru" style="display: none;">
-					<!--<form>-->
-						<textarea id="contentId" placeholder="写评论"></textarea>
+				<div class="oper_two" id="shuru">
+					<div class="shuru_box">
+						<textarea id="contentId" rows="3" placeholder="写评论"></textarea>
 						<button type="submit">提交</button>
-					<!--</form>-->
+					</div>
+					<div class="shuru_bg"></div>
 				</div>
 			</div>
 		</footer>
@@ -61,46 +61,27 @@
 	<script src="js/mui.previewimage.js"></script>
 	<script src="js/common.js"></script>
 	<!--<script src="js/info.js"></script>-->
-	
 	<script>
-		 function stopPropagation(e) {  
-	        if (e.stopPropagation)  
-	            e.stopPropagation();  
-	        else  
-	            e.cancelBubble = true;  
-	    }  
-	  
-	    $(document).bind('click', function() {  
-	        $('#shuru').css('display', 'none');  
-	    });  
-	  
-	    $('#xie').bind('click', function(e) {  
-	        stopPropagation(e); 
-	        $("#shuru").show();
-	    });  
-	    $('#shuru').bind('click', function(e) {  
-	        stopPropagation(e); 
-	        $("this").show();
-	    }); 
-	    
-	    $("#shuru").hide();
+		$("#shuru").hide();
 		$("#xie").click(
 			function() {
 				$("#shuru").show();
 			}
 		);
-		//		$("#shuru button").click(function() {
-		//			var content = document.getElementById("contentId").value;
-		//			sendComment(1, 1, content);
-		//			$("#shuru").hide();
-		//		});
+		$("#shuru").click(function(e) {
+			var drag = $(".shuru_box"),
+				dragel = $(".shuru_box")[0],
+				target = e.target;
+			if(dragel !== target && !$.contains(dragel, target)) {
+				drag.parent().hide();
+			}
+		});
+
 		mui('#shuru').on('tap', 'button', function() {
 			var content = document.getElementById("contentId").value;
 			sendComment(1, 1, content);
 			$("#shuru").hide();
 		});
-	    
-	    
 
 		function reinitIframe() {
 			var iframe = document.getElementById("iframepage");
@@ -197,8 +178,8 @@
 		 * @param {Object} articleId  文章id
 		 */
 		var getInformationList = function(articleId) {
-			var waiting = Common.showWaiting();
-			mui.ajax(Common.domain+'/fuwu/api/article.php', {
+//			var waiting = Common.showWaiting();
+			mui.ajax(Common.domain + '/fuwu/api/article.php', {
 				data: {
 					action: 'check',
 					id: 1
@@ -207,7 +188,7 @@
 				type: 'post', //HTTP请求类型
 				timeout: 10000, //超时时间设置为10秒；
 				success: function(data) {
-					Common.closeWaiting(waiting);
+//					Common.closeWaiting(waiting);
 					var result = JSON.stringify(data);
 					console.log('result：：：：' + result);
 					$("#comment_num").text(data.result.commentnum);
@@ -232,7 +213,7 @@
 		 */
 		var sendComment = function(userId, articleId, commentContent) {
 			var waiting = Common.showWaiting();
-			mui.ajax(Common.domain+'/fuwu/api/addValue.php', {
+			mui.ajax(Common.domain + '/fuwu/api/addValue.php', {
 				data: {
 					action: 'comment',
 					userid: userId,
@@ -245,7 +226,7 @@
 				success: function(data) {
 					Common.closeWaiting(waiting);
 					mui.toast('评论已成功...');
-//					alert('评论已成功...')
+					//					alert('评论已成功...')
 				},
 				error: function(xhr, type, errorThrown) {
 					Common.closeWaiting(waiting);
@@ -261,7 +242,7 @@
 		 */
 		var sendLike = function(articleId) {
 			var waiting = Common.showWaiting();
-			mui.ajax(Common.domain+'/fuwu/api/addValue.php', {
+			mui.ajax(Common.domain + '/fuwu/api/addValue.php', {
 				data: {
 					action: 'like',
 					id: articleId
@@ -271,7 +252,10 @@
 				timeout: 10000, //超时时间设置为10秒；
 				success: function(data) {
 					Common.closeWaiting(waiting);
-					mui.toast('点赞已成功...',{ duration:'short', type:'div' }) ;
+					mui.toast('点赞已成功...', {
+						duration: 'short',
+						type: 'div'
+					});
 				},
 				error: function(xhr, type, errorThrown) {
 					Common.closeWaiting(waiting);

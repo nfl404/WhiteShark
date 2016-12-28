@@ -58,11 +58,38 @@
 		
 	</header>
 	<div class="search-box">
-		<input type="text" class="search lf" placeholder="请输入昵称" value="">
-    	<button type="submit" class="search_btn">保存</button>
+		<input id = "oldname" type="text" class="search lf" placeholder="请输入昵称" >
+    	<button id = "modify" type="submit" class="search_btn">保存</button>
 	</div>
     
     <script src="libs/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="js/mui.min.js" ></script>
+    <script>
+    	(function($) {
+    		var newname = document.getElementById('oldname');
+    		
+    		document.getElementById("modify").addEventListener('tap', function(event) {
+    					mui.ajax('http://192.168.0.112/fuwu/api/addValue.php',{
+    						data:{
+    							action:"change",
+    							id:
+    							name:newname.value
+    						},
+    						dataType:'json',//服务器返回json格式数据
+    						type:'post',//HTTP请求类型
+    						timeout:10000,//超时时间设置为10秒；
+    						success:function(data){
+    							
+    						},
+    						error:function(xhr,type,errorThrown){
+    							
+    						}
+    					});
+				});
+    		;}(mui));
+    	
+    	
+    	
+    </script>
 </body>
 </html>

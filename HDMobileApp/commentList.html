@@ -125,7 +125,7 @@
 			 * 	获取评论列表
 			 */
 			var getCommetnList = function(articleId, commentId, page, refresh) {
-				var waiting = Common.showWaiting();
+//				var waiting = Common.showWaiting();
 				var data;
 				if(refresh) {
 					data = {
@@ -147,7 +147,7 @@
 					type: 'post', //HTTP请求类型
 					timeout: 10000, //超时时间设置为10秒；
 					success: function(data) {
-						Common.closeWaiting(waiting);
+//						Common.closeWaiting(waiting);
 						console.log('data:::::' + JSON.stringify(data));
 						var table = document.body.querySelector('.mui-table-view');
 						for(var i = 0; i < data.result.length; i++) {
@@ -172,7 +172,7 @@
 					},
 					error: function(xhr, type, errorThrown) {
 						console.log('error');
-						Common.closeWaiting(waiting);
+//						Common.closeWaiting(waiting);
 						if(refresh) {
 							mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
 						} else {
