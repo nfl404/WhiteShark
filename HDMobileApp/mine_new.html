@@ -23,10 +23,14 @@
 				<p>18503778776</p>
 			</div>
 		</div>
+		<div class="no_user_box">
+			<img src="images/nouser_pic.png">
+			<button class="login_now">登录</button>
+		</div>
 		<div class="mine_main">
 			<p class="mine_main_bg"></p>
 			<div class="mine_box">
-				<a href="#" class="mine_ping">
+				<a href="mine_comment.html" class="mine_ping" id="ping">
 					<span></span>
 					<p>我的评论</p>
 				</a>
@@ -41,16 +45,25 @@
 		<script type="text/javascript" src="js/mine.js" ></script>
 		<script>
 				mui('#name_gai').on('tap', 'em', function() {
+					mui.openWindow({
+					id: 'name_xiu',
+						url: 'xiu_name.html',
+						styles: {
+							popGesture: 'close',
+						},
+						createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+					});
+				});
+				mui('.mine_box').on('tap', '#ping', function() {
 				mui.openWindow({
-				id: 'name_xiu',
-				url: 'xiu_name.html',
+				id: 'mine_comment',
+				url: 'mine_comment.html',
 				styles: {
 					popGesture: 'close',
 				},
 				createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
 			});
 			});
-	
 		</script>
 	</body>
 

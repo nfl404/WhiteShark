@@ -34,8 +34,8 @@ mui.init();
 //			} 
 		}else {
 				mui.openWindow({
-					id: 'login.html',
-					url: 'mine/login.html',
+					id: 'login_new.html',
+					url: 'mine/login_new.html',
 					styles: {
 						popGesture: 'close',
 					},

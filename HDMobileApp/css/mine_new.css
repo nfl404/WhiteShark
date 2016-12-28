@@ -11,6 +11,37 @@ body{
 	color: #616161;
 	font-weight: normal;
 }
+.no_user_box{
+	display: none;
+	width: 84%;
+	margin: auto;
+	margin-top: 4rem;
+	height: 10rem;
+	background: #FFFFFF;
+	border-radius: 5px;
+	box-shadow:0 0px 5px #CCCCCC ;
+	 text-align: center;
+}
+.no_user_box img{
+	 width: 6rem;
+	 margin: auto;
+	 margin-top: -3rem;
+}
+.no_user_box button{
+	display: block;
+	width: 50%;
+	margin: auto;
+	height: 3rem;
+	margin-top: 10px;
+	border: none;
+	outline: none;
+	font-size: 1.4rem;
+	background: none;
+}
+.no_user_box button:active{
+	background-color: #f1f2f6;
+}
+
 .user_box{
 	width: 84%;
 	margin: auto;
