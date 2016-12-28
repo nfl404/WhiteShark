@@ -55,7 +55,7 @@
 								},
 								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
 							});
-							
+//							alert("登录成功")；
 
 					}else {
 							alert("验证码已过期，请重新登录");

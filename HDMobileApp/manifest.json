@@ -222,7 +222,8 @@
 				"refer": [
 					"find.html",
 					"trend.html",
-					"mine.html"
+					"mine.html",
+					"mine_new.html"
 				],
 				"priority": 0
 			},
@@ -263,7 +264,9 @@
 					"js/mine.js",
 					"js/setting.js"
 				],
-				"refer": [],
+				"refer": [
+					"mine/login_new.html"
+				],
 				"priority": 0
 			},
 			"search.html": {
@@ -292,7 +295,16 @@
 					"css/feedback-page.css",
 					"css/login.css",
 					"js/login.js",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"images/close_login.png",
+					"images/phone_icon.png",
+					"images/phone_yan.png",
+					"css/login_new.css",
+					"images/user_cuwu.png",
+					"images/login_bg.png",
+					"images/user_name_succee.png",
+					"images/picuser.png",
+					"mine/login.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -472,6 +484,30 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"libs/jquery-1.8.3.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine/login_new.html": {
+				"resources": [
+					"images/close_login.png",
+					"images/phone_icon.png",
+					"js/common.js",
+					"images/phone_yan.png",
+					"css/login_new.css",
+					"mine/login_new.html",
+					"fonts/mui.ttf",
+					"js/login.js",
+					"images/user_cuwu.png",
+					"images/login_bg.png",
+					"libs/jquery-1.8.3.min.js",
+					"images/user_name_succee.png",
+					"images/picuser.png",
+					"js/app.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"libs/jquery.min.js",
+					"libs/jquery.js"
 				],
 				"refer": [],
 				"priority": 0

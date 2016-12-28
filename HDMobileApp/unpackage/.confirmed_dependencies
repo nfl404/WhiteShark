@@ -1,0 +1,135 @@
+{
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "home_copy.html",
+      "js/index.js"
+    ],
+    "refer": [
+      "find.html",
+      "trend.html",
+      "mine.html",
+      "home_copy.html",
+      "mine_new.html"
+    ]
+  },
+  "find.html": {
+    "resources": [
+      "videoList.html"
+    ],
+    "refer": [
+      "videoList.html"
+    ]
+  },
+  "mine/login_new.html": {
+    "resources": [
+      "images/close_login.png",
+      "images/phone_icon.png",
+      "js/common.js",
+      "images/phone_yan.png",
+      "css/login_new.css",
+      "mine/login_new.html",
+      "fonts/mui.ttf",
+      "js/login.js",
+      "images/user_cuwu.png",
+      "images/login_bg.png",
+      "libs/jquery-1.8.3.min.js",
+      "images/user_name_succee.png",
+      "images/picuser.png",
+      "js/app.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "libs/jquery.min.js",
+      "libs/jquery.js"
+    ],
+    "refer": [
+      "mine/login_new.html"
+    ]
+  },
+  "home_copy.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/banner.png",
+      "libs/jquery-1.8.3.min.js",
+      "images/search.png",
+      "images/nav_bg.png",
+      "css/home.css",
+      "images/yan_icon.png",
+      "images/time_cion.png",
+      "images/zan_icon.png",
+      "js/common.js",
+      "images/logo.png",
+      "css/app.css",
+      "images/nav_bgs.png"
+    ],
+    "refer": [
+      "search.html"
+    ]
+  },
+  "mine.html": {
+    "resources": [
+      "css/mine.css",
+      "js/app.js",
+      "js/mine.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/qihoo.png"
+    ],
+    "refer": [
+      "mine/login_new.html",
+      "mine/login.html"
+    ]
+  },
+  "search.html": {
+    "resources": [
+      "css/search.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/search_search.png",
+      "libs/jquery-1.8.3.min.js",
+      "js/search.js"
+    ],
+    "refer": []
+  },
+  "mine/login.html": {
+    "resources": [
+      "js/common.js",
+      "css/login.css",
+      "fonts/mui.ttf",
+      "js/login.js",
+      "js/app.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/close_login.png",
+      "images/phone_icon.png",
+      "images/phone_yan.png",
+      "css/login_new.css",
+      "images/user_cuwu.png",
+      "images/login_bg.png",
+      "images/user_name_succee.png",
+      "images/picuser.png",
+      "mine/login.html"
+    ],
+    "refer": []
+  },
+  "mine_new.html": {
+    "resources": [
+      "js/app.js",
+      "js/mine.js",
+      "css/mine_new.css",
+      "images/mine_bg.jpg",
+      "images/she_bg.png",
+      "images/xie_icon.png",
+      "images/ping_bg.png",
+      "images/tel_icon.png",
+      "images/picuser.png"
+    ],
+    "refer": [
+      "mine/login.html"
+    ]
+  }
+}
