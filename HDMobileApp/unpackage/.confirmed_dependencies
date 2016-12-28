@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"home.html": {
 		"resources": [
 			"js/mui.pullToRefresh.js",
@@ -292,4 +293,424 @@
 			"mine/login_new.html"
 		]
 	}
+=======
+<<<<<<< HEAD
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "home_copy.html",
+      "js/index.js"
+    ],
+    "refer": [
+      "find.html",
+      "trend.html",
+      "mine.html",
+      "home_copy.html",
+      "mine_new.html"
+=======
+  "home.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "images/logo.png",
+      "css/app.css",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "images/search.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "info.html",
+      "js/common.js",
+      "js/home.js",
+      "css/home.css",
+      "search.html"
+    ],
+    "refer": [
+      "info.html",
+      "search.html"
+    ]
+  },
+  "index.html": {
+    "resources": [
+      "home.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/index.js",
+      "home_copy.html",
+      "images/nav_icon_mine.png",
+      "images/nav_icon_vido.png",
+      "images/nav_icon_bg1.png",
+      "images/nav_icon_home.png",
+      "images/nav_icon_home_active.png",
+      "images/nav_icon_vido_active.png",
+      "images/nav_icon_mine_active.png"
+    ],
+    "refer": [
+      "home.html",
+      "find.html",
+      "trend.html",
+      "mine.html",
+      "home_copy.html"
+    ]
+  },
+  "info.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/mui.previewimage.js",
+      "images/shuijiao.jpg",
+      "js/mui.min.js",
+      "js/common.js",
+      "css/inof.css",
+      "js/info.js",
+      "images/pic2.png",
+      "images/guanlian.png",
+      "images/pic1.png",
+      "libs/jquery-1.8.3.min.js",
+      "images/xie_icon.png",
+      "images/zan_icon.png"
+    ],
+    "refer": []
+  },
+  "mine.html": {
+    "resources": [
+      "js/app.js",
+      "images/qihoo.png",
+      "css/feedback-page.css",
+      "mine/login.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "mine/setting.html",
+      "css/mine.css",
+      "js/mine.js",
+      "js/setting.js"
+    ],
+    "refer": [
+      "mine/login.html",
+      "mine/setting.html",
+      "mine/login_new.html"
+    ]
+  },
+  "search.html": {
+    "resources": [
+      "images/back.png",
+      "home.html",
+      "css/search.css",
+      "libs/jquery-1.8.3.min.js",
+      "js/search.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/search.png",
+      "list.html",
+      "images/search_search.png"
+    ],
+    "refer": [
+      "home.html",
+      "list.html"
+    ]
+  },
+  "mine/login.html": {
+    "resources": [
+      "js/app.js",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/feedback-page.css",
+      "css/login.css",
+      "js/login.js",
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+  "list.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "js/mui.previewimage.js",
+      "images/shuijiao.jpg",
+      "search.html",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "search.html"
+>>>>>>> ce0ca6f526e781ffa29401caaecb64941c92b853
+    ]
+  },
+  "find.html": {
+    "resources": [
+<<<<<<< HEAD
+=======
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+>>>>>>> ce0ca6f526e781ffa29401caaecb64941c92b853
+      "videoList.html"
+    ],
+    "refer": [
+      "videoList.html"
+    ]
+  },
+<<<<<<< HEAD
+  "mine/login_new.html": {
+    "resources": [
+      "images/close_login.png",
+      "images/phone_icon.png",
+      "js/common.js",
+      "images/phone_yan.png",
+      "css/login_new.css",
+      "mine/login_new.html",
+      "fonts/mui.ttf",
+      "js/login.js",
+      "images/user_cuwu.png",
+      "images/login_bg.png",
+      "libs/jquery-1.8.3.min.js",
+      "images/user_name_succee.png",
+      "images/picuser.png",
+      "js/app.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "libs/jquery.min.js",
+      "libs/jquery.js"
+    ],
+    "refer": [
+      "mine/login_new.html"
+    ]
+  },
+=======
+  "trend.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "mine/setting.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "js/setting.js",
+      "js/mui.locker.js",
+      "js/feedback.js",
+      "css/setting.css",
+      "js/mui.view.js",
+      "images/logo.png",
+      "fonts/mui.ttf",
+      "js/app.js"
+    ],
+    "refer": []
+  },
+  "videoList.html": {
+    "refer": [
+      "demo_videoPlaySimple.html",
+      "information_details.html"
+    ],
+    "resources": [
+      "css/app.css"
+    ]
+  },
+  "demo_videoPlaySimple.html": {
+    "resources": [
+      "css/demo_videoPlaySimple.css",
+      "images/img_clickToPlay.png",
+      "js/demo_videoPlaySimple.js",
+      "js/mui.min.js",
+      "js/zepto.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+>>>>>>> ce0ca6f526e781ffa29401caaecb64941c92b853
+  "home_copy.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/banner.png",
+<<<<<<< HEAD
+      "libs/jquery-1.8.3.min.js",
+      "images/search.png",
+      "images/nav_bg.png",
+      "css/home.css",
+      "images/yan_icon.png",
+      "images/time_cion.png",
+      "images/zan_icon.png",
+      "js/common.js",
+      "images/logo.png",
+      "css/app.css",
+      "images/nav_bgs.png"
+    ],
+    "refer": [
+      "search.html"
+    ]
+  },
+  "mine.html": {
+    "resources": [
+      "css/mine.css",
+      "js/app.js",
+      "js/mine.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/qihoo.png"
+    ],
+    "refer": [
+      "mine/login_new.html",
+      "mine/login.html"
+    ]
+  },
+  "search.html": {
+    "resources": [
+      "css/search.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/search_search.png",
+      "libs/jquery-1.8.3.min.js",
+      "js/search.js"
+    ],
+    "refer": []
+  },
+  "mine/login.html": {
+    "resources": [
+      "js/common.js",
+      "css/login.css",
+      "fonts/mui.ttf",
+      "js/login.js",
+      "js/app.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/close_login.png",
+      "images/phone_icon.png",
+      "images/phone_yan.png",
+      "css/login_new.css",
+=======
+      "images/nav_bg.png",
+      "images/search.png",
+      "css/home.css",
+      "images/yan_icon.png",
+      "images/time_cion.png",
+      "images/pic2.png",
+      "images/zan_icon.png",
+      "js/common.js",
+      "images/pic1.png",
+      "images/logo.png",
+      "css/app.css",
+      "images/pic3.png",
+      "images/nav_bgs.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "info.html",
+      "search.html",
+      "libs/jquery-1.8.3.min.js"
+    ],
+    "refer": [
+      "info.html",
+      "search.html",
+      "idHtml.html",
+      "information_details.html"
+    ]
+  },
+  "information_details.html": {
+    "resources": [
+      "images/zan_icon.png",
+      "images/guanlian.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "libs/jquery-1.8.3.min.js",
+      "css/inof.css",
+      "images/xie_icon.png",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "js/common.js"
+    ],
+    "refer": [
+      "comment.html"
+    ]
+  },
+  "idHtml.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/app.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "commentList.html": {
+    "resources": [
+      "css/home.css",
+      "css/app.css",
+      "js/common.js",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js"
+    ],
+    "refer": []
+  },
+  "comment.html": {
+    "resources": [
+      "commentList.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "commentList.html"
+    ]
+  },
+  "mine/login_new.html": {
+    "resources": [
+      "images/close_login.png",
+      "js/input_demo.js",
+      "js/app.js",
+      "images/phone_yan.png",
+      "css/login_new.css",
+      "fonts/mui.ttf",
+      "js/login.js",
+      "libs/jquery-1.8.3.min.js",
+      "images/phone_icon.png",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+>>>>>>> ce0ca6f526e781ffa29401caaecb64941c92b853
+      "images/user_cuwu.png",
+      "images/login_bg.png",
+      "images/user_name_succee.png",
+      "images/picuser.png",
+<<<<<<< HEAD
+      "mine/login.html"
+    ],
+    "refer": []
+  },
+  "mine_new.html": {
+    "resources": [
+      "js/app.js",
+      "js/mine.js",
+      "css/mine_new.css",
+      "images/mine_bg.jpg",
+      "images/she_bg.png",
+      "images/xie_icon.png",
+      "images/ping_bg.png",
+      "images/tel_icon.png",
+      "images/picuser.png"
+    ],
+    "refer": [
+      "mine/login.html"
+=======
+      "mine/login_new.html"
+    ],
+    "refer": [
+      "mine/login_new.html"
+>>>>>>> ce0ca6f526e781ffa29401caaecb64941c92b853
+    ]
+  }
+>>>>>>> fa64b5e4066887a2f0d24cb597390387b65174cb
 }
