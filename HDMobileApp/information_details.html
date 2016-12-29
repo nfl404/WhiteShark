@@ -117,7 +117,6 @@
 			 * @param {Object} articleId  文章id
 			 */
 			var getInformationList = function(articleId) {
-				//			var waiting = Common.showWaiting();
 				mui.ajax(Common.domain + '/fuwu/api/article.php', {
 					data: {
 						action: 'check',
@@ -127,21 +126,22 @@
 					type: 'post', //HTTP请求类型
 					timeout: 10000, //超时时间设置为10秒；
 					success: function(data) {
-						//					Common.closeWaiting(waiting);
-						var result = JSON.stringify(data);
-						console.log('result：：：：' + result);
-						$("#comment_num").text(data.result.commentnum);
-						$("#like_num").text(data.result.likes);
-						var table = document.body.querySelector('.mui-table-view');
-						for(var i = 0; i < data.result.list.length; i++) {
-							var li = document.createElement('li');
-							li.innerHTML = '<a href="information_details.html" id="' + (data.result.list[i].id) + '" deburl="' + (data.result.list[i].deburl) + '"><h3>' + (data.result.list[i].arr[0]) + '</h3><p>华地艺术网专稿</p></a>';
-							table.appendChild(li);
+						if(data.status == 200) {
+							$("#comment_num").text(data.result.commentnum);
+							$("#like_num").text(data.result.likes);
+							var table = document.body.querySelector('.mui-table-view');
+							for(var i = 0; i < data.result.list.length; i++) {
+								var li = document.createElement('li');
+								li.innerHTML = '<a href="information_details.html" id="' + (data.result.list[i].id) + '" deburl="' + (data.result.list[i].deburl) + '"><h3>' + (data.result.list[i].arr[0]) + '</h3><p>华地艺术网专稿</p></a>';
+								table.appendChild(li);
+							}
+						} else {
+							mui.toast('新闻推荐列表获取失败...状态码('+data.status+')');
 						}
+
 					},
 					error: function(xhr, type, errorThrown) {
-						//					Common.closeWaiting(waiting);
-						console.log('获取推荐资讯列表请求 失败!!!');
+						mui.toast('服务器异常...错误描述：'+type);
 					}
 				});
 			};
@@ -165,7 +165,7 @@
 			var href = this.href;
 			var articleid = this.getAttribute('id');
 			var articleurl = this.getAttribute('deburl');
-			console.log('跳转前：：：：'+articleid+articleurl);
+			console.log('跳转前：：：：' + articleid + articleurl);
 			mui.openWindow({
 				id: articleid,
 				url: href,
@@ -186,7 +186,7 @@
 			}
 		);
 		$("#comment_list").click(function() {
-			
+
 			mui.openWindow({
 				id: 'comment.html',
 				url: 'comment.html',

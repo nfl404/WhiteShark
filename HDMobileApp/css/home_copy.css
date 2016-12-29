@@ -1,0 +1,89 @@
+.top_page {
+	margin: 0;
+	padding: 0;
+}
+
+.top_right {
+	margin: 0;
+	padding: 0;
+}
+
+.list1 {
+	overflow: hidden;
+	padding: 10px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.list1 .list_pic {
+	overflow: hidden;
+	margin: 10px 0;
+	width: 90px;
+	height: 90px;
+}
+
+.bottom_page {
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 56%;
+}
+
+.bottom_page .bottom_context {
+	padding-top: 15px;
+}
+
+.bottom_page_right {
+	/*margin: 0;*/
+	margin: 15px, 5px, 0;
+	float: right;
+}
+
+.list2-list {
+	overflow: hidden;
+	padding: 10px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.list2-left h2 {
+	font-size: 1.2rem;
+	color: #666666;
+	line-height: 1.6rem;
+	margin: 0;
+}
+
+.list2-left {
+	float: left;
+	width: 56%;
+}
+
+.list2-left h2 {
+	height: 4.8rem;
+}
+
+.list2-left p {
+	overflow: hidden;
+	padding: 0;
+	text-indent: 0;
+	font-size: 0.6rem;
+	line-height: 0.6rem;
+	margin: 10px 0;
+}
+
+.list2-left p span {
+	margin-left: 10px;
+}
+
+.list2-left p span:first-child {
+	margin-left: 0;
+}
+
+.list2-list img {
+	float: right;
+	width: 40%;
+	height: 6.4rem;
+}
+
+.card3_img {
+	width: 93px;
+	height: 100px;
+}

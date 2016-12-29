@@ -90,16 +90,14 @@ mui.plusReady(function() {
 						}
 					}
 				} else {
-					mui.toast('暂无数据...状态码(' + data.status + ')', {
-						duration: 'short',
-						type: 'div'
-					});
+					mui.toast('暂无数据...状态码('+data.status+')');
 				}
 
 				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
 				mui('#pullrefresh').pullRefresh().endPullupToRefresh();
 			},
 			error: function(xhr, type, errorThrown) {
+				mui.toast('服务器异常...');
 				var commentFirstId = 0; //评论列表第一条id
 				var commentLastId = 0; //评论列表第一条id
 				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
