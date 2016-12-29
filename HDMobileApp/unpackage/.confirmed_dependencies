@@ -98,7 +98,11 @@
       "js/common.js",
       "images/logo.png",
       "css/app.css",
-      "images/nav_bgs.png"
+      "images/nav_bgs.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/home_copy.css",
+      "js/home_copy.js"
     ],
     "refer": []
   }
