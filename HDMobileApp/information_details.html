@@ -62,6 +62,10 @@
 	<script src="js/common.js"></script>
 	<!--<script src="js/info.js"></script>-->
 	<script>
+		mui.init();
+		var articleId;
+		var articleUrl;
+		var articleLike;
 		$("#shuru").hide();
 		$("#xie").click(
 			function() {
@@ -75,12 +79,6 @@
 			if(dragel !== target && !$.contains(dragel, target)) {
 				drag.parent().hide();
 			}
-		});
-
-		mui('#shuru').on('tap', 'button', function() {
-			var content = document.getElementById("contentId").value;
-			sendComment(1, 1, content);
-			$("#shuru").hide();
 		});
 
 		function reinitIframe() {
@@ -107,19 +105,56 @@
 			window.clearInterval(timer1);
 		}
 
-		mui.init();
-		var articleId;
-		var articleUrl;
-		var articleLike;
 		mui.plusReady(function() {
 			self = plus.webview.currentWebview();
-			$("#like_num").text(self.likes);
 			articleId = self.articleid;
 			articleUrl = self.articleurl;
-			articleLike = self.likes;
 			var article_details = document.getElementById("article_details");
 			article_details.innerHTML = '<iframe src=' + (articleUrl) + ' id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="reinitIframeEND();"></iframe>';
-			console.log('文章id：：：' + articleId + '文章url：：：' + articleUrl + '文章like：：：：' + articleLike);
+			console.log('文章id：：：' + articleId + '文章url：：：' + articleUrl);
+			/**
+			 * 获取推荐资讯列表请求
+			 * @param {Object} articleId  文章id
+			 */
+			var getInformationList = function(articleId) {
+				//			var waiting = Common.showWaiting();
+				mui.ajax(Common.domain + '/fuwu/api/article.php', {
+					data: {
+						action: 'check',
+						id: articleId
+					},
+					dataType: 'json', //服务器返回html格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(data) {
+						//					Common.closeWaiting(waiting);
+						var result = JSON.stringify(data);
+						console.log('result：：：：' + result);
+						$("#comment_num").text(data.result.commentnum);
+						$("#like_num").text(data.result.likes);
+						var table = document.body.querySelector('.mui-table-view');
+						for(var i = 0; i < data.result.list.length; i++) {
+							var li = document.createElement('li');
+							li.innerHTML = '<a href="information_details.html" id="' + (data.result.list[i].id) + '" deburl="' + (data.result.list[i].deburl) + '"><h3>' + (data.result.list[i].arr[0]) + '</h3><p>华地艺术网专稿</p></a>';
+							table.appendChild(li);
+						}
+					},
+					error: function(xhr, type, errorThrown) {
+						//					Common.closeWaiting(waiting);
+						console.log('获取推荐资讯列表请求 失败!!!');
+					}
+				});
+			};
+			getInformationList(articleId);
+
+			/**
+			 *	提交评论内容 
+			 */
+			mui('#shuru').on('tap', 'button', function() {
+				var content = document.getElementById("contentId").value;
+				sendComment(1, articleId, content);
+				$("#shuru").hide();
+			});
 		});
 
 		/**
@@ -129,8 +164,8 @@
 			var id = this.getAttribute('href');
 			var href = this.href;
 			var articleid = this.getAttribute('id');
-			var likes = this.getAttribute('likes');
 			var articleurl = this.getAttribute('deburl');
+			console.log('跳转前：：：：'+articleid+articleurl);
 			mui.openWindow({
 				id: articleid,
 				url: href,
@@ -139,22 +174,27 @@
 				},
 				extras: {
 					articleid: articleid,
-					articleurl: articleurl,
-					likes: likes
-				}
+					articleurl: articleurl
+				},
+				createNew: true
 			});
 		});
 
 		$("#like").click(
 			function() {
-				sendLike(1);
+				sendLike(articleId);
 			}
 		);
 		$("#comment_list").click(function() {
+			
 			mui.openWindow({
+				id: 'comment.html',
 				url: 'comment.html',
 				styles: {
 					popGesture: 'close',
+				},
+				extras: {
+					articleid: articleId
 				}
 			});
 		});
@@ -172,40 +212,6 @@
 				console.log('complete:::' + status);
 			}
 		});
-
-		/**
-		 * 获取推荐资讯列表请求
-		 * @param {Object} articleId  文章id
-		 */
-		var getInformationList = function(articleId) {
-//			var waiting = Common.showWaiting();
-			mui.ajax(Common.domain + '/fuwu/api/article.php', {
-				data: {
-					action: 'check',
-					id: 1
-				},
-				dataType: 'json', //服务器返回html格式数据
-				type: 'post', //HTTP请求类型
-				timeout: 10000, //超时时间设置为10秒；
-				success: function(data) {
-//					Common.closeWaiting(waiting);
-					var result = JSON.stringify(data);
-					console.log('result：：：：' + result);
-					$("#comment_num").text(data.result.commentnum);
-					var table = document.body.querySelector('.mui-table-view');
-					for(var i = 0; i < data.result.list.length; i++) {
-						var li = document.createElement('li');
-						li.innerHTML = '<a id="" href="information_details.html" id="' + (data.result.list[i].id) + '" deburl="' + (data.result.list[i].deburl) + '" likes="' + (data.result.list[i].likes) + '"><h3>' + (data.result.list[i].arr[0]) + '</h3><p>华地艺术网专稿</p></a>';
-						table.appendChild(li);
-					}
-				},
-				error: function(xhr, type, errorThrown) {
-					Common.closeWaiting(waiting);
-					console.log('获取推荐资讯列表请求 失败!!!');
-				}
-			});
-		};
-		getInformationList();
 
 		/**
 		 * 发送评论请求
@@ -226,7 +232,6 @@
 				success: function(data) {
 					Common.closeWaiting(waiting);
 					mui.toast('评论已成功...');
-					//					alert('评论已成功...')
 				},
 				error: function(xhr, type, errorThrown) {
 					Common.closeWaiting(waiting);
@@ -252,6 +257,8 @@
 				timeout: 10000, //超时时间设置为10秒；
 				success: function(data) {
 					Common.closeWaiting(waiting);
+					console.log('点赞：：：：' + JSON.stringify(data));
+					$("#like_num").text(data.result.likes);
 					mui.toast('点赞已成功...', {
 						duration: 'short',
 						type: 'div'

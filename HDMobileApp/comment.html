@@ -23,19 +23,27 @@
 	</body>
 	<script src="js/mui.min.js"></script>
 	<script type="text/javascript">
-		//启用双击监听
-		mui.init({
-			gestureConfig: {
-				doubletap: true
-			},
-			subpages: [{
-				url: 'commentList.html',
-				id: 'commentList.html',
-				styles: {
-					top: '45px',
-					bottom: '0px',
-				}
-			}]
+		mui.plusReady(function() {
+			var self = plus.webview.currentWebview();
+			articleId = self.articleid;
+			console.log('子页面articleid：：：'+articleId);
+			//启用双击监听
+			mui.init({
+				gestureConfig: {
+					doubletap: true
+				},
+				subpages: [{
+					url: 'commentList.html',
+					id: 'commentList.html',
+					styles: {
+						top: '45px',
+						bottom: '0px',
+					},
+					extras: {
+						articleid: articleId
+					}
+				}]
+			});
 		});
 
 		var contentWebview = null;

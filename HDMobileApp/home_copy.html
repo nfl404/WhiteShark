@@ -605,7 +605,7 @@
 							default:
 								break;
 						}
-						console.log('请求参数：：：：：'+JSON.stringify(data));
+						console.log('请求参数：：：：：' + JSON.stringify(data));
 						mui.ajax(Common.domain + '/fuwu/api/article.php', {
 							data: data,
 							dataType: 'json', //服务器返回json格式数据
@@ -633,9 +633,7 @@
 													}
 													ul.insertBefore(createFragment(ul, index, data), ul.firstChild);
 												} else {
-													if(data.result.length !== 0) {
-														setFirstIdWithTypeAndIndex(index, data.result[0].id);
-													}
+													setFirstIdWithTypeAndIndex(index, data.result[0].id);
 													ul.insertBefore(createFragment(ul, index, data), ul.firstChild);
 												}
 												console.log(111111);
@@ -655,6 +653,7 @@
 								Common.closeWaiting(waiting);
 							},
 							error: function(xhr, type, errorThrown) {
+								console.log('失败...');
 								Common.closeWaiting(waiting);
 							}
 						});
@@ -669,7 +668,6 @@
 						mui('#list' + (index) + '').on('tap', 'a', function() {
 							var href = this.href;
 							var articleid = this.getAttribute('id');
-							var likes = this.getAttribute('likes');
 							var articleurl = this.getAttribute('deburl');
 							mui.openWindow({
 								id: articleid,
@@ -680,7 +678,6 @@
 								extras: {
 									articleid: articleid,
 									articleurl: articleurl,
-									likes: likes
 								},
 								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
 							});
