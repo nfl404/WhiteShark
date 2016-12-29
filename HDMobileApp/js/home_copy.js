@@ -479,8 +479,7 @@ mui.init();
 				var articleid = this.getAttribute('id');
 				var articleurl = this.getAttribute('deburl');
 				mui.openWindow({
-					id: articleid,
-					url: href,
+					url: 'information_details.html',
 					styles: {
 						popGesture: 'close',
 					},
@@ -488,16 +487,16 @@ mui.init();
 						articleid: articleid,
 						articleurl: articleurl,
 					},
-					createNew: false, //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
-					show: {
-						autoShow: true,
-						aniShow: 'slide-in-right',
-						duration: mui.os.ios ? 200 : 100
-					},
-					waiting: {
-						autoShow: true,
-						title: '正在加载...',
-					}
+					createNew: true, //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+//					show: {
+//						autoShow: true,
+//						aniShow: 'slide-in-right',
+//						duration: mui.os.ios ? 200 : 100
+//					},
+//					waiting: {
+//						autoShow: true,
+//						title: '正在加载...',
+//					}
 				});
 			});
 		});

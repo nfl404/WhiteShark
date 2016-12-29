@@ -60,6 +60,7 @@
 	<script src="js/mui.zoom.js"></script>
 	<script src="js/mui.previewimage.js"></script>
 	<script src="js/common.js"></script>
+	<script src="js/arttmpl.js"></script>
 	<!--<script src="js/info.js"></script>-->
 	<script>
 		mui.init();
@@ -106,6 +107,9 @@
 		}
 
 		mui.plusReady(function() {
+//			plus.webview.currentWebview().setStyle({
+//				softinputMode: "adjustResize"
+//			});
 			self = plus.webview.currentWebview();
 			articleId = self.articleid;
 			articleUrl = self.articleurl;
@@ -136,12 +140,12 @@
 								table.appendChild(li);
 							}
 						} else {
-							mui.toast('新闻推荐列表获取失败...状态码('+data.status+')');
+							mui.toast('新闻推荐列表获取失败...状态码(' + data.status + ')');
 						}
 
 					},
 					error: function(xhr, type, errorThrown) {
-						mui.toast('服务器异常...错误描述：'+type);
+						mui.toast('服务器异常...错误描述：' + type);
 					}
 				});
 			};
