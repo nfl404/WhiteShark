@@ -184,7 +184,7 @@
 					var ajax = function(act, mobile) {
 						//利用RunJS的Echo Ajax功能测试http://139.224.133.135
 //						var url = 'http://192.168.0.112/fuwu/api/login.php';
-						var url = 'http://139.224.133.135/fuwu/api/login.php';
+						var url = Common.domain + '/fuwu/api/login.php';
 						//请求方式，默认为Get；
 						var type = 'post';
 						//预期服务器范围的数据类型
@@ -223,7 +223,7 @@
 
 				var ajaxlogin = function(monile, action, code, mac) {
 //					var url = "http://192.168.0.112/fuwu/api/login.php";
-					var url = 'http://139.224.133.135/fuwu/api/login.php';
+					var url = Common.domain + '/fuwu/api/login.php';
 					//请求方式，默认为Get；
 					var type = 'post';
 					//预期服务器范围的数据类型
