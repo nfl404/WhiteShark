@@ -36,21 +36,24 @@
 			<!--页面标题栏结束-->
 			<!--页面主内容区开始-->
 			<div class="mui-page-content">
-						<ul class="mui-table-view mui-table-view-chevron">
-							<li class="mui-table-view-cell" style="padding-top:;">
-								推送
-								<div id="lockState" class="mui-switch">
-									<div class="mui-switch-handle"></div>
-								</div>
-							</li>
-							<li class="mui-table-view-cell" style="padding-top:;">
-								关注
-								<div id="lockState" class="mui-switch">
-									<div class="mui-switch-handle"></div>
-								</div>
-							</li>
-							
-						</ul>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell" style="padding-top:;">
+						推送
+						<div id="lockState" class="mui-switch">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell" style="padding-top:;">
+						关注
+						<div id="lockState" class="mui-switch">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li id="exit" class="mui-table-view-cell" style="padding-top:;">
+						退出
+						<div class="mui-switch-handle"></div>
+					</li>
+				</ul>
 			</div>
 			<!--页面主内容区结束-->
 		</div>
@@ -102,5 +105,23 @@
 	<script src="../js/mui.locker.js"></script>
 	<script src='../js/feedback.js'></script>
 	<script src="../js/app.js"></script>
+	<script src="../js/common.js"></script>
 	<script src="../js/setting.js"></script>
+	
+	<script >
+		(function($) {
+//			document.getElementById("#exit").addEventListener('top',)
+			document.getElementById("exit").addEventListener('tap', function() {
+//					alert("当前版本为1.0");
+					if(Common.getisLogin() != 1){
+						alert("你尚未登录");
+					}else{
+						Common.setisLogin("0");
+						console.log("退出"+Common.getisLogin());
+						mui.back();
+					}
+				});
+		})(mui);
+		
+	</script>
 </html>

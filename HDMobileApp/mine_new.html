@@ -9,24 +9,25 @@
 		<link rel="stylesheet" href="css/mine_new.css" />
 	</head>
 
-	<body>
+	<body >
+		<div id="refreshhuilai">
 		<div class="mine_tit">
 			<h1>个人中心</h1>
 		</div>
 		<div class="user_box" id="hide_login">
 			<img src="images/picuser.png">
 			<div class="user_name" id="name_gai">
-				<span id = "username">username</span><em cite="user_namexiu"></em>
+				<span id="username">username</span><em cite="user_namexiu"></em>
 			</div>
 			<div class="user_tel">
 				<span class="user_tel_icon"></span>
-				<p id = "userphone">18503778776</p>
+				<p id="userphone">18503778776</p>
 			</div>
 		</div>
 		<div id="show_nologin" class="no_user_box" style="display: none;">
 			<!--block-->
 			<img src="images/nouser_pic.png">
-			<button class="login_now">未登录</button>
+			<button id="btn_login" class="login_now">未登录</button>
 		</div>
 		<div class="mine_main">
 			<p class="mine_main_bg"></p>
@@ -41,15 +42,83 @@
 				</a>
 			</div>
 		</div>
+		</div>
 		<script src="js/mui.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/common.js"></script>
-<!--		<script type="text/javascript" src="js/mine.js"></script>-->	
-	<script>
+		<!--		<script type="text/javascript" src="js/mine.js"></script>-->
+		<script>
 			///document.getElementById("show_nologin").style.display="block";  setting
 			mui.init();
+
 			(function($) {
+				
+				mui.plusReady(function() {
+//					console.log("......plusReady.....");
+					
+					islog();
+//					if(Common.getisLogin() != 1) {
+//						document.getElementById("show_nologin").addEventListener('tap', function() {
+//
+//							mui.openWindow({
+//								id: 'login_new.html',
+//								url: 'mine/login_new.html',
+//								styles: {
+//									popGesture: 'close',
+//								},
+//								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+//							});
+//
+//						});
+//
+//						document.getElementById("show_nologin").style.display = "block";
+//						document.getElementById("hide_login").style.display = "none";
+//					} else {
+//						//						var p_text = $("p").text(); //获取p元素的文本内容
+//						document.getElementById('username').innerHTML = Common.getValueForKey("username");
+//						document.getElementById('userphone').innerHTML = Common.getValueForKey("userphone");
+//						document.getElementById("hide_login").style.display = "block";
+//						document.getElementById("show_nologin").style.display = "none";
+//					}
+				});
+				
+				var islog = function(){
+					if(Common.getisLogin() != 1) {
+						document.getElementById("show_nologin").addEventListener('tap', function() {
+
+							mui.openWindow({
+								id: 'login_new',
+								url: 'mine/login_new.html',
+								styles: {
+									popGesture: 'close',
+								},
+								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+							});
+
+						});
+
+						document.getElementById("show_nologin").style.display = "block";
+						document.getElementById("hide_login").style.display = "none";
+					} else {
+						//						var p_text = $("p").text(); //获取p元素的文本内容
+						document.getElementById('username').innerHTML = Common.getValueForKey("username");
+						document.getElementById('userphone').innerHTML = Common.getValueForKey("userphone");
+						document.getElementById("hide_login").style.display = "block";
+						document.getElementById("show_nologin").style.display = "none";
+					}
+				}
+				window.addEventListener('updateBtn',function(event){
+
+});
+				var updateBtn = function(){
+					document.getElementById('btn_login').innerHTML = 'asdfadsf';
+				};
+				
+				document.getElementById("refreshhuilai").addEventListener('tap', function() {
+									console.log("hahahahahahhaha");
+									islog();
+				});
 				mui('#name_gai').on('tap', 'em', function() {
 					mui.openWindow({
 						id: 'name_xiu',
@@ -69,7 +138,7 @@
 						},
 						createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
 					});
-					
+
 				});
 				mui('.mine_box').on('tap', '#setting', function() {
 					mui.openWindow({
@@ -81,34 +150,8 @@
 						createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
 					});
 				});
-//				console.log("判断是否登录...."+Common.getisLogin());
-				mui.plusReady(function(){
-					
-					if(Common.getisLogin() != 1){
-						document.getElementById("show_nologin").addEventListener('tap', function() {
-							
-								mui.openWindow({
-									id: 'login_new.html',
-									url: 'mine/login_new.html',
-									styles: {
-										popGesture: 'close',
-									},
-									createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
-								});
-								
-						});
-						
-						document.getElementById("show_nologin").style.display="block";
-						document.getElementById("hide_login").style.display="none";
-					}else{
-//						var p_text = $("p").text(); //获取p元素的文本内容
-						document.getElementById('username').innerHTML = Common.getValueForKey("username");
-						document.getElementById('userphone').innerHTML = Common.getValueForKey("userphone");
-						document.getElementById("hide_login").style.display="block";
-						document.getElementById("show_nologin").style.display="none";
-					}
-				});
-				
+				//				console.log("判断是否登录...."+Common.getisLogin());
+
 				/*var network = true;
 				if(mui.os.plus) {
 					mui.plusReady(function() {
@@ -185,25 +228,25 @@
 
 				});*/
 				//版本号
-//				document.getElementById("myvervice").addEventListener('tap', function() {
-//					alert("当前版本为1.0");
-//				});
+				//				document.getElementById("myvervice").addEventListener('tap', function() {
+				//					alert("当前版本为1.0");
+				//				});
 				//设置
-//				document.getElementById("mysetting").addEventListener('tap', function() {
-//					mui.openWindow({
-//						id: 'setting.html',
-//						url: 'mine/setting.html',
-//						styles: {
-//							popGesture: 'close',
-//						},
-//						createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
-//					});
-//				});
-//				//公告
-//				document.getElementById("myannouncement").addEventListener('tap', function() {
-//
-//					alert("公告.........");
-//				});
+				//				document.getElementById("mysetting").addEventListener('tap', function() {
+				//					mui.openWindow({
+				//						id: 'setting.html',
+				//						url: 'mine/setting.html',
+				//						styles: {
+				//							popGesture: 'close',
+				//						},
+				//						createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+				//					});
+				//				});
+				//				//公告
+				//				document.getElementById("myannouncement").addEventListener('tap', function() {
+				//
+				//					alert("公告.........");
+				//				});
 
 				//设置全局beforeSend
 				/*$.ajaxSettings.beforeSend = function(xhr, setting) {
@@ -214,7 +257,7 @@
 				$.ajaxSettings.complete = function(xhr, status) {
 						console.log('complete:::' + status);
 					}*/
-					//监听“plusready”事件
+				//监听“plusready”事件
 
 			}(mui));
 		</script>

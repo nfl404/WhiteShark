@@ -359,7 +359,8 @@
 					"js/mui.view.js",
 					"images/logo.png",
 					"fonts/mui.ttf",
-					"js/app.js"
+					"js/app.js",
+					"js/common.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -471,59 +472,6 @@
 			"mine/login_new.html": {
 				"resources": [
 					"images/close_login.png",
-					"js/input_demo.js",
-					"js/app.js",
-					"images/phone_yan.png",
-					"css/login_new.css",
-					"fonts/mui.ttf",
-					"js/login.js",
-					"libs/jquery-1.8.3.min.js",
-					"images/phone_icon.png",
-					"js/common.js",
-					"js/mui.min.js",
-					"css/mui.min.css",
-					"images/user_cuwu.png",
-					"images/login_bg.png",
-					"images/user_name_succee.png",
-					"images/picuser.png",
-					"mine/login_new.html"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"mine_new.html": {
-				"resources": [
-					"js/app.js",
-					"js/mine.js",
-					"css/mine_new.css",
-					"js/mui.min.js",
-					"images/mine_bg.jpg",
-					"css/mui.min.css",
-					"images/she_bg.png",
-					"images/xie_icon.png",
-					"images/ping_bg.png",
-					"images/tel_icon.png",
-					"images/picuser.png"
-				],
-				"refer": [
-					"mine/login.html",
-					"xiu_name.html"
-				],
-				"priority": 0
-			},
-			"xiu_name.html": {
-				"resources": [
-					"js/mui.min.js",
-					"fonts/mui.ttf",
-					"css/mui.min.css",
-					"libs/jquery-1.8.3.min.js"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"mine/login_new.html": {
-				"resources": [
-					"images/close_login.png",
 					"images/phone_icon.png",
 					"js/common.js",
 					"images/phone_yan.png",
@@ -540,7 +488,43 @@
 					"js/mui.min.js",
 					"css/mui.min.css",
 					"libs/jquery.min.js",
-					"libs/jquery.js"
+					"libs/jquery.js",
+					"js/mui.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine_new.html": {
+				"resources": [
+					"js/app.js",
+					"js/mine.js",
+					"css/mine_new.css",
+					"js/mui.min.js",
+					"images/mine_bg.jpg",
+					"css/mui.min.css",
+					"images/she_bg.png",
+					"images/xie_icon.png",
+					"images/ping_bg.png",
+					"images/tel_icon.png",
+					"images/picuser.png",
+					"js/common.js",
+					"images/nouser_pic.png",
+					"js/mui.js"
+				],
+				"refer": [
+					"mine/login.html",
+					"xiu_name.html",
+					"mine/login_new.html",
+					"mine/setting.html"
+				],
+				"priority": 0
+			},
+			"xiu_name.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"libs/jquery-1.8.3.min.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -548,8 +532,7 @@
 		},
 		"idle": {
 			"resources": [
-				"css/mui.css",
-				"js/mui.js"
+				"css/mui.css"
 			]
 		}
 	}
