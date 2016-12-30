@@ -452,18 +452,16 @@ mui.init();
 								break;
 						}
 					} else {
-						mui.toast('暂无数据...状态码('+data.status+')');
+						mui.toast('暂无数据...状态码(' + data.status + ')');
 						self.endPullUpToRefresh();
 						self.endPullDownToRefresh();
+						Common.closeWaiting(waiting);
 					}
-
-					Common.closeWaiting(waiting);
 				},
 				error: function(xhr, type, errorThrown) {
-					self.endPullUpToRefresh();
-					self.endPullDownToRefresh();
-					mui.toast('服务器异常...错误描述：' + type);
 					Common.closeWaiting(waiting);
+					mui.toast('服务器异常...错误描述：' + xhr.status);
+
 				}
 			});
 		};
@@ -479,7 +477,7 @@ mui.init();
 				var articleid = this.getAttribute('id');
 				var articleurl = this.getAttribute('deburl');
 				mui.openWindow({
-					url: 'information_details.html',
+					url: 'informationDetails.html',
 					styles: {
 						popGesture: 'close',
 					},
@@ -488,15 +486,15 @@ mui.init();
 						articleurl: articleurl,
 					},
 					createNew: true, //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
-//					show: {
-//						autoShow: true,
-//						aniShow: 'slide-in-right',
-//						duration: mui.os.ios ? 200 : 100
-//					},
-//					waiting: {
-//						autoShow: true,
-//						title: '正在加载...',
-//					}
+					show: {
+						autoShow: true,
+						aniShow: 'slide-in-right',
+						duration: mui.os.ios ? 200 : 100
+					},
+					waiting: {
+						autoShow: true,
+						title: '正在加载...',
+					}
 				});
 			});
 		});

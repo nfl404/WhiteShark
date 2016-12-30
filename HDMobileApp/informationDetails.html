@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/inof.css" />
 		<style>
 			html,
 			body {
@@ -22,6 +23,19 @@
 				width: 100%;
 				height: 50px;
 				min-height: 50px;
+				border-top: solid 1px #bbb;
+				left: 0px;
+				bottom: 0px;
+				overflow: hidden;
+				padding: 0px 50px;
+				background-color: #fafafa;
+			}
+			
+			.inputeFooter {
+				position: fixed;
+				width: 100%;
+				height: 50px;
+				min-height: 160px;
 				border-top: solid 1px #bbb;
 				left: 0px;
 				bottom: 0px;
@@ -327,425 +341,290 @@
 	</head>
 
 	<body contextmenu="return false;">
-		<header class="mui-bar mui-bar-nav">
+		<header class="mui-bar mui-bar-nav" style="background:  white;">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">chat (聊天窗口)</h1>
+			<h1 class="mui-title">资讯详情</h1>
 		</header>
 
-		<div class="mui-content" style="background: white;">
-			<!--<div id='msg-list'>
-			</div>-->
-			<ul class="mui-table-view mui-table-view-chevron">
-
-				<li>
-					<p class="commne_nr">在冉劲松的画前，观赏品味他这些年来的油画作品，他能不为流俗所累，抗拒潮流，在写实主义的崎岖小道上踽踽独行，这需要怎样的一种心境？他有世俗的忧伤，有对于平凡人的关爱，有对于弱势群体和无助者们的深切同情。</p>
-					<p class="comment_peo"><img src="images/toupic.png"><span>评论人</span></p>
-					<p class="comment">
-						<span>2015.6.23</span><span>3：00am</span>
-					</p>
-				</li>
-
-				<li>
-					<p class="commne_nr">在冉劲松的画前，观赏品味他这些年来的油画作品，他能不为流俗所累，抗拒潮流，在写实主义的崎岖小道上踽踽独行，这需要怎样的一种心境？他有世俗的忧伤，有对于平凡人的关爱，有对于弱势群体和无助者们的深切同情。</p>
-					<p class="comment_peo"><img src="images/toupic.png"><span>评论人</span></p>
-					<p class="comment">
-						<span>2015.6.23</span><span>3：00am</span>
-					</p>
-				</li>
-
-				<li>
-					<p class="commne_nr">在冉劲松的画前，观赏品味他这些年来的油画作品，他能不为流俗所累，抗拒潮流，在写实主义的崎岖小道上踽踽独行，这需要怎样的一种心境？他有世俗的忧伤，有对于平凡人的关爱，有对于弱势群体和无助者们的深切同情。</p>
-					<p class="comment_peo"><img src="images/toupic.png"><span>评论人</span></p>
-					<p class="comment">
-						<span>2015.6.23</span><span>3：00am</span>
-					</p>
-				</li>
-
-				<li>
-					<p class="commne_nr">在冉劲松的画前，观赏品味他这些年来的油画作品，他能不为流俗所累，抗拒潮流，在写实主义的崎岖小道上踽踽独行，这需要怎样的一种心境？他有世俗的忧伤，有对于平凡人的关爱，有对于弱势群体和无助者们的深切同情。</p>
-					<p class="comment_peo"><img src="images/toupic.png"><span>评论人</span></p>
-					<p class="comment">
-						<span>2015.6.23</span><span>3：00am</span>
-					</p>
-				</li>
-
-				<li>
-					<p class="commne_nr">在冉劲松的画前，观赏品味他这些年来的油画作品，他能不为流俗所累，抗拒潮流，在写实主义的崎岖小道上踽踽独行，这需要怎样的一种心境？他有世俗的忧伤，有对于平凡人的关爱，有对于弱势群体和无助者们的深切同情。</p>
-					<p class="comment_peo"><img src="images/toupic.png"><span>评论人</span></p>
-					<p class="comment">
-						<span>2015.6.23</span><span>3：00am</span>
-					</p>
-				</li>
-
-				<li>
-					<p class="commne_nr">在冉劲松的画前，观赏品味他这些年来的油画作品，他能不为流俗所累，抗拒潮流，在写实主义的崎岖小道上踽踽独行，这需要怎样的一种心境？他有世俗的忧伤，有对于平凡人的关爱，有对于弱势群体和无助者们的深切同情。</p>
-					<p class="comment_peo"><img src="images/toupic.png"><span>评论人</span></p>
-					<p class="comment">
-						<span>2015.6.23</span><span>3：00am</span>
-					</p>
-				</li>
-
-			</ul>
+		<div class="mui-content" id="tableViewId">
+			<div class="mui-content-padded">
+				<div class="Article" id="article_details">
+					<!--<iframe src="" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="initIframeEND();"></iframe>-->
+				</div>
+			</div>
+			<div class="ass_tit">
+				<span>关联新闻</span>
+			</div>
+			<div class="Associated">
+				<ul id="list" class="mui-table-view mui-table-view-chevron" style="background: #efeff4;">
+				</ul>
+			</div>
 		</div>
-		<footer>
-			<div class="footer-left">
-				<i id='msg-image' class="mui-icon mui-icon-camera" style="font-size: 28px;"></i>
+
+		<footer class="inputeFooter" id="inputeFooterid" hidden style="z-index: 999;">
+			<div class="oper_two" id="shuru" >
+				<div class="shuru_box">
+					<textarea id="contentId" rows="3" placeholder="写评论"></textarea>
+					<button type="submit">提交</button>
+				</div>
+				<div class="shuru_bg"></div>
 			</div>
-			<div class="footer-center">
-				<textarea id='msg-text' type="text" class='input-text' placeholder="请输入评论内容"></textarea>
-				<button id='msg-sound' type="button" class='input-sound' style="display: none;">按住说话</button>
-			</div>
-			<label for="" class="footer-right">
-				<i id='msg-type' class="mui-icon mui-icon-mic"></i>
-			</label>
 		</footer>
-		<div id='sound-alert' class="rprogress">
-			<div class="rschedule"></div>
-			<div class="r-sigh">!</div>
-			<div id="audio_tips" class="rsalert">手指上滑，取消发送</div>
-		</div>
-		<script src="js/mui.min.js"></script>
-		<!--<script src="js/mui.imageViewer.js"></script>-->
-		<script src="js/arttmpl.js"></script>
 
+		<footer id="footerbackgrod">
+			<div class="oper_one">
+				<div class="oper_xie">
+					<span id="xie">写评论...</span>
+				</div>
+				<div class="oper_du">
+					<a href="#">
+						<em id="comment_list"></em>
+						<span id="comment_num">0</span>
+					</a>
+				</div>
+				<div class="oper_zan">
+					<em id="like_click"></em>
+					<span id="like_num">0</span>
+				</div>
+			</div>
+		</footer>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="libs/jquery-1.8.3.min.js"></script>
+		<script src="js/common.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			(function($, doc) {
-				var MIN_SOUND_TIME = 800;
-				$.init({
-					gestureConfig: {
-						tap: true, //默认为true
-						doubletap: true, //默认为false
-						longtap: true, //默认为false
-						swipe: true, //默认为true
-						drag: true, //默认为true
-						hold: true, //默认为false，不监听
-						release: true //默认为false，不监听
-					}
-				});
-				template.config('escape', false);
-				//$.plusReady=function(fn){fn();};
-				$.plusReady(function() {
+				/**
+				 *	mui插件初始化 
+				 */
+				mui.init();
+				/**
+				 *	mui将该事件封装成了mui.plusReady()方法，涉及到HTML5+的api，建议都写在mui.plusReady方法中。 
+				 */
+				mui.plusReady(function() {
+					/**
+					 * 可选值：
+					 * “adjustPan”- 弹出软键盘时Webview窗口自动上移，以保证当前输入框可见；
+					 * “adjustResize”- 自动调整Webview窗口大小（屏幕区域减去软键盘区域），同时自动滚动Webview保证输入框可见。 默认值为“adjustPan”。
+					 */
 					plus.webview.currentWebview().setStyle({
 						softinputMode: "adjustResize"
 					});
-//					var showKeyboard = function() {
-//						if($.os.ios) {
-//							var webView = plus.webview.currentWebview().nativeInstanceObject();
-//							webView.plusCallMethod({
-//								"setKeyboardDisplayRequiresUserAction": false
-//							});
-//						} else {
-//							var Context = plus.android.importClass("android.content.Context");
-//							var InputMethodManager = plus.android.importClass("android.view.inputmethod.InputMethodManager");
-//							var main = plus.android.runtimeMainActivity();
-//							var imm = main.getSystemService(Context.INPUT_METHOD_SERVICE);
-//							imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
-//							//var view = ((ViewGroup)main.findViewById(android.R.id.content)).getChildAt(0);
-//							imm.showSoftInput(main.getWindow().getDecorView(), InputMethodManager.SHOW_IMPLICIT);
-//							//alert("ll");
-//						}
-//					};
-//					var record = [{
-//						sender: 'zs',
-//						type: 'text',
-//						content: 'Hi，我是 MUI 小管家！'
-//					}];
-//					var ui = {
-//						body: doc.querySelector('body'),
-//						footer: doc.querySelector('footer'),
-//						footerRight: doc.querySelector('.footer-right'),
-//						footerLeft: doc.querySelector('.footer-left'),
-//						btnMsgType: doc.querySelector('#msg-type'),
-//						boxMsgText: doc.querySelector('#msg-text'),
-//						boxMsgSound: doc.querySelector('#msg-sound'),
-//						btnMsgImage: doc.querySelector('#msg-image'),
-//						areaMsgList: doc.querySelector('#msg-list'),
-//						boxSoundAlert: doc.querySelector('#sound-alert'),
-//						h: doc.querySelector('#h'),
-//						content: doc.querySelector('.mui-content')
-//					};
-//					ui.h.style.width = ui.boxMsgText.offsetWidth + 'px';
-					//alert(ui.boxMsgText.offsetWidth );
-//					var footerPadding = ui.footer.offsetHeight - ui.boxMsgText.offsetHeight;
-//					var msgItemTap = function(msgItem, event) {
-//						var msgType = msgItem.getAttribute('msg-type');
-//						var msgContent = msgItem.getAttribute('msg-content')
-//						if(msgType == 'sound') {
-//							player = plus.audio.createPlayer(msgContent);
-//							var playState = msgItem.querySelector('.play-state');
-//							playState.innerText = '正在播放...';
-//							player.play(function() {
-//								playState.innerText = '点击播放';
-//							}, function(e) {
-//								playState.innerText = '点击播放';
-//							});
-//						}
-//					};
-//					var imageViewer = new $.ImageViewer('.msg-content-image', {
-//						dbl: false
-//					});
-//					var bindMsgList = function() {
-//						//绑定数据:
-//						/*tp.bind({
-//							template: 'msg-template',
-//							element: 'msg-list',
-//							model: record
-//						});*/
-//						ui.areaMsgList.innerHTML = template('msg-template', {
-//							"record": record
-//						});
-//						var msgItems = ui.areaMsgList.querySelectorAll('.msg-item');
-//						[].forEach.call(msgItems, function(item, index) {
-//							item.addEventListener('tap', function(event) {
-//								msgItemTap(item, event);
-//							}, false);
-//						});
-//						imageViewer.findAllImage();
-//						ui.areaMsgList.scrollTop = ui.areaMsgList.scrollHeight + ui.areaMsgList.offsetHeight;
-//					};
-//					bindMsgList();
-//					window.addEventListener('resize', function() {
-//						ui.areaMsgList.scrollTop = ui.areaMsgList.scrollHeight + ui.areaMsgList.offsetHeight;
-//					}, false);
-//					var send = function(msg) {
-//						record.push(msg);
-//						bindMsgList();
-//						toRobot(msg.content);
-//					};
-//					var toRobot = function(info) {
-//						var apiUrl = 'http://www.tuling123.com/openapi/api';
-//						$.getJSON(apiUrl, {
-//							"key": 'acfbca724ea1b5db96d2eef88ce677dc',
-//							"info": info,
-//							"userid": plus.device.uuid
-//						}, function(data) {
-//							//alert(JSON.stringify(data));
-//							record.push({
-//								sender: 'zs',
-//								type: 'text',
-//								content: data.text
-//							});
-//							bindMsgList();
-//						});
-//					};
 
-//					function msgTextFocus() {
-//						ui.boxMsgText.focus();
-//						setTimeout(function() {
-//							ui.boxMsgText.focus();
-//						}, 150);
-//					}
-//					//解决长按“发送”按钮，导致键盘关闭的问题；
-//					ui.footerRight.addEventListener('touchstart', function(event) {
-//						if(ui.btnMsgType.classList.contains('mui-icon-paperplane')) {
-//							msgTextFocus();
-//							event.preventDefault();
-//						}
-//					});
-//					//解决长按“发送”按钮，导致键盘关闭的问题；
-//					ui.footerRight.addEventListener('touchmove', function(event) {
-//						if(ui.btnMsgType.classList.contains('mui-icon-paperplane')) {
-//							msgTextFocus();
-//							event.preventDefault();
-//						}
-//					});
-					//					ui.footerRight.addEventListener('touchcancel', function(event) {
-					//						if (ui.btnMsgType.classList.contains('mui-icon-paperplane')) {
-					//							msgTextFocus();
-					//							event.preventDefault();
-					//						}
-					//					});
-					//					ui.footerRight.addEventListener('touchend', function(event) {
-					//						if (ui.btnMsgType.classList.contains('mui-icon-paperplane')) {
-					//							msgTextFocus();
-					//							event.preventDefault();
-					//						}
-					//					});
-//					ui.footerRight.addEventListener('release', function(event) {
-//						if(ui.btnMsgType.classList.contains('mui-icon-paperplane')) {
-//							//showKeyboard();
-//							ui.boxMsgText.focus();
-//							setTimeout(function() {
-//								ui.boxMsgText.focus();
-//							}, 150);
-//							//							event.detail.gesture.preventDefault();
-//							send({
-//								sender: 'self',
-//								type: 'text',
-//								content: ui.boxMsgText.value.replace(new RegExp('\n', 'gm'), '<br/>')
-//							});
-//							ui.boxMsgText.value = '';
-//							$.trigger(ui.boxMsgText, 'input', null);
-//						} else if(ui.btnMsgType.classList.contains('mui-icon-mic')) {
-//							ui.btnMsgType.classList.add('mui-icon-compose');
-//							ui.btnMsgType.classList.remove('mui-icon-mic');
-//							ui.boxMsgText.style.display = 'none';
-//							ui.boxMsgSound.style.display = 'block';
-//							ui.boxMsgText.blur();
-//							document.body.focus();
-//						} else if(ui.btnMsgType.classList.contains('mui-icon-compose')) {
-//							ui.btnMsgType.classList.add('mui-icon-mic');
-//							ui.btnMsgType.classList.remove('mui-icon-compose');
-//							ui.boxMsgSound.style.display = 'none';
-//							ui.boxMsgText.style.display = 'block';
-//							//--
-//							//showKeyboard();
-//							ui.boxMsgText.focus();
-//							setTimeout(function() {
-//								ui.boxMsgText.focus();
-//							}, 150);
-//						}
-//					}, false);
-//					ui.footerLeft.addEventListener('tap', function(event) {
-//						var btnArray = [{
-//							title: "拍照"
-//						}, {
-//							title: "从相册选择"
-//						}];
-//						plus.nativeUI.actionSheet({
-//							title: "选择照片",
-//							cancel: "取消",
-//							buttons: btnArray
-//						}, function(e) {
-//							var index = e.index;
-//							switch(index) {
-//								case 0:
-//									break;
-//								case 1:
-//									var cmr = plus.camera.getCamera();
-//									cmr.captureImage(function(path) {
-//										send({
-//											sender: 'self',
-//											type: 'image',
-//											content: "file://" + plus.io.convertLocalFileSystemURL(path)
-//										});
-//									}, function(err) {});
-//									break;
-//								case 2:
-//									plus.gallery.pick(function(path) {
-//										send({
-//											sender: 'self',
-//											type: 'image',
-//											content: path
-//										});
-//									}, function(err) {}, null);
-//									break;
-//							}
-//						});
-//					}, false);
-//					var setSoundAlertVisable = function(show) {
-//						if(show) {
-//							ui.boxSoundAlert.style.display = 'block';
-//							ui.boxSoundAlert.style.opacity = 1;
-//						} else {
-//							ui.boxSoundAlert.style.opacity = 0;
-//							//fadeOut 完成再真正隐藏
-//							setTimeout(function() {
-//								ui.boxSoundAlert.style.display = 'none';
-//							}, 200);
-//						}
-//					};
-//					var recordCancel = false;
-//					var recorder = null;
-//					var audio_tips = document.getElementById("audio_tips");
-//					var startTimestamp = null;
-//					var stopTimestamp = null;
-//					var stopTimer = null;
-//					ui.boxMsgSound.addEventListener('hold', function(event) {
-//						recordCancel = false;
-//						if(stopTimer) clearTimeout(stopTimer);
-//						audio_tips.innerHTML = "手指上划，取消发送";
-//						ui.boxSoundAlert.classList.remove('rprogress-sigh');
-//						setSoundAlertVisable(true);
-//						recorder = plus.audio.getRecorder();
-//						if(recorder == null) {
-//							plus.nativeUI.toast("不能获取录音对象");
-//							return;
-//						}
-//						startTimestamp = (new Date()).getTime();
-//						recorder.record({
-//							filename: "_doc/audio/"
-//						}, function(path) {
-//							if(recordCancel) return;
-//							send({
-//								sender: 'self',
-//								type: 'sound',
-//								content: path
-//							});
-//						}, function(e) {
-//							plus.nativeUI.toast("录音时出现异常: " + e.message);
-//						});
-//					}, false);
-//					ui.body.addEventListener('drag', function(event) {
-//						//console.log('drag');
-//						if(Math.abs(event.detail.deltaY) > 50) {
-//							if(!recordCancel) {
-//								recordCancel = true;
-//								if(!audio_tips.classList.contains("cancel")) {
-//									audio_tips.classList.add("cancel");
-//								}
-//								audio_tips.innerHTML = "松开手指，取消发送";
-//							}
-//						} else {
-//							if(recordCancel) {
-//								recordCancel = false;
-//								if(audio_tips.classList.contains("cancel")) {
-//									audio_tips.classList.remove("cancel");
-//								}
-//								audio_tips.innerHTML = "手指上划，取消发送";
-//							}
-//						}
-//					}, false);
-//					ui.boxMsgSound.addEventListener('release', function(event) {
-//						//console.log('release');
-//						if(audio_tips.classList.contains("cancel")) {
-//							audio_tips.classList.remove("cancel");
-//							audio_tips.innerHTML = "手指上划，取消发送";
-//						}
-//						//
-//						stopTimestamp = (new Date()).getTime();
-//						if(stopTimestamp - startTimestamp < MIN_SOUND_TIME) {
-//							audio_tips.innerHTML = "录音时间太短";
-//							ui.boxSoundAlert.classList.add('rprogress-sigh');
-//							recordCancel = true;
-//							stopTimer = setTimeout(function() {
-//								setSoundAlertVisable(false);
-//							}, 800);
-//						} else {
-//							setSoundAlertVisable(false);
-//						}
-//						recorder.stop();
-//					}, false);
-//					ui.boxMsgSound.addEventListener("touchstart", function(e) {
-//						//console.log("start....");
-//						e.preventDefault();
-//					});
-//					ui.boxMsgText.addEventListener('input', function(event) {
-//						ui.btnMsgType.classList[ui.boxMsgText.value == '' ? 'remove' : 'add']('mui-icon-paperplane');
-//						ui.btnMsgType.setAttribute("for", ui.boxMsgText.value == '' ? '' : 'msg-text');
-//						ui.h.innerText = ui.boxMsgText.value.replace(new RegExp('\n', 'gm'), '\n-') || '-';
-//						ui.footer.style.height = (ui.h.offsetHeight + footerPadding) + 'px';
-//						ui.content.style.paddingBottom = ui.footer.style.height;
-//					});
-//					var focus = false;
-//					ui.boxMsgText.addEventListener('tap', function(event) {
-//						ui.boxMsgText.focus();
-//						setTimeout(function() {
-//							ui.boxMsgText.focus();
-//						}, 0);
-//						focus = true;
-//						setTimeout(function() {
-//							focus = false;
-//						}, 1000);
-//						event.detail.gesture.preventDefault();
-//					}, false);
-//					//点击消息列表，关闭键盘
-//					ui.areaMsgList.addEventListener('click', function(event) {
-//						if(!focus) {
-//							ui.boxMsgText.blur();
-//						}
-//					})
+					/**
+					 * 文章id
+					 */
+					var articleId = plus.webview.currentWebview().articleid;
+					/**
+					 * 文章url
+					 */
+					var articleUrl = plus.webview.currentWebview().articleurl;
+					
+					/**
+					 *	纠正高度 
+					 */
+					setTimeout(function() {
+						console.log(4);
+						var iframe = document.getElementById("iframepage");
+						try {
+							var bHeight = iframe.contentWindow.document.body.scrollHeight;
+							var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+							var height = Math.max(bHeight, dHeight);
+							iframe.height = height;
+						} catch(ex) {}
+					}, 1000);
 
+
+					/**
+					 *	文章详情 
+					 */
+					document.getElementById("article_details").innerHTML = '<iframe src=' + (articleUrl) + ' id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%"></iframe>';
+
+					/**
+					 * 获取推荐资讯列表请求
+					 * @param {Object} articleId  文章id
+					 */
+					var getInformationList = function(articleId) {
+						mui.ajax(Common.domain + '/fuwu/api/article.php', {
+							data: {
+								action: 'check',
+								id: articleId
+							},
+							dataType: 'json', //服务器返回html格式数据
+							type: 'post', //HTTP请求类型
+							timeout: 10000, //超时时间设置为10秒；
+							success: function(data) {
+								if(data.status == 200) {
+									document.getElementById("comment_num").innerText = data.result.commentnum;
+									document.getElementById("like_num").innerText = data.result.likes;
+									var table = document.body.querySelector('.mui-table-view');
+									for(var i = 0; i < data.result.list.length; i++) {
+										var li = document.createElement('li');
+										li.innerHTML = '<a href="informationDetails.html" id="' + (data.result.list[i].id) + '" deburl="' + (data.result.list[i].deburl) + '"><h3>' + (data.result.list[i].arr[0]) + '</h3><p>华地艺术网专稿</p></a>';
+										table.appendChild(li);
+									}
+								} else {
+									mui.toast('新闻推荐列表获取失败...状态码(' + data.status + ')');
+								}
+							},
+							error: function(xhr, type, errorThrown) {
+								mui.toast('服务器异常...错误描述：' + xhr.status);
+							}
+						});
+					};
+					getInformationList(articleId);
+
+					/**
+					 * 发送评论请求
+					 * @param {Object} articleId
+					 */
+					var sendComment = function(userId, articleId, commentContent) {
+						var waiting = Common.showWaiting();
+						mui.ajax(Common.domain + '/fuwu/api/addValue.php', {
+							data: {
+								action: 'comment',
+								userid: userId,
+								articleid: articleId,
+								content: commentContent
+							},
+							dataType: 'json', //服务器返回json格式数据
+							type: 'post', //HTTP请求类型
+							timeout: 10000, //超时时间设置为10秒；
+							success: function(data) {
+								Common.closeWaiting(waiting);
+								mui.toast('评论已成功...');
+							},
+							error: function(xhr, type, errorThrown) {
+								Common.closeWaiting(waiting);
+								mui.toast('服务器异常...错误描述：' + type);
+							}
+						});
+					};
+					
+					/**
+					 *	点击喜欢 
+					 */
+					document.getElementById("like_click").addEventListener("click", function() {
+						sendLike(articleId);
+					});
+					document.getElementById("like_num").addEventListener("click", function(){
+						endLike(articleId);
+					});
+					document.getElementById("inputeFooterid").addEventListener("click", function(){
+						document.getElementById("contentId").blur();
+						document.getElementById("footerbackgrod").hidden = false;
+						document.getElementById("inputeFooterid").hidden = true;
+					});
+
+					/**
+					 * 发送点赞请求
+					 * @param {Object} userId 用户id
+					 * @param {Object} articleId 文章id
+					 */
+					var sendLike = function(articleId) {
+						var waiting = Common.showWaiting();
+						mui.ajax(Common.domain + '/fuwu/api/addValue.php', {
+							data: {
+								action: 'like',
+								id: articleId
+							},
+							dataType: 'json', //服务器返回json格式数据
+							type: 'post', //HTTP请求类型
+							timeout: 10000, //超时时间设置为10秒；
+							success: function(data) {
+								Common.closeWaiting(waiting);
+								if(data.status == 200) {
+									document.getElementById("like_num").innerText = data.result.likes;
+									mui.toast('点赞已成功...');
+								} else {
+									mui.toast('点赞未成功...状态码(' + data.status + ')');
+								}
+							},
+							error: function(xhr, type, errorThrown) {
+								Common.closeWaiting(waiting);
+								mui.toast('服务器异常...错误描述：' + type);
+							}
+						});
+					};
+
+					/**
+					 * 	推荐列表跳转
+					 */
+					mui('#list').on('tap', 'a', function() {
+						var id = 'informationDetails.html';
+						var href = 'informationDetails.html';
+						var articleid = this.getAttribute('id');
+						var articleurl = this.getAttribute('deburl');
+						mui.openWindow({
+							id: articleid,
+							url: href,
+							styles: {
+								popGesture: 'close',
+							},
+							extras: {
+								articleid: articleid,
+								articleurl: articleurl
+							},
+							createNew: true
+						});
+					});
+
+					/**
+					 *	跳转评论列表 
+					 */
+					document.getElementById("comment_list").addEventListener("click", function() {
+						mui.openWindow({
+							id: 'comment.html',
+							url: 'comment.html',
+							styles: {
+								popGesture: 'close',
+							},
+							extras: {
+								articleid: articleId
+							}
+						});
+					});
+					document.getElementById("comment_num").addEventListener("click", function(){
+						mui.openWindow({
+							id: 'comment.html',
+							url: 'comment.html',
+							styles: {
+								popGesture: 'close',
+							},
+							extras: {
+								articleid: articleId
+							}
+						});
+					});
+
+					/**
+					 *	提交评论内容 
+					 */
+					mui('#shuru').on('tap', 'button', function() {
+						document.getElementById("contentId").blur();
+						document.getElementById("footerbackgrod").hidden = false;
+						document.getElementById("inputeFooterid").hidden = true;
+						var content = document.getElementById("contentId").value;
+						sendComment(1, articleId, content);
+					});
+
+				});
+				/**
+				 * 当DOM准备就绪时，指定一个函数来执行。
+				 */
+				mui.ready(function() {
+					/**
+					 * 点击评论
+					 */
+					document.getElementById("xie").addEventListener("click", function() {
+//						var callback = function(){
+//							console.log(11);
+//						}
+//						var mask = mui.createMask(callback);
+//						mask.show()
+						document.getElementById("footerbackgrod").hidden = true;
+						document.getElementById("inputeFooterid").hidden = false;
+						document.getElementById("contentId").focus();
+					});
 				});
 			}(mui, document));
 		</script>

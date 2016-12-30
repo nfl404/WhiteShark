@@ -107,9 +107,9 @@
 		}
 
 		mui.plusReady(function() {
-//			plus.webview.currentWebview().setStyle({
-//				softinputMode: "adjustResize"
-//			});
+			plus.webview.currentWebview().setStyle({
+				softinputMode: "adjustResize"
+			});
 			self = plus.webview.currentWebview();
 			articleId = self.articleid;
 			articleUrl = self.articleurl;
@@ -234,11 +234,11 @@
 				type: 'post', //HTTP请求类型
 				timeout: 10000, //超时时间设置为10秒；
 				success: function(data) {
-					Common.closeWaiting(waiting);
+					//					Common.closeWaiting(waiting);
 					mui.toast('评论已成功...');
 				},
 				error: function(xhr, type, errorThrown) {
-					Common.closeWaiting(waiting);
+					//					Common.closeWaiting(waiting);
 					console.log('发送评论请求 失败!!!');
 				}
 			});
