@@ -27,7 +27,7 @@
 		var shares = {};
 		
 		setTimeout(function () {
-			defaultImg();
+//			defaultImg();
 			setTimeout(function() {
 				initImgPreview();
 			}, 300);
@@ -150,22 +150,22 @@
 			})
 		};
 
-		function defaultImg() {
-			if(mui.os.plus){
-				plus.io.resolveLocalFileSystemURL("_doc/head.jpg", function(entry) {
-					var s = entry.fullPath + "?version=" + new Date().getTime();;
-					document.getElementById("head-img").src = s;
-					document.getElementById("head-img1").src = s;
-				}, function(e) {
-					document.getElementById("head-img").src = '../images/logo.png';
-					document.getElementById("head-img1").src = '../images/logo.png';
-				})
-			}else{
-				document.getElementById("head-img").src = '../images/logo.png';
-				document.getElementById("head-img1").src = '../images/logo.png';
-			}
-			
-		}
+//		function defaultImg() {
+//			if(mui.os.plus){
+//				plus.io.resolveLocalFileSystemURL("_doc/head.jpg", function(entry) {
+//					var s = entry.fullPath + "?version=" + new Date().getTime();;
+//					document.getElementById("head-img").src = s;
+//					document.getElementById("head-img1").src = s;
+//				}, function(e) {
+//					document.getElementById("head-img").src = '../images/logo.png';
+//					document.getElementById("head-img1").src = '../images/logo.png';
+//				})
+//			}else{
+//				document.getElementById("head-img").src = '../images/logo.png';
+//				document.getElementById("head-img1").src = '../images/logo.png';
+//			}
+//			
+//		}
 		document.getElementById("head-img1").addEventListener('tap', function(e) {
 			e.stopPropagation();
 		});
