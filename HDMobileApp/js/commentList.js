@@ -50,18 +50,16 @@ mui.plusReady(function() {
 		var data;
 		if(refresh) {
 			data = {
-				action: 'comment',
-				articleid: articleId,
+				articleid: articleId
 			}
 
 		} else {
 			data = {
-				action: 'comment',
 				id: commentId,
-				articleid: articleId,
+				articleid: articleId
 			}
 		}
-		mui.ajax(Common.domain + '/fuwu/api/article.php', {
+		mui.ajax(Common.domain + '/fuwu/api/article_comment.php', {
 			data: data,
 			dataType: 'json', //服务器返回json格式数据
 			type: 'post', //HTTP请求类型
@@ -90,7 +88,7 @@ mui.plusReady(function() {
 						}
 					}
 				} else {
-					mui.toast('暂无数据...状态码('+data.status+')');
+					mui.toast('暂无数据...状态码(' + data.status + ')');
 				}
 
 				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();

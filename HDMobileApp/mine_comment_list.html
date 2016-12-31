@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/comment_mine.css" />
+	</head>
+
+	<body>
+		<!--<div class="comment_top">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</div>-->
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="mine_comment_top">
+					<div class="user_box">
+						<img src="images/picuser.png">
+						<div class="user_name" id="name_gai">
+							<span>username</span>
+						</div>
+						<div class="user_tel">
+							<span class="user_tel_icon"></span>
+							<p>18503778776</p>
+						</div>
+					</div>
+					<h2>我的评论</h2>
+				</div>
+				<!--数据列表-->
+				<div class="comment_nr">
+					<ul id="tableView_id" style="background: #EFEFF4;">
+						<li class="comment_list">
+							<a href="information_details.html">
+								<h3>璟祥拍卖会预展资讯</h3>
+								<p>首先，像新疆和西藏，在新中国成立之前，很少有少数民族画家用绘画去表现他们本民族的生活，虽然有唐卡这些民族民间美术，但都不是创作型的作品。之后，随着新中国美术教育对少数民族美术人才的培养</p>
+								<span><em></em>2016.09.09</span>
+							</a>
+						</li>
+						<li class="comment_list">
+							<a href="information_details.html">
+								<h3>璟祥拍卖会预展资讯</h3>
+								<p>首先，像新疆和西藏，在新中国成立之前，很少有少数民族画家用绘画去表现他们本民族的生活，虽然有唐卡这些民族民间美术，但都不是创作型的作品。之后，随着新中国美术教育对少数民族美术人才的培养</p>
+								<span><em></em>2016.09.09</span>
+							</a>
+						</li>
+						<li class="comment_list">
+							<a href="information_details.html">
+								<h3>璟祥拍卖会预展资讯</h3>
+								<p>首先，像新疆和西藏，在新中国成立之前，很少有少数民族画家用绘画去表现他们本民族的生活，虽然有唐卡这些民族民间美术，但都不是创作型的作品。之后，随着新中国美术教育对少数民族美术人才的培养</p>
+								<span><em></em>2016.09.09</span>
+							</a>
+						</li>
+						<li class="comment_list">
+							<a href="information_details.html">
+								<h3>璟祥拍卖会预展资讯</h3>
+								<p>首先，像新疆和西藏，在新中国成立之前，很少有少数民族画家用绘画去表现他们本民族的生活，虽然有唐卡这些民族民间美术，但都不是创作型的作品。之后，随着新中国美术教育对少数民族美术人才的培养</p>
+								<span><em></em>2016.09.09</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script>
+		mui.init({
+			pullRefresh: {
+				container: '#pullrefresh',
+				down: {
+					callback: pulldownRefresh
+				},
+				up: {
+					contentrefresh: '正在加载...',
+					callback: pullupRefresh
+				}
+			}
+		});
+		var refresh = true; // =true为下拉刷新，=flase为上拉加载
+		var mineCommentFirstId = 0; //评论列表第一条id
+		var mineCommentLastId = 0; //评论列表第一条id
+		var getMineCommetnList; // 获取我的评论列表
+
+		/**
+		 * 下拉刷新具体业务实现
+		 */
+		function pulldownRefresh() {
+			setTimeout(function() {
+				//				refresh = true;
+				//				getCommetnList(articleId, commentFirstId, refresh);
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+				
+			}, 1500);
+		};
+
+		/**
+		 * 上拉加载具体业务实现
+		 */
+		function pullupRefresh() {
+			setTimeout(function() {
+				//				refresh = false;
+				//				getCommetnList(articleId, commentLastId, refresh);
+				mui('#pullrefresh').pullRefresh().endPullupToRefresh();
+			}, 1500);
+		};
+
+		mui.plusReady(function() {
+			getMineCommetnList = function(userId) {
+				mui.ajax(Common.domain + '/fuwu/api/article.php', {
+					data: {
+						action: 'comment',
+						userid: userId
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(data) {
+						if(data.status == 200) {
+							for(var i = 0; i < data.result.length; i++) {
+
+							}
+						} else {
+							mui.toast('我的评论列表获取失败...状态码(' + (data.status) + ')');
+						}
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast('服务器异常...错误信息(' + (xhr.status) + '))')
+					}
+				});
+			};
+			
+		});
+		mui.ready(function() {
+
+		});
+	</script>
+
+</html>
