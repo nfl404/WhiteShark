@@ -72,14 +72,12 @@
 		 * @param {Object} value
 		 */
 		setUserid: function(value) {
-			console.log(11111111111111111111);
 		 	plus.storage.setItem("userid",value);
 		},
 		/**
 		 * 读取用户id
 		 */
 		getUserid: function() {
-			console.log(22222222222222222222);
 			return plus.storage.getItem("userid");
 		},
 		/**

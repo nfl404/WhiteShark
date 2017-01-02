@@ -107,11 +107,45 @@
 					 *	点击喜欢 
 					 */
 					document.getElementById("like_click").addEventListener("click", function() {
-						sendLike(articleId);
+						/**
+						 *	判断用户是或否登陆 
+						 */
+						if(Common.getisLogin() != 1) {
+							mui.openWindow({
+								id: 'login_new',
+								url: 'mine/login_new.html',
+								styles: {
+									popGesture: 'close',
+								},
+								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+							});
+						} else {
+							sendLike(articleId);
+						}
 					});
+					/**
+					 *	点击喜欢 
+					 */
 					document.getElementById("like_num").addEventListener("click", function() {
-						sendLike(articleId);
+						/**
+						 *	判断用户是或否登陆 
+						 */
+						if(Common.getisLogin() != 1) {
+							mui.openWindow({
+								id: 'login_new',
+								url: 'mine/login_new.html',
+								styles: {
+									popGesture: 'close',
+								},
+								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+							});
+						} else {
+							sendLike(articleId);
+						}
 					});
+					/**
+					 * 隐藏键盘
+					 */
 					document.getElementById("inputeFooterid").addEventListener("click", function() {
 						document.getElementById("contentId").blur();
 						document.getElementById("footerbackgrod").hidden = false;
@@ -186,6 +220,9 @@
 							}
 						});
 					});
+					/**
+					 *	跳转评论列表 
+					 */
 					document.getElementById("comment_num").addEventListener("click", function() {
 						mui.openWindow({
 							id: 'comment.html',
@@ -203,11 +240,30 @@
 					 *	提交评论内容 
 					 */
 					mui('#shuru').on('tap', 'button', function() {
-						document.getElementById("contentId").blur();
-						document.getElementById("footerbackgrod").hidden = false;
-						document.getElementById("inputeFooterid").hidden = true;
-						var content = document.getElementById("contentId").value;
-						sendComment(1, articleId, content);
+						/**
+						 *	判断用户是或否登陆 
+						 */
+						if(Common.getisLogin() != 1) {
+							document.getElementById("contentId").blur();
+							document.getElementById("footerbackgrod").hidden = false;
+							document.getElementById("inputeFooterid").hidden = true;
+							mui.openWindow({
+								id: 'login_new',
+								url: 'mine/login_new.html',
+								styles: {
+									popGesture: 'close',
+								},
+								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+							});
+
+						} else {
+							document.getElementById("contentId").blur();
+							document.getElementById("footerbackgrod").hidden = false;
+							document.getElementById("inputeFooterid").hidden = true;
+							var content = document.getElementById("contentId").value;
+							var userId = Common.getUserid();
+							sendComment(userId, articleId, content);
+						}
 					});
 
 				});

@@ -27,7 +27,7 @@
 		<!--单页面开始-->
 		<div id="setting" class="mui-page">
 			<!--页面标题栏开始-->
-			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav" style="background: white;">
 				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
 					<span class="mui-icon mui-icon-left-nav"></span>
 				</button>
@@ -110,14 +110,22 @@
 	
 	<script >
 		(function($) {
-//			document.getElementById("#exit").addEventListener('top',)
+			mui.init({
+				beforeback: function() {
+					//获得列表界面的webview
+					var mine_new = plus.webview.getWebviewById('mine_new.html');
+					//触发列表界面的自定义事件（refresh）,从而进行数据刷新
+					mui.fire(mine_new, 'update_mine');
+					//返回true，继续页面关闭逻辑
+					return true;
+				}
+			});
+			
 			document.getElementById("exit").addEventListener('tap', function() {
-//					alert("当前版本为1.0");
 					if(Common.getisLogin() != 1){
 						alert("你尚未登录");
 					}else{
 						Common.setisLogin("0");
-						console.log("退出"+Common.getisLogin());
 						mui.back();
 					}
 				});

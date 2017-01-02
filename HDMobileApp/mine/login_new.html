@@ -26,8 +26,7 @@
 			<div class="one_box">
 				<div class="user_name">
 					<span class="user_name_icon"></span>
-					<!--<input class="phone tel" id="tel" type="tel" name="tel" placeholder="手机号">-->
-					<input class="phone tel" id="tel" placeholder="手机号">
+					<input class="phone tel" id="tel" type="tel" placeholder="手机号">
 					<em class="user_cuwu_icon"></em>
 					<em class="user_succee"></em>
 				</div>
@@ -61,199 +60,141 @@
 		<script src="../js/app.js"></script>
 		<script src="../js/common.js"></script>
 		<script>
-			mui.init();
-
-//			mui.plusReady(function() {
-//				plus.storage.setItem("userid","hahahah"),
-//				console.log("获取到的值::::" + plus.storage.getItem("userid"));
-//			});
 			mui.init({
-				beforeback: function(){
+				beforeback: function() {
 					//获得列表界面的webview
 					var mine_new = plus.webview.getWebviewById('mine_new.html');
 					//触发列表界面的自定义事件（refresh）,从而进行数据刷新
-					mui.fire(mine_new,'update_mine');
+					mui.fire(mine_new, 'update_mine');
 					//返回true，继续页面关闭逻辑
-					console.log("hulaiasdhfklosahfklsahfksda");
 					return true;
 				}
 			});
 
 			(function($) {
-				//				console.log("hahahahahahahaha");
 				var network = true;
-//				if(mui.os.plus) {
-					mui.plusReady(function() {
-						if(plus.networkinfo.getCurrentType() == plus.networkinfo.CONNECTION_NONE) {
-							network = false;
+				mui.plusReady(function() {
+					if(plus.networkinfo.getCurrentType() == plus.networkinfo.CONNECTION_NONE) {
+						network = false;
+					}
+					var obj; //验证码回调函数
+					var success = function(response) {
+						var dataType = 'json';
+						if(dataType === 'json') {
+							response = JSON.stringify(response);
+						} else if(dataType === 'xml') {
+							response = new XMLSerializer().serializeToString(response).replace(/</g, "&lt;").replace(/>/g, "&gt;");
 						}
-//						plus.storage.setItem("userid","hahahah"),
-//						console.log("获取到的值::::" + plus.storage.getItem("userid"));
-					
-//				}
-				var obj; //验证码回调函数
-				var success = function(response) {
-					var dataType = 'json';
-					if(dataType === 'json') {
-						response = JSON.stringify(response);
-					} else if(dataType === 'xml') {
-						response = new XMLSerializer().serializeToString(response).replace(/</g, "&lt;").replace(/>/g, "&gt;");
-					}
-					obj = eval('(' + response + ')');
+						obj = eval('(' + response + ')');
 
-					if(obj.status == "200") {
-						console.log("获取验证码：：：：" + JSON.stringify(obj.status));
-//						alert("获取验证码成功");
-					} else {
-						alert("验证码获取失败");
-					}
-				};
-
-				//登录回调
-				var obj1;
-				var successlog = function(response) {
-					console.log("登录   " + JSON.stringify(response));
-					console.log("登录回调");
-					var dataType = 'json';
-					if(dataType === 'json') {
-						response = JSON.stringify(response);
-					} else if(dataType === 'xml') {
-						response = new XMLSerializer().serializeToString(response).replace(/</g, "&lt;").replace(/>/g, "&gt;");
-					}
-					obj1 = eval('(' + response + ')');
-					console.log("登录成功：：：：" + JSON.stringify(obj1));
-					if(obj1.status == "200") {
-						//记录状态
-						Common.setisLogin("1");
-						//保存用户信息
-						Common.setUserid(obj1.result.id);
-						//plus.storage.setItem("userid",obj1.result.id);
-						Common.setValueForKey(obj1.result.name, "username");
-						Common.setValueForKey(obj1.result.mobile, "userphone");
-						console.log("获取到的值::::" + plus.storage.getItem("username"));
-//						console.log("判断是否为1::::" + plus.storage.getisLogin());
-						mui.back();
-					} else {
-						alert("验证码已过期，请重新登录");
-						mui.back();
-					}
-				};
-
-				var loginButton = document.getElementById('loginbutton'); //登录按钮
-				var obtainBox = document.getElementById("obtain"); //获取验证码按钮
-				var phoneBox = document.getElementById('tel') //手机号码
-				var code1Box = document.getElementById("code1"); //验证码NUM
-				var reg = /^1[3|4|5|7|8][0-9]{9}$/; //验证规则
-				var flag;
-				//验证码倒计时
-				var wait = 60;
-
-				function time(o) {
-					if(wait == 0) {
-						o.removeAttribute("disabled");
-						o.value = "免费获取验证码";
-						wait = 60;
-
-					} else {
-						o.setAttribute("disabled", true);
-						o.value = "重新发送(" + wait + ")";
-						wait--;
-						setTimeout(function() {
-								time(o)
-							},
-							1000)
-					}
-				}
-				//获取验证码ajax
-				var ajax = function() {
-					//利用RunJS的Echo Ajax功能测试http://139.224.133.135
-					//	var url = 'http://192.168.0.112/fuwu/api/login.php';
-					var url = Common.domain + '/fuwu/api/login.php';
-					//请求方式，默认为Get；
-					var type = 'post';
-					//预期服务器范围的数据类型
-					var dataType = 'json';
-					//发送数据
-
-					var data = {
-						//						mobile: mobile,phoneBox.value;
-						//						action: act,
-						mobile: phoneBox.value,
-						action: 'send_code',
-					};
-					$.post(url, data, success, dataType);
-				};
-				document.getElementById("obtain").onclick = function() {
-					flag = reg.test(phoneBox.value);
-					if(!flag) {
-						alert("请输入正确的手机号");
-					} else {
-						if(network) {
-							//							ajax('send_code', phoneBox.value);
-							ajax();
-							//							document.getElementById("obtain").onclick = function() {
-							time(this);
-							//							}
+						if(obj.status == "200") {
+							console.log("获取验证码：：：：" + JSON.stringify(obj.status));
 						} else {
-							mui.toast("当前网络不给力，请稍后再试");
+							alert("验证码获取失败");
+						}
+					};
+
+					//登录回调
+					var obj1;
+					var successlog = function(response) {
+						console.log("登录   " + JSON.stringify(response));
+						var dataType = 'json';
+						if(dataType === 'json') {
+							response = JSON.stringify(response);
+						} else if(dataType === 'xml') {
+							response = new XMLSerializer().serializeToString(response).replace(/</g, "&lt;").replace(/>/g, "&gt;");
+						}
+						obj1 = eval('(' + response + ')');
+						console.log("登录成功：：：：" + JSON.stringify(obj1));
+						if(obj1.status == "200") {
+							//记录状态
+							Common.setisLogin("1");
+							//保存用户信息
+							Common.setUserid(obj1.result.id);
+							Common.setValueForKey(obj1.result.name, "username");
+							Common.setValueForKey(obj1.result.mobile, "userphone");
+							console.log("获取到的值::::" + plus.storage.getItem("username"));
+							mui.back();
+						} else {
+							mui.toast('登陆失败...状态码(' + (obj.status) + ')')
+						}
+					};
+					var loginButton = document.getElementById('loginbutton'); //登录按钮
+					var obtainBox = document.getElementById("obtain"); //获取验证码按钮
+					var phoneBox = document.getElementById('tel') //手机号码
+					var code1Box = document.getElementById("code1"); //验证码NUM
+					var reg = /^1[3|4|5|7|8][0-9]{9}$/; //验证规则
+					var flag;
+					//验证码倒计时
+					var wait = 60;
+					function time(o) {
+						if(wait == 0) {
+							o.removeAttribute("disabled");
+							o.value = "免费获取验证码";
+							wait = 60;
+
+						} else {
+							o.setAttribute("disabled", true);
+							o.value = "重新发送(" + wait + ")";
+							wait--;
+							setTimeout(function() {
+									time(o)
+								},
+								1000)
 						}
 					}
+					//获取验证码ajax
+					var ajax = function() {
+						//利用RunJS的Echo Ajax功能测试http://139.224.133.135
+						//	var url = 'http://192.168.0.112/fuwu/api/login.php';
+						var url = Common.domain + '/fuwu/api/login.php';
+						//请求方式，默认为Get；
+						var type = 'post';
+						//预期服务器范围的数据类型
+						var dataType = 'json';
+						//发送数据
 
-				}
-
-				//				obtainBox.addEventListener('tap', function(event) {
-				//					flag = reg.test(phoneBox.value);
-				//					if(!flag) {
-				//						alert("请输入正确的手机号");
-				//					} else {
-				//						if(network) {
-				////							ajax('send_code', phoneBox.value);
-				//							ajax();
-				////							document.getElementById("obtain").onclick = function() {
-				//							time(this);
-				////							}
-				//						} else {
-				//							mui.toast("当前网络不给力，请稍后再试");
-				//						}
-				//					}
-				//
-				//				});
-
-				var ajaxlogin = function() {
-					//var url = "http://192.168.0.112/fuwu/api/login.php";
-					var url = Common.domain + '/fuwu/api/login.php';
-					//请求方式，默认为Get；
-					var type = 'post';
-					//预期服务器范围的数据类型
-					var dataType = 'json';
-					//发送数据
-					var data = {
-						mobile: phoneBox.value,
-						action: 'login',
-						code: code1Box.value,
-						mac: plus.device.uuid
+						var data = {
+							mobile: phoneBox.value,
+							action: 'send_code',
+						};
+						$.post(url, data, success, dataType);
 					};
-					$.post(url, data, successlog, dataType);
-				};
+					document.getElementById("obtain").onclick = function() {
+						flag = reg.test(phoneBox.value);
+						if(!flag) {
+							alert("请输入正确的手机号");
+						} else {
+							if(network) {
+								ajax();
+								time(this);
+							} else {
+								mui.toast("当前网络不给力，请稍后再试");
+							}
+						}
 
-				//				loginButton.addEventListener('tap', function(event) {
-				//					console.log("登录初始化");
-				////					ajaxlogin(phoneBox.value, 'login', code1Box.value, plus.device.uuid);
-				//					ajaxlogin();
-				//				});
-				document.getElementById('loginbutton').onclick = function() {
-						console.log("登录初始化");
-						//					ajaxlogin(phoneBox.value, 'login', code1Box.value, plus.device.uuid);
+					}
+
+					var ajaxlogin = function() {
+						//var url = "http://192.168.0.112/fuwu/api/login.php";
+						var url = Common.domain + '/fuwu/api/login.php';
+						//请求方式，默认为Get；
+						var type = 'post';
+						//预期服务器范围的数据类型
+						var dataType = 'json';
+						//发送数据
+						var data = {
+							mobile: phoneBox.value,
+							action: 'login',
+							code: code1Box.value,
+							mac: plus.device.uuid
+						};
+						$.post(url, data, successlog, dataType);
+					};
+
+					document.getElementById('loginbutton').onclick = function() {
 						ajaxlogin();
 					}
-					//设置全局beforeSend
-					//				$.ajaxSettings.beforeSend = function(xhr, setting) {
-					//					console.log('beforeSend:::' + JSON.stringify(setting));
-					//				};
-					//				//设置全局complete
-					//				$.ajaxSettings.complete = function(xhr, status) {
-					//						console.log('complete:::' + status);
-					//					}
 				});
 			}(mui));
 		</script>
