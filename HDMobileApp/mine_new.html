@@ -57,7 +57,6 @@
 				var islog = function() {
 					if(Common.getisLogin() != 1) {
 						document.getElementById("show_nologin").addEventListener('tap', function() {
-
 							mui.openWindow({
 								id: 'login_new',
 								url: 'mine/login_new.html',
@@ -66,9 +65,7 @@
 								},
 								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
 							});
-
 						});
-
 						document.getElementById("show_nologin").style.display = "block";
 						document.getElementById("hide_login").style.display = "none";
 					} else {

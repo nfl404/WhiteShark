@@ -97,7 +97,6 @@
 					//登录回调
 					var obj1;
 					var successlog = function(response) {
-						console.log("登录   " + JSON.stringify(response));
 						var dataType = 'json';
 						if(dataType === 'json') {
 							response = JSON.stringify(response);
@@ -110,13 +109,13 @@
 							//记录状态
 							Common.setisLogin("1");
 							//保存用户信息
-							Common.setUserid(obj1.result.id);
+							Common.setUserid(obj1.result.id+"");
 							Common.setValueForKey(obj1.result.name, "username");
 							Common.setValueForKey(obj1.result.mobile, "userphone");
 							console.log("获取到的值::::" + plus.storage.getItem("username"));
 							mui.back();
 						} else {
-							mui.toast('登陆失败...状态码(' + (obj.status) + ')')
+							mui.toast('登陆失败...状态码(' + (obj1.status) + ')');
 						}
 					};
 					var loginButton = document.getElementById('loginbutton'); //登录按钮

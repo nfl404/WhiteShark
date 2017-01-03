@@ -71,10 +71,10 @@
 						<ul class="mui-table-view">
 							<li class="mui-table-view-cell">
 								<a id="head" class="mui-navigate-right">头像
-								<span class="mui-pull-right head">
+									<span class="mui-pull-right head">
 									<img class="head-img mui-action-preview" id="head-img1" src=""/>
 								</span>
-							</a>
+								</a>
 							</li>
 							<li class="mui-table-view-cell">
 								<a>姓名<span class="mui-pull-right">Hbuilder</span></a>
@@ -107,8 +107,8 @@
 	<script src="../js/app.js"></script>
 	<script src="../js/common.js"></script>
 	<script src="../js/setting.js"></script>
-	
-	<script >
+
+	<script>
 		(function($) {
 			mui.init({
 				beforeback: function() {
@@ -120,16 +120,16 @@
 					return true;
 				}
 			});
-			
+
 			document.getElementById("exit").addEventListener('tap', function() {
-					if(Common.getisLogin() != 1){
-						alert("你尚未登录");
-					}else{
-						Common.setisLogin("0");
-						mui.back();
-					}
-				});
+				if(Common.getisLogin() != 1) {
+					alert("你尚未登录");
+				} else {
+					Common.setisLogin("0");
+					mui.back();
+				}
+			});
 		})(mui);
-		
 	</script>
+
 </html>
