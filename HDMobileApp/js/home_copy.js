@@ -126,15 +126,8 @@ mui.init();
 	/**
 	 *	创建用于记录不同滑动列表的首个id 
 	 */
-	var firstId0;
-	var firstId1;
-	var firstId2;
-	var firstId3;
-	var firstId4;
-	var firstId5;
-	var firstId6;
-	var firstId7;
-	var firstId8;
+	var firstId0, firstId1, firstId2, firstId3, firstId4, firstId5, firstId6, firstId7, firstId8;
+
 	var setFirstIdWithTypeAndIndex = function(index, firstId) {
 		switch(index) {
 			case 0:
@@ -246,15 +239,7 @@ mui.init();
 	/**
 	 *	创建用于记录不同滑动列表的最后一个id 
 	 */
-	var lastId0;
-	var lastId1;
-	var lastId2;
-	var lastId3;
-	var lastId4;
-	var lastId5;
-	var lastId6;
-	var lastId7;
-	var lastId8;
+	var lastId0, lastId1, lastId2, lastId3, lastId4, lastId5, lastId6, lastId7, lastId8;
 	var setLastIdWithTypeAndIndex = function(index, lastId) {
 		switch(index) {
 			case 0:
