@@ -132,6 +132,18 @@
 		 */
 		getisLogin: function() {
 			return plus.storage.getItem("islong");
+		},
+		/**
+		 * 判断用户是否晕允许登录
+		 */
+		setisPush: function(value) {
+	 		plus.storage.setItem("ispush",value);
+		},
+		/**
+		 * 读取值，如果是1表示允许推送，其它表示不允许
+		 */
+		getisPush: function() {
+			return plus.storage.getItem("ispush");
 		}
 		
 	};

@@ -9,7 +9,9 @@
 				lockStateButton.addEventListener('toggle', function(event) {
 					var isActive = event.detail.isActive;
 					if (isActive) {
+//						common.setisPush("1");
 						alert("允许推送"+isActive);
+						
 					}
 				}, false);
 			});

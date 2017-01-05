@@ -8,7 +8,7 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/home.css" />
 		<link rel="stylesheet" href="css/app.css" />
-		<link rel="stylesheet" type="text/css" href="css/home_copy.css"/>
+		<link rel="stylesheet" type="text/css" href="css/home_copy.css" />
 	</head>
 
 	<body>
@@ -137,7 +137,46 @@
 		<script src="js/mui.pullToRefresh.material.js"></script>
 		<script type="text/javascript" src="libs/jquery-1.8.3.min.js"></script>
 		<script src="js/common.js"></script>
-		<script type="text/javascript" src="js/home_copy.js" ></script>
+		<script type="text/javascript" src="js/home_copy.js"></script>
+		<script>
+			document.addEventListener("plusready", function() {
+//				message = document.getElementById("message");
+//				alert("进去推送事件");
+				// 监听点击消息事件
+				plus.push.addEventListener("click", function(msg) {
+//					alert("hahahaha");
+					// 判断是从本地创建还是离线推送的消息
+//					switch(msg.payload) {
+//						case "LocalMSG":
+//						alert("进去推送本地事件");
+//							outSet("点击本地创建消息启动：");
+//							break;
+//						default:  
+//						alert("进去推送离线事件事件");
+//							outSet("点击离线推送消息启动：");
+//							break;
+//					}
+//					// 提示点击的内容
+//					plus.ui.alert(msg.content);
+//					// 处理其它数据
+//					logoutPushMsg(msg);
+				}, true);
+				// 监听在线消息事件
+				plus.push.addEventListener("receive", function(msg) {
+//					alert("进去推送事416546515645件");
+					if(msg.aps) { // Apple APNS message
+//						outSet("接收到在线APNS消息：");
+//						alert("接收到在线APNS消息：："+msg);
+					} else {
+//						alert("消息内容：：："+msg.toString());
+//						alert("读取内容：：："+msg.content);
+//						outSet("接收到在线透传消息：");
+					}
+//					logoutPushMsg(msg);
+//					alert("不在if语句类：：："+msg.content);
+				}, false);
+			}, false);
+		</script>
 	</body>
 
 </html>
