@@ -33,6 +33,22 @@
 		 */
 		api: "",
 		/**
+		 * 域名
+		 */
+		hostname: "",
+		/**
+		 * 路径和文件名
+		 */
+		pathname: "",
+		/**
+		 * 	端口号
+		 */
+		port: "",
+		/**
+		 * web协议
+		 */
+		protocol: "",
+		/**
 		 * 跳转新页面
 		 * @param {Object} id
 		 * @param {Object} url

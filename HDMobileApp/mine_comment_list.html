@@ -19,11 +19,11 @@
 					<div class="user_box">
 						<img src="images/picuser.png">
 						<div class="user_name" id="name_gai">
-							<span>username</span>
+							<span id="username">username</span>
 						</div>
 						<div class="user_tel">
 							<span class="user_tel_icon"></span>
-							<p>18503778776</p>
+							<p id="usertel">18503778776</p>
 						</div>
 					</div>
 					<h2>我的评论</h2>
@@ -31,40 +31,21 @@
 				<!--数据列表-->
 				<div class="comment_nr">
 					<ul id="tableView_id" style="background: #EFEFF4;">
-						<li class="comment_list">
+						<!--<li class="comment_list">
 							<a href="information_details.html">
 								<h3>璟祥拍卖会预展资讯</h3>
 								<p>首先，像新疆和西藏，在新中国成立之前，很少有少数民族画家用绘画去表现他们本民族的生活，虽然有唐卡这些民族民间美术，但都不是创作型的作品。之后，随着新中国美术教育对少数民族美术人才的培养</p>
 								<span><em></em>2016.09.09</span>
 							</a>
-						</li>
-						<li class="comment_list">
-							<a href="information_details.html">
-								<h3>璟祥拍卖会预展资讯</h3>
-								<p>首先，像新疆和西藏，在新中国成立之前，很少有少数民族画家用绘画去表现他们本民族的生活，虽然有唐卡这些民族民间美术，但都不是创作型的作品。之后，随着新中国美术教育对少数民族美术人才的培养</p>
-								<span><em></em>2016.09.09</span>
-							</a>
-						</li>
-						<li class="comment_list">
-							<a href="information_details.html">
-								<h3>璟祥拍卖会预展资讯</h3>
-								<p>首先，像新疆和西藏，在新中国成立之前，很少有少数民族画家用绘画去表现他们本民族的生活，虽然有唐卡这些民族民间美术，但都不是创作型的作品。之后，随着新中国美术教育对少数民族美术人才的培养</p>
-								<span><em></em>2016.09.09</span>
-							</a>
-						</li>
-						<li class="comment_list">
-							<a href="information_details.html">
-								<h3>璟祥拍卖会预展资讯</h3>
-								<p>首先，像新疆和西藏，在新中国成立之前，很少有少数民族画家用绘画去表现他们本民族的生活，虽然有唐卡这些民族民间美术，但都不是创作型的作品。之后，随着新中国美术教育对少数民族美术人才的培养</p>
-								<span><em></em>2016.09.09</span>
-							</a>
-						</li>
+						</li>-->
 					</ul>
 				</div>
 			</div>
 		</div>
 	</body>
 	<script src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="libs/jquery-1.8.3.min.js"></script>
 	<script>
 		mui.init({
 			pullRefresh: {
@@ -78,9 +59,8 @@
 				}
 			}
 		});
-		var refresh = true; // =true为下拉刷新，=flase为上拉加载
-		var mineCommentFirstId = 0; //评论列表第一条id
-		var mineCommentLastId = 0; //评论列表第一条id
+		var waiting; // 等待框
+		var page = 1; //评论列表页数
 		var getMineCommetnList; // 获取我的评论列表
 
 		/**
@@ -88,10 +68,9 @@
 		 */
 		function pulldownRefresh() {
 			setTimeout(function() {
-				//				refresh = true;
-				//				getCommetnList(articleId, commentFirstId, refresh);
+				page = 1;
+				getMineCommetnList(page);
 				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
-				
 			}, 1500);
 		};
 
@@ -100,37 +79,61 @@
 		 */
 		function pullupRefresh() {
 			setTimeout(function() {
-				//				refresh = false;
-				//				getCommetnList(articleId, commentLastId, refresh);
+				page++;
+				getMineCommetnList(page);
 				mui('#pullrefresh').pullRefresh().endPullupToRefresh();
 			}, 1500);
 		};
 
 		mui.plusReady(function() {
-			getMineCommetnList = function(userId) {
-				mui.ajax(Common.domain + '/fuwu/api/article.php', {
+			/**
+			 *	用户昵称、手机号 
+			 */
+			document.getElementById("username").innerHTML = Common.getValueForKey("username");
+			document.getElementById("usertel").innerHTML = Common.getValueForKey("userphone");
+			/*
+			 * 获取我的评论列表数据
+			 */
+			getMineCommetnList = function(page) {
+				var userId = Common.getUserid();
+				waiting = Common.showWaiting();
+				mui.ajax(Common.domain + '/fuwu/api/user_comment.php', {
 					data: {
-						action: 'comment',
+						page: page,
 						userid: userId
 					},
 					dataType: 'json', //服务器返回json格式数据
 					type: 'post', //HTTP请求类型
 					timeout: 10000, //超时时间设置为10秒；
 					success: function(data) {
+						Common.closeWaiting(waiting);
 						if(data.status == 200) {
-							for(var i = 0; i < data.result.length; i++) {
-
+							var table = document.getElementById("tableView_id");
+							if(page == 1) {
+								$('ul li').remove();
+								for(var i = 0; i < data.result.length; i++) {
+									var li = document.createElement('li');
+									li.innerHTML = '<li class="comment_list"><a href="information_details.html"><h3>' + (data.result[i].title) + '</h3><p>' + (data.result[i].comment) + '</p><span><em></em>' + (data.result[i].time) + '</span></a></li>';
+									table.appendChild(li, table.firstChild);
+								}
+							} else {
+								for(var i = 0; i < data.result.length; i++) {
+									var li = document.createElement('li');
+									li.innerHTML = '<li class="comment_list"><a href="information_details.html"><h3>' + (data.result[i].title) + '</h3><p>' + (data.result[i].comment) + '</p><span><em></em>' + (data.result[i].time) + '</span></a></li>';
+									table.appendChild(li, table.lastChild);
+								}
 							}
 						} else {
 							mui.toast('我的评论列表获取失败...状态码(' + (data.status) + ')');
 						}
 					},
 					error: function(xhr, type, errorThrown) {
+						Common.closeWaiting(waiting);
 						mui.toast('服务器异常...错误信息(' + (xhr.status) + '))')
 					}
 				});
 			};
-			
+			getMineCommetnList(page);
 		});
 		mui.ready(function() {
 
