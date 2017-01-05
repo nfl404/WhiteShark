@@ -36,10 +36,7 @@
     ],
     "refer": [
       "mine/login_new.html",
-      "mine/setting.html",
-      "mine_comment.html",
-      "xiu_name.html",
-      "mine/setting_new.html"
+      "mine/setting.html"
     ]
   },
   "mine/setting.html": {
@@ -69,8 +66,7 @@
       "images/nav_icon_bg1.png",
       "images/nav_icon_home.png",
       "js/index.js",
-      "images/nav_icon_vido_active.png",
-      "js/push.js"
+      "images/nav_icon_vido_active.png"
     ],
     "refer": [
       "find.html",
@@ -107,53 +103,6 @@
       "css/mui.min.css",
       "css/home_copy.css",
       "js/home_copy.js"
-    ],
-    "refer": []
-  },
-  "mine_comment.html": {
-    "resources": [
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "libs/jquery-1.8.3.min.js",
-      "js/common.js",
-      "fonts/mui.ttf",
-      "mine_comment_list.html"
-    ],
-    "refer": [
-      "mine_comment_list.html"
-    ]
-  },
-  "mine_comment_list.html": {
-    "resources": [
-      "images/time_cion.png",
-      "images/guanlian.png",
-      "images/banner.png",
-      "css/comment_mine.css",
-      "images/tel_icon.png",
-      "images/picuser.png"
-    ],
-    "refer": []
-  },
-  "xiu_name.html": {
-    "resources": [
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "libs/jquery-1.8.3.min.js"
-    ],
-    "refer": []
-  },
-  "mine/setting_new.html": {
-    "resources": [
-      "fonts/mui.ttf",
-      "js/mui.locker.js",
-      "js/feedback.js",
-      "css/setting.css",
-      "js/mui.view.js",
-      "js/app.js",
-      "js/common.js",
-      "js/mui.min.js",
-      "css/mui.min.css"
     ],
     "refer": []
   }
