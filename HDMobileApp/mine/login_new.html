@@ -92,6 +92,7 @@
 						} else {
 							alert("验证码获取失败");
 						}
+						console.log("yangzhnemgalgjlodsa::::::"+JSON.stringify(response));
 					};
 
 					//登录回调
@@ -109,7 +110,7 @@
 							//记录状态
 							Common.setisLogin("1");
 							//保存用户信息
-							Common.setUserid(obj1.result.id+"");
+							Common.setUserid(obj1.result.id + "");
 							Common.setValueForKey(obj1.result.name, "username");
 							Common.setValueForKey(obj1.result.mobile, "userphone");
 							console.log("获取到的值::::" + plus.storage.getItem("username"));
@@ -126,6 +127,7 @@
 					var flag;
 					//验证码倒计时
 					var wait = 60;
+
 					function time(o) {
 						if(wait == 0) {
 							o.removeAttribute("disabled");
@@ -158,6 +160,7 @@
 							action: 'send_code',
 						};
 						$.post(url, data, success, dataType);
+						
 					};
 					document.getElementById("obtain").onclick = function() {
 						flag = reg.test(phoneBox.value);
@@ -175,6 +178,7 @@
 					}
 
 					var ajaxlogin = function() {
+						var info = plus.push.getClientInfo();
 						//var url = "http://192.168.0.112/fuwu/api/login.php";
 						var url = Common.domain + '/fuwu/api/login.php';
 						//请求方式，默认为Get；
@@ -186,13 +190,24 @@
 							mobile: phoneBox.value,
 							action: 'login',
 							code: code1Box.value,
-							mac: plus.device.uuid
+							mac: plus.device.uuid,
+							cid: info.clientid,
 						};
 						$.post(url, data, successlog, dataType);
 					};
 
 					document.getElementById('loginbutton').onclick = function() {
 						ajaxlogin();
+					}
+
+					//设置全局beforeSend
+					$.ajaxSettings.beforeSend = function(xhr, setting) {
+						//beforeSend演示,也可在$.ajax({beforeSend:function(){}})中设置单个Ajax的beforeSend
+						console.log('beforeSend:::' + JSON.stringify(setting));
+					};
+					//设置全局complete
+					$.ajaxSettings.complete = function(xhr, status) {
+						console.log('complete:::' + status);
 					}
 				});
 			}(mui));

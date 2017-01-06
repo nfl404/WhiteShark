@@ -272,13 +272,16 @@
 					"images/nav_icon_home_active.png",
 					"images/nav_icon_vido_active.png",
 					"images/nav_icon_mine_active.png",
-					"js/push.js"
+					"js/push.js",
+					"images/collection.png",
+					"images/nav_icon_collection_active.png"
 				],
 				"refer": [
 					"find.html",
 					"trend.html",
 					"mine.html",
-					"mine_new.html"
+					"mine_new.html",
+					"collection.html"
 				],
 				"priority": 0
 			},
@@ -464,7 +467,8 @@
 				],
 				"refer": [
 					"idHtml.html",
-					"information_details.html"
+					"information_details.html",
+					"informationDetails.html"
 				],
 				"priority": 0
 			},
@@ -616,6 +620,36 @@
 					"js/common.js",
 					"js/mui.min.js",
 					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"informationDetails.html": {
+				"resources": [
+					"js/informationDetails.js",
+					"images/guanlian.png",
+					"fonts/mui.ttf",
+					"css/inof.css",
+					"images/zan_icon.png",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"libs/jquery-1.8.3.min.js",
+					"images/xie_icon.png",
+					"css/informationDetails.css"
+				],
+				"refer": [
+					"mine/login_new.html"
+				],
+				"priority": 0
+			},
+			"collection.html": {
+				"resources": [
+					"images/time_cion.png",
+					"css/home.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/common.js"
 				],
 				"refer": [],
 				"priority": 0
