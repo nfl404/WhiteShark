@@ -187,7 +187,14 @@
 			"css/home.css",
 			"js/mui.min.js",
 			"css/mui.min.css",
-			"js/common.js"
+			"js/common.js",
+			"images/yan_icon.png",
+			"images/zan_icon.png",
+			"css/home_copy.css",
+			"css/app.css"
+		],
+		"refer": [
+			"informationDetails.html"
 		]
 	}
 }
