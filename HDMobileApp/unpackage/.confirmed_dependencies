@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"mine/login_new.html": {
 		"resources": [
 			"images/close_login.png",
@@ -197,4 +198,113 @@
 			"informationDetails.html"
 		]
 	}
+=======
+  "mine/login_new.html": {
+    "resources": [
+      "images/close_login.png",
+      "js/app.js",
+      "images/phone_yan.png",
+      "css/login_new.css",
+      "fonts/mui.ttf",
+      "images/phone_icon.png",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/login_bg.png",
+      "images/user_cuwu.png",
+      "images/user_name_succee.png",
+      "js/mui.js",
+      "images/picuser.png"
+    ],
+    "refer": []
+  },
+  "mine_new.html": {
+    "resources": [
+      "js/app.js",
+      "js/common.js",
+      "images/nouser_pic.png",
+      "css/mine_new.css",
+      "js/mui.min.js",
+      "images/mine_bg.jpg",
+      "css/mui.min.css",
+      "images/she_bg.png",
+      "js/mui.js",
+      "images/xie_icon.png",
+      "images/ping_bg.png",
+      "images/tel_icon.png",
+      "images/picuser.png"
+    ],
+    "refer": [
+      "mine/login_new.html",
+      "mine/setting.html"
+    ]
+  },
+  "mine/setting.html": {
+    "resources": [
+      "js/setting.js",
+      "fonts/mui.ttf",
+      "js/mui.locker.js",
+      "js/feedback.js",
+      "css/setting.css",
+      "js/mui.view.js",
+      "js/app.js",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "index.html": {
+    "resources": [
+      "images/nav_icon_mine.png",
+      "images/nav_icon_home_active.png",
+      "images/nav_icon_mine_active.png",
+      "images/nav_icon_vido.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "home_copy.html",
+      "images/nav_icon_bg1.png",
+      "images/nav_icon_home.png",
+      "js/index.js",
+      "images/nav_icon_vido_active.png"
+    ],
+    "refer": [
+      "find.html",
+      "mine_new.html",
+      "trend.html",
+      "home_copy.html"
+    ]
+  },
+  "find.html": {
+    "resources": [
+      "videoList.html"
+    ],
+    "refer": [
+      "videoList.html"
+    ]
+  },
+  "home_copy.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/banner.png",
+      "libs/jquery-1.8.3.min.js",
+      "images/search.png",
+      "images/nav_bg.png",
+      "css/home.css",
+      "images/yan_icon.png",
+      "images/time_cion.png",
+      "images/zan_icon.png",
+      "js/common.js",
+      "images/logo.png",
+      "css/app.css",
+      "images/nav_bgs.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/home_copy.css",
+      "js/home_copy.js"
+    ],
+    "refer": []
+  }
+>>>>>>> c6075cd99983445bba530d6e64380161b4d998a4
 }
