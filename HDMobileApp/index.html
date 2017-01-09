@@ -7,47 +7,40 @@
 		<title>华地</title>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<style>
-			.nav_icon_bg {
+		
+			.nav_icon{
 				display: block;
 				margin: auto;
-				width: 40px;
-				height: 40px;
-				background: url(images/nav_icon_bg1.png) no-repeat center center;
-				background-size: cover;
+				width: 20px;
+				height: 20px;
 				overflow: hidden;
+				}
+			.nav_nrs{
+				text-align: center;
+				font-size: 0.75rem;
+				color: #FFFFFF;
 			}
-			
-			.nav_icon_bg span {
+
+			.nav_icon_one{
+				background: url(images/nav_icon_one.png) no-repeat center center;
+				background-size: cover;
+			}
+			.nav_icon_two{
+				background: url(images/nav_icon_two.png) no-repeat center center;
+				background-size: cover;
+			}.nav_icon_three{
+				background: url(images/nav_icon_three.png) no-repeat center center;
+				background-size: cover;
+			}
+			.mui-active .nav_cion_bg{
 				display: block;
-				margin: 5px auto;
-				width: 30px;
-				height: 30px;
-				background-color: #FFFFFF;
-				border-radius: 15px;
-			}
-			
-			.nav_icon_bg span.nav_icon_home {
-				background: url(images/nav_icon_home.png) no-repeat center center #DDDDDD;
-				background-size: 80%;
-			}
-			
-			.nav_icon_bg span.nav_icon_vido {
-				background: url(images/tb.png) no-repeat center center #DDDDDD;
-				background-size: 80%;
-			}
-			
-			.nav_icon_bg span.nav_icon_mine {
-				background: url(images/nav_icon_mine.png) no-repeat center center #DDDDDD;
-				background-size: 80%;
-			}
-			/*.nav_icon_bg span.nav_icon_collceton {
-				background: url(images/nav_icon_collcetion.png) no-repeat center center #DDDDDD;
-				background-size: 80%;
-			}*/
-			
-			.mui-active .nav_icon_bg span.nav_icon_home {
-				background: url(images/nav_icon_home_active.png) no-repeat center center #393d47;
-				background-size: 80%;
+				width: 80%;
+				margin: auto;
+				background: #6f96be;
+				padding-top: 4px;
+				border-radius: 3px 3px 0 0;
+				margin-top: -4px;
+
 			}
 			
 			.mui-active .nav_icon_bg span.nav_icon_vido {
@@ -66,11 +59,12 @@
 		</style>
 	</head>
 
-	<body>
+	<body style="background: none;">
 		<nav class="mui-bar mui-bar-tab" style="background: #252830;">
 			<a id="defaultTab" class="mui-tab-item mui-active" href="home_copy.html">
-				<span class="nav_icon_bg">
-					<span class="nav_icon_home"></span>
+				<span class="nav_cion_bg">
+					<span class="nav_icon nav_icon_one"></span>
+					<span class="nav_nrs">首页</span>
 				</span>
 			</a>
 			<!--<a class="mui-tab-item" href="trend.html">
@@ -78,8 +72,9 @@
 				<span class="mui-tab-label">热门</span>
 			</a>-->
 			<a class="mui-tab-item" href="collection.html">
-				<span class="nav_icon_bg">
-					<span class="nav_icon_vido"></span>
+				<span class="nav_cion_bg">
+					<span class="nav_icon nav_icon_two"></span>
+					<span class="nav_nrs">收藏</span>
 				</span>
 			</a>
 			<!--<a class="mui-tab-item" href="collection.html">
@@ -88,8 +83,9 @@
 				</span>
 			</a>-->
 			<a class="mui-tab-item" href="mine_new.html">
-				<span class="nav_icon_bg">
-					<span class="nav_icon_mine"></span>
+				<span class="nav_cion_bg">
+					<span class="nav_icon nav_icon_three"></span>
+					<span class="nav_nrs">我的</span>
 				</span>
 			</a>
 		</nav>
