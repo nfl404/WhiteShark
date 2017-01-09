@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 	<head>
@@ -6,9 +6,6 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="css/home.css" />
-		<link rel="stylesheet" href="css/app.css" />
-		<link rel="stylesheet" type="text/css" href="css/home_copy.css" />
 		<style>
 			html,
 			body {
@@ -21,115 +18,33 @@
 		<header class="mui-bar mui-bar-nav" style="background: white;">
 			<h1 class="mui-title">收藏</h1>
 		</header>
-		<div id="pullrefresh" class="mui-content">
-			<div class="mui-scroll">
-				<ul id="list" class="mui-table-view">
-					<!--<div class="banner"><img src="images/banner.png"></div>-->
-					<!--<div class="card1">
-							<div class="card_tit">
-								<p class="card_time"><em></em><span>2015.6.23 3:00am</span></p>
-							</div>
-							<div class="card1_nr">
-								<h2>标题</h2></div>
-						</a>
-					</div>-->
-					<!--<div class="card3">
-						<a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '">
-							<div class="card_tit">
-								<p class="card_time"><em></em><span>2107.01.02</span></p>
-								<p class="card_Source">华地艺术网专稿</p>
-							</div>
-							<div class="card3_nr">
-								<div class="card3_tit">
-									<h2>啊哈哈哈哈</h2>
-									<p>哈哈哈</p>
-								</div>
-								<div class="card3_pic"><img src='http://192.168.0.112/ueditor/php/upload/image/20161220/1482212308100091.jpg'></div>
-							</div>
-							<div class="card_number">
-								<p class="card_xi"><em></em><span>250</span></p>
-								<p class="card_du"><em></em><span>520</span></p>
-							</div>
-						</a>
-					</div>-->
-
-				</ul>
-			</div>
+		<div class="mui-content">
+			<title>暂无收藏</title>
 		</div>
 	</body>
 	<script src="js/mui.min.js"></script>
-	<script src="js/common.js"></script>
-	<script>
-		mui.init(); //favorite_listphp
-		mui.plusReady(function() {
-			mui.ajax(Common.domain + '/fuwu/api/favorite_list.php', {
-				data: {
-					userid: Common.getUserid(),
-				},
-				dataType: 'json', //服务器返回json格式数据
-				type: 'post', //HTTP请求类型
-				timeout: 10000, //超时时间设置为10秒；
-				success: function(data) {
-					console.log("收藏列表：：：：" + JSON.stringify(data));
-					//var table = document.body.querySelector('.mui-table-view');
-					//for(var i = 0; i < data.result.length; i++) {
-					//var li = document.createElement('li');
-					//li.innerHTML = '<div class="card1"><div class="card_tit"><p class="card_time"><em></em><span>'+data.result[i].addtime+'</span></p></div><div class="card1_nr"><h2>'+data.result[i].arr[0]+'</h2></div></a></div>';
-					//table.insertBefore(li, table.firstChild);
-					//}
-
-					var li;
-					var table = document.body.querySelector('.mui-table-view');
-					for(var i = 0; i < data.result.length; i++) {
-						li = document.createElement('li');
-						var num = Math.round(Math.random() * 2 + 1);
-						if(num == 1) {
-							//													li.className = 'mui-table-view-cell mui-media';有三张图片
-							li.innerHTML = '<div class="card1"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><img src= ' + (data.result[i].arr[1]) + '><img src=' + (data.result[i].arr[2]) + '><img src=' + (data.result[i].arr[3]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
-						} else if(num == 2) {
-							//卡片2
-							//													li.className = 'mui-table-view-cell mui-media';上面是图片，下面是文字
-							li.innerHTML = '<div class="card2"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src=' + (data.result[i].arr[1]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
-						} else {
-							li.innerHTML = '<div class="card2"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src=' + (data.result[i].arr[1]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
-							
-//							li.innerHTML = '<div class="card3"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].arr[0] + '</h2><p>' + data.result[i].arr[0] + '</p></div><div class="card3_pic"><img src=' + (data.result[i].arr[1]) + '></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
-						}
-						table.appendChild(li);
-					}
-
-				},
-				error: function(xhr, type, errorThrown) {
-					console.log('收藏列表：：：：' + xhr.status);
+	<script type="text/javascript">
+		//启用双击监听
+		mui.init({
+			gestureConfig: {
+				doubletap: true
+			},
+			subpages: [{
+				url: 'collectionList.html',
+				id: 'collectionList.html',
+				styles: {
+					top: '45px',
+					bottom: '0px',
 				}
-			});
-			
-			mui('#list').on('tap', 'a', function() {
-//				mui.toast("哈哈哈哈哈");
-				var href = this.href;
-				var articleid = this.getAttribute('id');
-				var articleurl = this.getAttribute('deburl');
-				mui.openWindow({
-					url: 'informationDetails.html',
-					styles: {
-						popGesture: 'close',
-					},
-					extras: {
-						articleid: articleid,
-						articleurl: articleurl,
-					},
-					createNew: true, //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
-					show: {
-						autoShow: true,
-						aniShow: 'slide-in-right',
-						duration: mui.os.ios ? 200 : 100
-					},
-//					waiting: {
-//						autoShow: true,
-//						title: '正在加载...',
-//					}
-				});
-			});
+			}]
+		});
+
+		var contentWebview = null;
+		document.querySelector('body').addEventListener('doubletap', function() {
+			if(contentWebview == null) {
+				contentWebview = plus.webview.currentWebview().children()[0];
+			}
+			contentWebview.evalJS("mui('#pullrefresh').pullRefresh().scrollTo(0,0,100)");
 		});
 	</script>
 

@@ -1343,7 +1343,7 @@ input[type=submit]:enabled:active {
 
 .mui-bar-tab .mui-tab-item {
 	display: table-cell;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	width: 1%;
 	height: 50px;
 	text-align: center;
