@@ -1,6 +1,4 @@
 (function($) {
-
-
 				var network = true;
 				if(mui.os.plus){
 					mui.plusReady(function () {
