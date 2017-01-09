@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/home.css" />
+		<link rel="stylesheet" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/home_copy.css" />
+		<style>
+			html,
+			body {
+				background-color: #FFFFFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<div id="pullrefresh" class="mui-scroll">
+			<ul id="list" class="mui-table-view">
+
+			</ul>
+		</div>-->
+		
+		
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul id="list" class="mui-table-view mui-table-view-chevron">
+					
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script src="js/common.js"></script>
+	<script>
+		mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+		var userID ;
+		mui.plusReady(function() {
+			userID = Common.getUserid();
+			collectionajax();
+		});
+		
+		var collectionajax = function(){
+			mui.ajax(Common.domain + '/fuwu/api/favorite_list.php', {
+				data: {
+					userid: Common.getUserid(),
+				},
+				dataType: 'json', //服务器返回json格式数据
+				type: 'post', //HTTP请求类型
+				timeout: 10000, //超时时间设置为10秒；
+				success: function(data) {
+					console.log("收藏列表：：：：" + JSON.stringify(data));
+
+					var li;
+					var table = document.body.querySelector('.mui-table-view');
+					for(var i = 0; i < data.result.length; i++) {
+						li = document.createElement('li');
+						var num = Math.round(Math.random() * 2 + 1);
+						if(num == 1) {
+							//													li.className = 'mui-table-view-cell mui-media';有三张图片
+							li.innerHTML = '<div class="card1"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><img src= ' + (data.result[i].arr[1]) + '><img src=' + (data.result[i].arr[2]) + '><img src=' + (data.result[i].arr[3]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+						} else if(num == 2) {
+							//卡片2
+							//													li.className = 'mui-table-view-cell mui-media';上面是图片，下面是文字
+							li.innerHTML = '<div class="card2"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src=' + (data.result[i].arr[1]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+						} else {
+							li.innerHTML = '<div class="card2"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src=' + (data.result[i].arr[1]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+							
+//							li.innerHTML = '<div class="card3"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].arr[0] + '</h2><p>' + data.result[i].arr[0] + '</p></div><div class="card3_pic"><img src=' + (data.result[i].arr[1]) + '></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+						}
+						table.appendChild(li);
+					}
+
+				},
+				error: function(xhr, type, errorThrown) {
+					console.log('收藏列表：：：：' + xhr.status);
+				}
+			});
+			
+			mui('#list').on('tap', 'a', function() {
+//				mui.toast("哈哈哈哈哈");
+				var href = this.href;
+				var articleid = this.getAttribute('id');
+				var articleurl = this.getAttribute('deburl');
+				mui.openWindow({
+					url: 'informationDetails.html',
+					styles: {
+						popGesture: 'close',
+					},
+					extras: {
+						articleid: articleid,
+						articleurl: articleurl,
+					},
+					createNew: true, //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+					show: {
+						autoShow: true,
+						aniShow: 'slide-in-right',
+						duration: mui.os.ios ? 200 : 100
+					},
+				});
+			});
+		}
+		/**
+		 *
+		 *	下拉
+		 */
+		function pulldownRefresh() {
+				setTimeout(function() {
+					collectionajax();
+				}, 1500);
+			}
+		/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui.toast("没有更多内容");
+				}, 1500);
+			}
+		if (mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().pullupLoading();
+					}, 1000);
+
+				});
+			} else {
+				mui.ready(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				});
+			}
+		
+	</script>
+
+</html>
