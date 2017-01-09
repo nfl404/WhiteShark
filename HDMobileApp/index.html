@@ -20,6 +20,7 @@
 				font-size: 0.75rem;
 				color: #FFFFFF;
 			}
+<<<<<<< HEAD
 			.nav_icon_one{
 				background: url(images/nav_icon_one.png) no-repeat center center;
 				background-size: cover;
@@ -39,10 +40,44 @@
 				padding-top: 4px;
 				border-radius: 3px 3px 0 0;
 				margin-top: -4px;
+=======
+			
+			.nav_icon_bg span {
+				display: block;
+				margin: 5px auto;
+				width: 30px;
+				height: 30px;
+				background-color: #FFFFFF;
+				border-radius: 15px;
+			}
+			
+			.nav_icon_bg span.nav_icon_home {
+				background: url(images/nav_icon_home.png) no-repeat center center #DDDDDD;
+				background-size: 80%;
+			}
+			
+			.nav_icon_bg span.nav_icon_vido {
+				background: url(images/tb.png) no-repeat center center #DDDDDD;
+				background-size: 80%;
+			}
+			
+			.nav_icon_bg span.nav_icon_mine {
+				background: url(images/nav_icon_mine.png) no-repeat center center #DDDDDD;
+				background-size: 80%;
+			}
+			/*.nav_icon_bg span.nav_icon_collceton {
+				background: url(images/nav_icon_collcetion.png) no-repeat center center #DDDDDD;
+				background-size: 80%;
+			}*/
+			
+			.mui-active .nav_icon_bg span.nav_icon_home {
+				background: url(images/nav_icon_home_active.png) no-repeat center center #393d47;
+				background-size: 80%;
+>>>>>>> 5fb5cdc4f9f430e4b798abe77cc3a4461f468e68
 			}
 			
 			.mui-active .nav_icon_bg span.nav_icon_vido {
-				background: url(images/nav_icon_vido_active.png) no-repeat center center #393d47;
+				background: url(images/nav_icon_collcetion.png) no-repeat center center #393d47;
 				background-size: 80%;
 			}
 			
@@ -50,10 +85,10 @@
 				background: url(images/nav_icon_mine_active.png) no-repeat center center #393d47;
 				background-size: 80%;
 			}
-			.mui-active .nav_icon_bg span.nav_icon_collcetion {
+			/*.mui-active .nav_icon_bg span.nav_icon_collcetion {
 				background: url(images/nav_icon_collection_active.png) no-repeat center center #393d47;
 				background-size: 80%;
-			}
+			}*/
 		</style>
 	</head>
 
@@ -90,15 +125,6 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
-		<script>
-			// 监听plusready事件  
-			document.addEventListener("plusready", function() {
-				// 扩展API加载完毕，现在可以正常调用扩展API
-				// 在程序运行时接收到的消息不显示在系统消息中心
-//				alert("测试是否可推送");
-				plus.push.setAutoNotification(false);
-			}, false);
-		</script>
 	</body>
 
 </html>

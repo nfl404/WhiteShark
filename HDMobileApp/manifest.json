@@ -21,6 +21,9 @@
 		"url": "http://www.dcloud.io"
 	},
 	"permissions": {
+		"Push": {
+			"description": "管理推送消息插件"
+		},
 		"Accelerometer": {
 			"description": "访问加速度感应器"
 		},
@@ -103,9 +106,6 @@
 		},
 		"NativeObj": {
 			"description": "原生对象"
-		},
-		"Push": {
-			"description": "管理推送消息插件"
 		}
 	},
 	"plus": {
@@ -120,9 +120,9 @@
 			"plugins": {
 				"push": {
 					"igexin": {
-						"appid": "Oj0vWGUJkl9PyyGihob0F6",
-						"appkey": "XraME5Vazi5e09ataaQ6jA",
-						"appsecret": "9bdnLJkOFA8p7NR3yjMYc9"
+						"appid": "x4wW3ncCmGAdUFlf2BcWUA",
+						"appkey": "CFKamDtX1a53GHfrgS61s3",
+						"appsecret": "pOzraaD9eB63EhetExQYG4"
 					}
 				}
 			},
@@ -274,7 +274,9 @@
 					"images/nav_icon_mine_active.png",
 					"js/push.js",
 					"images/collection.png",
-					"images/nav_icon_collection_active.png"
+					"images/nav_icon_collection_active.png",
+					"images/nav_icon_collcetion.png",
+					"images/tb.png"
 				],
 				"refer": [
 					"find.html",
@@ -653,7 +655,23 @@
 					"images/yan_icon.png",
 					"images/zan_icon.png",
 					"css/home_copy.css",
-					"css/app.css"
+					"css/app.css",
+					"pull_collection.html",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"informationDetails.html"
+				],
+				"priority": 0
+			},
+			"pull_collection.html": {
+				"resources": [
+					"css/home.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"css/home_copy.css"
 				],
 				"refer": [
 					"informationDetails.html"
