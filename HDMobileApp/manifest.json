@@ -21,6 +21,9 @@
 		"url": "http://www.dcloud.io"
 	},
 	"permissions": {
+		"Push": {
+			"description": "管理推送消息插件"
+		},
 		"Accelerometer": {
 			"description": "访问加速度感应器"
 		},
@@ -103,9 +106,6 @@
 		},
 		"NativeObj": {
 			"description": "原生对象"
-		},
-		"Push": {
-			"description": "管理推送消息插件"
 		}
 	},
 	"plus": {
