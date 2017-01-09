@@ -76,6 +76,106 @@
 						});
 					};
 					getInformationList(articleId);
+					
+					var isColleciton = function(userId, articleId) {
+						mui.ajax(Common.domain+'/fuwu/api/favorite.php',{
+							data:{
+								userid: userId,
+								articleid: articleId,
+								action: 'check'
+							},
+							dataType:'json',//服务器返回json格式数据
+							type:'post',//HTTP请求类型
+							timeout:10000,//超时时间设置为10秒；
+							success:function(data){
+								console.log(JSON.stringify(data));
+								if (data.status == 200) {
+									collection = data.type;
+								} 
+							},
+							error:function(xhr,type,errorThrown){
+								
+							}
+						});
+					};
+					
+					isColleciton(Common.getUserid(), articleId);
+
+					/*
+					 * 收藏、取消收藏
+					 */
+					var clickCollection = function(userId, articleId, cid) {
+						mui.ajax(Common.domain + '/fuwu/api/favorite.php', {
+							data: {
+								userid: userId,
+								articleid: articleId,
+								subtype: '1',
+								cid: cid,
+							},
+							dataType: 'json', //服务器返回json格式数据
+							type: 'post', //HTTP请求类型
+							timeout: 10000, //超时时间设置为10秒；
+							success: function(data) {
+								console.log("收藏成功：：" + data.status);
+								if(data.status == "200") {
+									mui.toast("已收藏成功");
+								}
+							},
+							error: function(xhr, type, errorThrown) {
+								console.log('收藏接口访问失败：：：：' + xhr.status);
+							}
+						});
+					}
+					var canceCollection = function(userId, articleId) {
+							mui.ajax(Common.domain + '/fuwu/api/favorite.php', {
+								data: {
+									userid: userId,
+									articleid: articleId,
+									action: 'cancel',
+								},
+								dataType: 'json', //服务器返回json格式数据
+								type: 'post', //HTTP请求类型
+								timeout: 10000, //超时时间设置为10秒；
+								success: function(data) {
+									if(data.status == "200") {
+										mui.toast("你以取消收藏");
+									}
+								},
+								error: function(xhr, type, errorThrown) {
+									console.log('收藏接口访问失败：：：：' + xhr.status);
+								}
+							});
+						}
+						/**
+						 * 判断是收藏还是取消，0表示取消收藏，不为0表示收藏文章
+						 */
+					var collection;
+					document.getElementById('collection').onclick = function() {
+						/**
+						 *	判断用户是或否登陆 
+						 */
+						if(Common.getisLogin() != 1) {
+							mui.openWindow({
+								id: 'login_new',
+								url: 'mine/login_new.html',
+								styles: {
+									popGesture: 'close',
+								},
+								createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+							});
+						} else {
+							// 个推cid
+							var igeCid = plus.push.getClientInfo().clientid;
+							var userId = Common.getUserid();
+							if(collection == 1) {
+								canceCollection(userId, articleId, igeCid);
+								collection = 2;
+							} else {
+								clickCollection(userId, articleId, igeCid);
+								collection = 1;
+							}
+						}
+					}
 
 					/**
 					 * 发送评论请求
@@ -275,11 +375,6 @@
 					 * 点击评论
 					 */
 					document.getElementById("xie").addEventListener("click", function() {
-						//						var callback = function(){
-						//							console.log(11);
-						//						}
-						//						var mask = mui.createMask(callback);
-						//						mask.show()
 						document.getElementById("footerbackgrod").hidden = true;
 						document.getElementById("inputeFooterid").hidden = false;
 						document.getElementById("contentId").focus();

@@ -2,34 +2,42 @@
 <html>
 
 	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="css/mui.min.css" rel="stylesheet" />
+		<meta charset="utf-8">
+		<title>收藏列表</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
 		<link rel="stylesheet" href="css/home.css" />
 		<link rel="stylesheet" href="css/app.css" />
-		<link rel="stylesheet" type="text/css" href="css/home_copy.css" />
-		<style>
-			html,
-			body {
-				background-color: #FFFFFF;
-			}
-		</style>
 	</head>
 
 	<body>
 		<!--下拉刷新容器-->
-		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="background: white;">
 			<div class="mui-scroll">
+				<div id="tishi" class="title" align="center">
+					暂无数据
+				</div>
 				<!--数据列表-->
-				<ul class="mui-table-view mui-table-view-chevron">
-
+				<ul id="list" class="mui-table-view mui-table-view-chevron">
+					<!--<li class="list4-list">
+						<a href="#">
+							<h2>感知中国 走进秘鲁--APEC“人与自然”艺术展举行</h2>
+							<div class="list4-vido">
+								<img src="images/muwu.jpg">
+							</div>
+							<p><span class="index-shi">视频</span><span>专题</span><span>88评论</span><span>四小时之前</span><span class="index-close"></span></p>
+						</a>
+					</li>-->
 				</ul>
 			</div>
 		</div>
 	</body>
 	<script src="js/mui.min.js"></script>
 	<script src="js/common.js"></script>
+	<script type="text/javascript" src="libs/jquery-1.8.3.min.js" ></script>
 	<script>
 		mui.init({
 			pullRefresh: {
@@ -58,6 +66,7 @@
 				 *	判断是否登陆 
 				 */
 				if(Common.getisLogin() != 1) {
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
 					mui.openWindow({
 						id: 'login_new',
 						url: 'mine/login_new.html',
@@ -83,6 +92,7 @@
 				 *	判断是否登陆 
 				 */
 				if(Common.getisLogin() != 1) {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh();;
 					mui.openWindow({
 						id: 'login_new',
 						url: 'mine/login_new.html',
@@ -99,6 +109,34 @@
 		};
 
 		mui.plusReady(function() {
+			/*
+			 * 收藏列表跳转
+			 */
+			mui('#list').on('tap', 'a', function() {
+				var href = this.href;
+				var articleid = this.getAttribute('id');
+				var articleurl = this.getAttribute('deburl');
+				mui.openWindow({
+					url: 'informationDetails.html',
+					styles: {
+						popGesture: 'close',
+					},
+					extras: {
+						articleid: articleid,
+						articleurl: articleurl,
+					},
+					createNew: true, //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+					show: {
+						autoShow: true,
+						aniShow: 'slide-in-right',
+						duration: mui.os.ios ? 200 : 100
+					},
+					waiting: {
+						autoShow: true,
+						title: '正在加载...',
+					}
+				});
+			});
 			/**
 			 *	获取收藏列表 
 			 */
@@ -113,6 +151,8 @@
 						success: function(data) {
 							console.log("收藏列表：：：：" + JSON.stringify(data));
 							if(data.status == 200) {
+								document.getElementById('tishi').hidden = true;
+								$('ul li').remove();
 								var li;
 								var table = document.body.querySelector('.mui-table-view');
 								for(var i = 0; i < data.result.length; i++) {
@@ -138,7 +178,7 @@
 									}
 								}
 							} else {
-								mui.toast('暂无数据...状态码(' + data.status + ')');
+								//								mui.toast('暂无数据...状态码(' + data.status + ')');
 							}
 
 							mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
@@ -159,7 +199,7 @@
 			if(Common.getisLogin() == 1) {
 				var userId = Common.getUserid();
 				getCollectionList(userId, refresh);
-			} 
+			}
 		});
 	</script>
 

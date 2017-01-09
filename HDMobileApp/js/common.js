@@ -150,7 +150,7 @@
 			return plus.storage.getItem("islong");
 		},
 		/**
-		 * 判断用户是否晕允许登录
+		 * 判断用户是否允许推送
 		 */
 		setisPush: function(value) {
 	 		plus.storage.setItem("ispush",value);

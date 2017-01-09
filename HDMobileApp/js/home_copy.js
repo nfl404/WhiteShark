@@ -448,7 +448,6 @@ mui.init();
 					self.endPullUpToRefresh();
 					self.endPullDownToRefresh();
 					mui.toast('服务器异常...错误描述：' + xhr.status);
-
 				}
 			});
 		};
