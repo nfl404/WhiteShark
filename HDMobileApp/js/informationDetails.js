@@ -78,6 +78,7 @@
 					getInformationList(articleId);
 					
 					var isColleciton = function(userId, articleId) {
+						console.log('articleid：：：'+articleId);
 						mui.ajax(Common.domain+'/fuwu/api/favorite.php',{
 							data:{
 								userid: userId,
@@ -92,9 +93,9 @@
 								if (data.status == 200) {
 									collection = data.type;
 									if (collection == 1) {
-										document.getElementById('collection_click').src = "images/collection_off.png";
-									} else{
 										document.getElementById('collection_click').src = "images/collection_on.png";
+									} else{
+										document.getElementById('collection_click').src = "images/collection_off.png";
 									}
 								} 
 							},
@@ -193,6 +194,7 @@
 					 */
 					var sendComment = function(userId, articleId, commentContent) {
 						var waiting = Common.showWaiting();
+						console.log(userId,articleId,commentContent);
 						mui.ajax(Common.domain + '/fuwu/api/add_comment.php', {
 							data: {
 								userid: userId,
@@ -204,7 +206,12 @@
 							timeout: 10000, //超时时间设置为10秒；
 							success: function(data) {
 								Common.closeWaiting(waiting);
-								mui.toast('评论已成功...');
+								if (data.status == 200) {
+									mui.toast('评论已成功...');
+								} else{
+									mui.toast('评论失败...状态码(' + data.status + ')');
+								}
+								
 							},
 							error: function(xhr, type, errorThrown) {
 								Common.closeWaiting(waiting);

@@ -1,107 +1,107 @@
 {
-	"collection.html": {
-		"resources": [
-			"images/yan_icon.png",
-			"images/time_cion.png",
-			"images/zan_icon.png",
-			"css/home.css",
-			"js/common.js",
-			"js/mui.min.js",
-			"css/app.css",
-			"css/mui.min.css",
-			"css/home_copy.css",
-			"pull_collection.html",
-			"fonts/mui.ttf",
-			"collectionList.html"
-		],
-		"refer": [
-			"pull_collection.html",
-			"collectionList.html"
-		]
-	},
-	"index.html": {
-		"resources": [
-			"images/nav_icon_collection_active.png",
-			"images/nav_icon_mine.png",
-			"images/nav_icon_home_active.png",
-			"images/nav_icon_mine_active.png",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"home_copy.html",
-			"images/nav_icon_bg1.png",
-			"images/nav_icon_home.png",
-			"images/nav_icon_collcetion.png",
-			"js/index.js",
-			"images/tb.png",
-			"fonts/mui.ttf",
-			"images/nav_icon_three.png",
-			"images/nav_icon_one.png",
-			"images/nav_icon_two.png"
-		],
-		"refer": [
-			"collection.html",
-			"mine_new.html",
-			"home_copy.html"
-		]
-	},
-	"mine_new.html": {
-		"resources": [
-			"js/app.js",
-			"images/nouser_pic.png",
-			"css/mine_new.css",
-			"images/mine_bg.jpg",
-			"images/she_bg.png",
-			"js/mui.js",
-			"images/xie_icon.png",
-			"images/ping_bg.png",
-			"images/tel_icon.png",
-			"images/picuser.png",
-			"js/common.js",
-			"js/mui.min.js",
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"home_copy.html": {
-		"resources": [
-			"js/mui.pullToRefresh.js",
-			"js/mui.pullToRefresh.material.js",
-			"images/banner.png",
-			"libs/jquery-1.8.3.min.js",
-			"images/nav_bg.png",
-			"images/search.png",
-			"css/home.css",
-			"js/common.js",
-			"images/logo.png",
-			"css/app.css",
-			"css/home_copy.css",
-			"js/home_copy.js",
-			"images/nav_bgs.png",
-			"images/yan_icon.png",
-			"images/time_cion.png",
-			"images/zan_icon.png"
-		],
-		"refer": []
-	},
-	"pull_collection.html": {
-		"refer": [
-			"informationDetails.html"
-		],
-		"resources": [
-			"css/home.css",
-			"js/common.js",
-			"js/mui.min.js",
-			"css/app.css",
-			"css/mui.min.css",
-			"css/home_copy.css"
-		]
-	},
-	"informationDetails.html": {
-		"resources": [
-			"js/informationDetails.js",
-			"images/guanlian.png",
-			"css/informationDetails.css",
-			"css/inof.css"
-		]
-	}
+  "collection.html": {
+    "resources": [
+      "images/yan_icon.png",
+      "images/time_cion.png",
+      "images/zan_icon.png",
+      "css/home.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/app.css",
+      "css/mui.min.css",
+      "css/home_copy.css",
+      "pull_collection.html",
+      "fonts/mui.ttf",
+      "collectionList.html"
+    ],
+    "refer": [
+      "pull_collection.html",
+      "collectionList.html"
+    ]
+  },
+  "index.html": {
+    "resources": [
+      "images/nav_icon_collection_active.png",
+      "images/nav_icon_mine.png",
+      "images/nav_icon_home_active.png",
+      "images/nav_icon_mine_active.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "home_copy.html",
+      "images/nav_icon_bg1.png",
+      "images/nav_icon_home.png",
+      "images/nav_icon_collcetion.png",
+      "js/index.js",
+      "images/tb.png",
+      "fonts/mui.ttf",
+      "images/nav_icon_three.png",
+      "images/nav_icon_one.png",
+      "images/nav_icon_two.png"
+    ],
+    "refer": [
+      "collection.html",
+      "mine_new.html",
+      "home_copy.html"
+    ]
+  },
+  "mine_new.html": {
+    "resources": [
+      "js/app.js",
+      "images/nouser_pic.png",
+      "css/mine_new.css",
+      "images/mine_bg.jpg",
+      "images/she_bg.png",
+      "js/mui.js",
+      "images/xie_icon.png",
+      "images/ping_bg.png",
+      "images/tel_icon.png",
+      "images/picuser.png",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "home_copy.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/banner.png",
+      "libs/jquery-1.8.3.min.js",
+      "images/nav_bg.png",
+      "images/search.png",
+      "css/home.css",
+      "js/common.js",
+      "images/logo.png",
+      "css/app.css",
+      "css/home_copy.css",
+      "js/home_copy.js",
+      "images/nav_bgs.png",
+      "images/yan_icon.png",
+      "images/time_cion.png",
+      "images/zan_icon.png"
+    ],
+    "refer": []
+  },
+  "pull_collection.html": {
+    "refer": [
+      "informationDetails.html"
+    ],
+    "resources": [
+      "css/home.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/app.css",
+      "css/mui.min.css",
+      "css/home_copy.css"
+    ]
+  },
+  "informationDetails.html": {
+    "resources": [
+      "js/informationDetails.js",
+      "images/guanlian.png",
+      "css/informationDetails.css",
+      "css/inof.css"
+    ]
+  }
 }

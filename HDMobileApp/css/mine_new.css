@@ -2,7 +2,7 @@ body{
 	background-color: #f2f2f1;
 	padding: 0 10px;
 	background: url(../images/mine_bg.jpg) top center no-repeat;
-	background-size: 100% 12rem;
+	background-size: 100% 15rem;
 }
 .mine_tit h1{
 	line-height: 2.4rem;
@@ -44,7 +44,7 @@ body{
 .user_box{
 	width: 84%;
 	margin: auto;
-	margin-top: 4rem;
+	margin-top: 7rem;
 	height: 10rem;
 	background: #FFFFFF;
 	border-radius: 5px;
