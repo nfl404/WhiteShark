@@ -76,35 +76,35 @@
 						});
 					};
 					getInformationList(articleId);
-					
+
 					var isColleciton = function(userId, articleId) {
-						console.log('articleid：：：'+articleId);
-						mui.ajax(Common.domain+'/fuwu/api/favorite.php',{
-							data:{
+						console.log('articleid：：：' + articleId);
+						mui.ajax(Common.domain + '/fuwu/api/favorite.php', {
+							data: {
 								userid: userId,
 								articleid: articleId,
 								action: 'check'
 							},
-							dataType:'json',//服务器返回json格式数据
-							type:'post',//HTTP请求类型
-							timeout:10000,//超时时间设置为10秒；
-							success:function(data){
+							dataType: 'json', //服务器返回json格式数据
+							type: 'post', //HTTP请求类型
+							timeout: 10000, //超时时间设置为10秒；
+							success: function(data) {
 								console.log(JSON.stringify(data));
-								if (data.status == 200) {
+								if(data.status == 200) {
 									collection = data.type;
-									if (collection == 1) {
+									if(collection == 1) {
 										document.getElementById('collection_click').src = "images/collection_on.png";
-									} else{
+									} else {
 										document.getElementById('collection_click').src = "images/collection_off.png";
 									}
-								} 
+								}
 							},
-							error:function(xhr,type,errorThrown){
-								
+							error: function(xhr, type, errorThrown) {
+
 							}
 						});
 					};
-					
+
 					isColleciton(Common.getUserid(), articleId);
 
 					/*
@@ -124,11 +124,10 @@
 							success: function(data) {
 								console.log("收藏成功：：" + data.status);
 								if(data.status == "200") {
-//									mui.toast("已收藏成功");
-									alert('已收藏成功'+(cid)+'');
+									mui.toast("已收藏成功");
 									document.getElementById('collection_click').src = "images/collection_on.png";
 								} else {
-									mui.toast('收藏失败...状态吗：(' +data.status+')');
+									mui.toast('收藏失败...状态吗：(' + data.status + ')');
 								}
 							},
 							error: function(xhr, type, errorThrown) {
@@ -153,7 +152,7 @@
 										mui.toast("你以取消收藏");
 										document.getElementById('collection_click').src = "images/collection_off.png";
 									} else {
-										mui.toast('取消收藏失败...状态吗：(' +data.status+')');
+										mui.toast('取消收藏失败...状态吗：(' + data.status + ')');
 									}
 								},
 								error: function(xhr, type, errorThrown) {
@@ -181,7 +180,7 @@
 						} else {
 							// 个推cid
 							var igeCid = plus.push.getClientInfo().clientid;
-							console.log('igeCid::::'+igeCid);
+							console.log('igeCid::::' + igeCid);
 							var userId = Common.getUserid();
 							if(document.getElementById('collection_click').src.match("on_on")) {
 								canceCollection(userId, articleId, igeCid);
@@ -197,7 +196,7 @@
 					 */
 					var sendComment = function(userId, articleId, commentContent) {
 						var waiting = Common.showWaiting();
-						console.log(userId,articleId,commentContent);
+						console.log(userId, articleId, commentContent);
 						mui.ajax(Common.domain + '/fuwu/api/add_comment.php', {
 							data: {
 								userid: userId,
@@ -209,12 +208,12 @@
 							timeout: 10000, //超时时间设置为10秒；
 							success: function(data) {
 								Common.closeWaiting(waiting);
-								if (data.status == 200) {
+								if(data.status == 200) {
 									mui.toast('评论已成功...');
-								} else{
+								} else {
 									mui.toast('评论失败...状态码(' + data.status + ')');
 								}
-								
+
 							},
 							error: function(xhr, type, errorThrown) {
 								Common.closeWaiting(waiting);
@@ -336,8 +335,9 @@
 								popGesture: 'close',
 							},
 							extras: {
-								articleid: articleId
-							}
+								articleid: articleId,
+							},
+							createNew: true, //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
 						});
 					});
 					/**
@@ -351,8 +351,9 @@
 								popGesture: 'close',
 							},
 							extras: {
-								articleid: articleId
-							}
+								articleid: articleId,
+							},
+							createNew: true, //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
 						});
 					});
 
