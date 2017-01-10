@@ -81,7 +81,9 @@
 			"images/time_cion.png",
 			"images/zan_icon.png"
 		],
-		"refer": []
+		"refer": [
+			"informationDetails.html"
+		]
 	},
 	"pull_collection.html": {
 		"refer": [
