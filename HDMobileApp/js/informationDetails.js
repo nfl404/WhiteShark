@@ -91,6 +91,11 @@
 								console.log(JSON.stringify(data));
 								if (data.status == 200) {
 									collection = data.type;
+									if (collection == 1) {
+										document.getElementById('collection_click').src = "images/collection_off.png";
+									} else{
+										document.getElementById('collection_click').src = "images/collection_on.png";
+									}
 								} 
 							},
 							error:function(xhr,type,errorThrown){
@@ -119,6 +124,9 @@
 								console.log("收藏成功：：" + data.status);
 								if(data.status == "200") {
 									mui.toast("已收藏成功");
+									document.getElementById('collection_click').src = "images/collection_on.png";
+								} else {
+									mui.toast('收藏失败...状态吗：(' +data.status+')');
 								}
 							},
 							error: function(xhr, type, errorThrown) {
@@ -137,8 +145,12 @@
 								type: 'post', //HTTP请求类型
 								timeout: 10000, //超时时间设置为10秒；
 								success: function(data) {
+									console.log(JSON.stringify(data));
 									if(data.status == "200") {
 										mui.toast("你以取消收藏");
+										document.getElementById('collection_click').src = "images/collection_off.png";
+									} else {
+										mui.toast('取消收藏失败...状态吗：(' +data.status+')');
 									}
 								},
 								error: function(xhr, type, errorThrown) {
@@ -150,7 +162,7 @@
 						 * 判断是收藏还是取消，0表示取消收藏，不为0表示收藏文章
 						 */
 					var collection;
-					document.getElementById('collection').onclick = function() {
+					document.getElementById('collection_click').onclick = function() {
 						/**
 						 *	判断用户是或否登陆 
 						 */
@@ -167,12 +179,10 @@
 							// 个推cid
 							var igeCid = plus.push.getClientInfo().clientid;
 							var userId = Common.getUserid();
-							if(collection == 1) {
+							if(document.getElementById('collection_click').src.match("on_on")) {
 								canceCollection(userId, articleId, igeCid);
-								collection = 2;
 							} else {
 								clickCollection(userId, articleId, igeCid);
-								collection = 1;
 							}
 						}
 					}
