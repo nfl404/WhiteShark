@@ -513,7 +513,10 @@
 					"css/app.css",
 					"js/common.js",
 					"js/mui.zoom.js",
-					"js/mui.previewimage.js"
+					"js/mui.previewimage.js",
+					"js/commentList.js",
+					"css/commentList.css",
+					"images/toupic.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -641,10 +644,13 @@
 					"css/mui.min.css",
 					"libs/jquery-1.8.3.min.js",
 					"images/xie_icon.png",
-					"css/informationDetails.css"
+					"css/informationDetails.css",
+					"images/collection_on.png",
+					"images/collection_off.png"
 				],
 				"refer": [
-					"mine/login_new.html"
+					"mine/login_new.html",
+					"comment.html"
 				],
 				"priority": 0
 			},
