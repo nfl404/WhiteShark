@@ -437,10 +437,11 @@ mui.init();
 								break;
 						}
 					} else {
+						Common.closeWaiting(waiting);
 						mui.toast('暂无数据...状态码(' + data.status + ')');
 						self.endPullUpToRefresh();
 						self.endPullDownToRefresh();
-						Common.closeWaiting(waiting);
+						
 					}
 				},
 				error: function(xhr, type, errorThrown) {
