@@ -111,7 +111,7 @@
 	"plus": {
 		"splashscreen": {
 			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
-			"waiting": true
+			"waiting": false,"delay":"10"
 		},
 		"allowsInlineMediaPlayback": true,/*设置ios下允许内联播放*/
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
@@ -211,17 +211,17 @@
 			"splashscreen": {
 				"ios": {
 					"iphone": {
-						"default": "", /*iPhone3启动图片选，分辨率：320x480*/
-						"retina35": "",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
-						"retina40": ""
+						 /*iPhone3启动图片选，分辨率：320x480*/
+						/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+						
 					},
 					"ipad": {
-						"portrait": "", /*iPad竖屏启动图片，分辨率：768x1004*/
-						"portrait-retina": "",/*iPad高分屏竖屏图片，分辨率：1536x2008*/
+						 /*iPad竖屏启动图片，分辨率：768x1004*/
+						/*iPad高分屏竖屏图片，分辨率：1536x2008*/
 						"landscape": "", /*iPad横屏启动图片，分辨率：1024x748*/
 						"landscape-retina": "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
-						"portrait7": "", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
-						"portrait-retina7": "",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
+						 /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+						/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
 						"landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
 						"landscape-retina7": ""
 					}
