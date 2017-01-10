@@ -276,7 +276,10 @@
 					"images/collection.png",
 					"images/nav_icon_collection_active.png",
 					"images/nav_icon_collcetion.png",
-					"images/tb.png"
+					"images/tb.png",
+					"images/nav_icon_three.png",
+					"images/nav_icon_one.png",
+					"images/nav_icon_two.png"
 				],
 				"refer": [
 					"find.html",
@@ -657,7 +660,8 @@
 					"css/home_copy.css",
 					"css/app.css",
 					"pull_collection.html",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"collectionList.html"
 				],
 				"refer": [
 					"informationDetails.html"
