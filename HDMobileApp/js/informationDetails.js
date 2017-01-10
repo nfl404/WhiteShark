@@ -124,7 +124,8 @@
 							success: function(data) {
 								console.log("收藏成功：：" + data.status);
 								if(data.status == "200") {
-									mui.toast("已收藏成功");
+//									mui.toast("已收藏成功");
+									alert('已收藏成功'+(cid)+'');
 									document.getElementById('collection_click').src = "images/collection_on.png";
 								} else {
 									mui.toast('收藏失败...状态吗：(' +data.status+')');
@@ -135,6 +136,7 @@
 							}
 						});
 					}
+
 					var canceCollection = function(userId, articleId) {
 							mui.ajax(Common.domain + '/fuwu/api/favorite.php', {
 								data: {
@@ -179,6 +181,7 @@
 						} else {
 							// 个推cid
 							var igeCid = plus.push.getClientInfo().clientid;
+							console.log('igeCid::::'+igeCid);
 							var userId = Common.getUserid();
 							if(document.getElementById('collection_click').src.match("on_on")) {
 								canceCollection(userId, articleId, igeCid);
