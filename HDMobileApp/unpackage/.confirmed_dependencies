@@ -1,95 +1,95 @@
 {
-	"collection.html": {
-		"resources": [
-			"collectionList.html"
-		],
-		"refer": [
-			"collectionList.html"
-		]
-	},
-	"index.html": {
-		"resources": [
-			"images/tabIcon/home_on.png",
-			"images/tabIcon/collection_off.png",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"home_copy.html",
-			"images/tabIcon/mine_off.png",
-			"js/index.js",
-			"images/tabIcon/collection_on.png",
-			"images/tabIcon/mine_on.png",
-			"images/tabIcon/home_off.png"
-		],
-		"refer": [
-			"collection.html",
-			"mine_new.html",
-			"home_copy.html"
-		]
-	},
-	"mine_new.html": {
-		"resources": [
-			"js/app.js",
-			"images/nouser_pic.png",
-			"css/mine_new.css",
-			"images/mine_bg.jpg",
-			"images/she_bg.png",
-			"js/mui.js",
-			"images/xie_icon.png",
-			"images/ping_bg.png",
-			"images/tel_icon.png",
-			"images/picuser.png"
-		]
-	},
-	"home_copy.html": {
-		"resources": [
-			"js/mui.pullToRefresh.js",
-			"js/mui.pullToRefresh.material.js",
-			"images/banner.png",
-			"libs/jquery-1.8.3.min.js",
-			"images/nav_bg.png",
-			"images/search.png",
-			"css/home.css",
-			"images/yan_icon.png",
-			"images/time_cion.png",
-			"images/zan_icon.png",
-			"js/common.js",
-			"images/logo.png",
-			"css/app.css",
-			"css/home_copy.css",
-			"js/home_copy.js",
-			"images/nav_bgs.png"
-		],
-		"refer": [
-			"informationDetails.html"
-		]
-	},
-	"informationDetails.html": {
-		"resources": [
-			"js/informationDetails.js",
-			"images/guanlian.png",
-			"css/informationDetails.css",
-			"images/collection_off.png",
-			"fonts/mui.ttf",
-			"css/inof.css"
-		],
-		"refer": [
-			"comment.html"
-		]
-	},
-	"commentList.html": {
-		"resources": [
-			"js/commentList.js",
-			"js/mui.zoom.js",
-			"css/commentList.css",
-			"js/mui.previewimage.js"
-		]
-	},
-	"comment.html": {
-		"resources": [
-			"commentList.html"
-		],
-		"refer": [
-			"commentList.html"
-		]
-	}
+  "collection.html": {
+    "resources": [
+      "collectionList.html"
+    ],
+    "refer": [
+      "collectionList.html"
+    ]
+  },
+  "index.html": {
+    "resources": [
+      "images/tabIcon/home_on.png",
+      "images/tabIcon/collection_off.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "home_copy.html",
+      "images/tabIcon/mine_off.png",
+      "js/index.js",
+      "images/tabIcon/collection_on.png",
+      "images/tabIcon/mine_on.png",
+      "images/tabIcon/home_off.png"
+    ],
+    "refer": [
+      "collection.html",
+      "mine_new.html",
+      "home_copy.html"
+    ]
+  },
+  "mine_new.html": {
+    "resources": [
+      "js/app.js",
+      "images/nouser_pic.png",
+      "css/mine_new.css",
+      "images/mine_bg.jpg",
+      "images/she_bg.png",
+      "js/mui.js",
+      "images/xie_icon.png",
+      "images/ping_bg.png",
+      "images/tel_icon.png",
+      "images/picuser.png"
+    ]
+  },
+  "home_copy.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/banner.png",
+      "libs/jquery-1.8.3.min.js",
+      "images/nav_bg.png",
+      "images/search.png",
+      "css/home.css",
+      "images/yan_icon.png",
+      "images/time_cion.png",
+      "images/zan_icon.png",
+      "js/common.js",
+      "images/logo.png",
+      "css/app.css",
+      "css/home_copy.css",
+      "js/home_copy.js",
+      "images/nav_bgs.png"
+    ],
+    "refer": [
+      "informationDetails.html"
+    ]
+  },
+  "informationDetails.html": {
+    "resources": [
+      "js/informationDetails.js",
+      "images/guanlian.png",
+      "css/informationDetails.css",
+      "images/collection_off.png",
+      "fonts/mui.ttf",
+      "css/inof.css"
+    ],
+    "refer": [
+      "comment.html"
+    ]
+  },
+  "commentList.html": {
+    "resources": [
+      "js/commentList.js",
+      "js/mui.zoom.js",
+      "css/commentList.css",
+      "js/mui.previewimage.js"
+    ]
+  },
+  "comment.html": {
+    "resources": [
+      "commentList.html"
+    ],
+    "refer": [
+      "commentList.html"
+    ]
+  }
 }
