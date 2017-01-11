@@ -111,7 +111,7 @@
 	"plus": {
 		"splashscreen": {
 			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
-			"waiting": false,"delay":"300"
+			"waiting": false,"delay":"3000"
 		},
 		"allowsInlineMediaPlayback": true,/*设置ios下允许内联播放*/
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
@@ -210,7 +210,7 @@
 			},
 			"splashscreen": {
 				"ios": {
-					"iphone": {"default":"images/startPage/320_480.png","retina55":"images/startPage/1242_2208.png","retina35":"images/startPage/640_960.png","retina40":"images/startPage/640_1136.png","retina47":"images/startPage/750_1334.png"
+					"iphone": {"default":"images/startPage/320*480.png","retina55":"images/startPage/1242*2208.png","retina35":"images/startPage/640*960.png","retina40":"images/startPage/640*1136.png","retina47":"images/startPage/750*1334.png"
 						 /*iPhone3启动图片选，分辨率：320x480*/
 						/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
 						
@@ -223,15 +223,15 @@
 						 /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
 						/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
 						"landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
-						"landscape-retina7": "","portrait":"images/startPage/768_1004.png","portrait7":"images/startPage/768_1024.png","portrait-retina":"images/startPage/1536_2008.png","portrait-retina7":"images/startPage/1536_2048.png"
+						"landscape-retina7": "","portrait":"images/startPage/768*1004.png","portrait7":"images/startPage/768*1024.png","portrait-retina":"images/startPage/1536*2008.png","portrait-retina7":"images/startPage/1536*2048.png"
 					}
 				},
 				"android": {
-					"mdpi": "images/startPage/240_282.png", /*普通屏启动图片，分辨率：240x282*/
-					"ldpi": "images/startPage/320_442.png", /*大屏启动图片，分辨率：320x442*/
-					"hdpi": "images/startPage/480_762.png", /*高分屏启动图片，分辨率：480x762*/
-					"xhdpi": "images/startPage/720_1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
-					"xxhdpi": "images/startPage/1080_1882.png"
+					"mdpi": "images/startPage/240*282.png", /*普通屏启动图片，分辨率：240x282*/
+					"ldpi": "images/startPage/320*442.png", /*大屏启动图片，分辨率：320x442*/
+					"hdpi": "images/startPage/480*762.png", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "images/startPage/720*1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": "images/startPage/1080*1882.png"
 				}
 			}
 		}
