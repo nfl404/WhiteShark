@@ -167,9 +167,13 @@ html,
 .card1_pic{
 	overflow: hidden;
 	margin: 10px 0;
+	max-height: 6.4rem;
+	line-height: 6.4rem;
 }
 .card1_pic img{
 	float: left;
+	display: inline-block;
+	line-height: 6.4rem;
 	width: 31.33% !important;
 	margin: 0 1%;
 }
@@ -227,6 +231,10 @@ html,
 	width: 100%;
 	overflow: hidden;
 }
+.card2_pic{
+	overflow: hidden;
+	max-height: 16rem;
+}
 .card2_nr h2{
 	overflow: hidden;
 	white-space: nowrap;
@@ -262,4 +270,6 @@ html,
 	float: right;
 	width: 47%;
 	margin-top: 10px;
+	max-height: 8.2rem;
+	padding-bottom: 10px;
 }

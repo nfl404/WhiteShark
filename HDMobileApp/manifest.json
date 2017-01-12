@@ -279,7 +279,10 @@
 					"images/tb.png",
 					"images/nav_icon_three.png",
 					"images/nav_icon_one.png",
-					"images/nav_icon_two.png"
+					"images/nav_icon_two.png",
+					"images/tabIcon/home_on.png",
+					"images/tabIcon/collection_off.png",
+					"images/tabIcon/mine_off.png"
 				],
 				"refer": [
 					"find.html",
