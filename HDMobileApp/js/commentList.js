@@ -96,8 +96,8 @@ mui.plusReady(function() {
 			},
 			error: function(xhr, type, errorThrown) {
 				mui.toast('服务器异常...');
-				var commentFirstId = 0; //评论列表第一条id
-				var commentLastId = 0; //评论列表第一条id
+				commentFirstId = 0; //评论列表第一条id
+				commentLastId = 0; //评论列表第一条id
 				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
 				mui('#pullrefresh').pullRefresh().endPullupToRefresh();
 			}

@@ -36,7 +36,7 @@
 							var height = Math.max(bHeight, dHeight);
 							iframe.height = height;
 						} catch(ex) {}
-					}, 1000);
+					}, 2000);
 
 					/**
 					 *	文章详情 
