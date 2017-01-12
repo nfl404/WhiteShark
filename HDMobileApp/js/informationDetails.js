@@ -132,6 +132,7 @@
 							},
 							error: function(xhr, type, errorThrown) {
 								console.log('收藏接口访问失败：：：：' + xhr.status);
+								mui.toast("服务器异常");
 							}
 						});
 					}
