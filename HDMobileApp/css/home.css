@@ -1,109 +1,113 @@
 html,
-			body {
-				background-color: #F7F7F7;
-			}
-			
-			.mui-bar~.mui-content .mui-fullscreen {
-				top: 44px;
-				height: auto;
-			}
-			
-			.mui-pull-top-tips {
-				position: absolute;
-				top: -20px;
-				left: 50%;
-				margin-left: -25px;
-				width: 40px;
-				height: 40px;
-				border-radius: 100%;
-				z-index: 1;
-			}
-			
-			.mui-bar~.mui-pull-top-tips {
-				top: 24px;
-			}
-			
-			.mui-pull-top-wrapper {
-				width: 42px;
-				height: 42px;
-				display: block;
-				text-align: center;
-				background-color: #efeff4;
-				border: 1px solid #ddd;
-				border-radius: 25px;
-				background-clip: padding-box;
-				box-shadow: 0 4px 10px #bbb;
-				overflow: hidden;
-			}
-			
-			.mui-pull-top-tips.mui-transitioning {
-				-webkit-transition-duration: 200ms;
-				transition-duration: 200ms;
-			}
-			
-			.mui-pull-top-tips .mui-pull-loading {
-				/*-webkit-backface-visibility: hidden;
+body {
+	background-color: #F7F7F7;
+}
+
+.mui-bar~.mui-content .mui-fullscreen {
+	top: 44px;
+	height: auto;
+}
+
+.mui-pull-top-tips {
+	position: absolute;
+	top: -20px;
+	left: 50%;
+	margin-left: -25px;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	z-index: 1;
+}
+
+.mui-bar~.mui-pull-top-tips {
+	top: 24px;
+}
+
+.mui-pull-top-wrapper {
+	width: 42px;
+	height: 42px;
+	display: block;
+	text-align: center;
+	background-color: #efeff4;
+	border: 1px solid #ddd;
+	border-radius: 25px;
+	background-clip: padding-box;
+	box-shadow: 0 4px 10px #bbb;
+	overflow: hidden;
+}
+
+.mui-pull-top-tips.mui-transitioning {
+	-webkit-transition-duration: 200ms;
+	transition-duration: 200ms;
+}
+
+.mui-pull-top-tips .mui-pull-loading {
+	/*-webkit-backface-visibility: hidden;
 				-webkit-transition-duration: 400ms;
 				transition-duration: 400ms;*/
-				margin: 0;
-			}
-			
-			.mui-pull-top-wrapper .mui-icon,
-			.mui-pull-top-wrapper .mui-spinner {
-				margin-top: 7px;
-			}
-			
-			.mui-pull-top-wrapper .mui-icon.mui-reverse {
-				/*-webkit-transform: rotate(180deg) translateZ(0);*/
-			}
-			
-			.mui-pull-bottom-tips {
-				text-align: center;
-				background-color: #efeff4;
-				font-size: 15px;
-				line-height: 40px;
-				color: #777;
-			}
-			
-			.mui-pull-top-canvas {
-				overflow: hidden;
-				background-color: #fafafa;
-				border-radius: 40px;
-				box-shadow: 0 4px 10px #bbb;
-				width: 40px;
-				height: 40px;
-				margin: 0 auto;
-			}
-			
-			.mui-pull-top-canvas canvas {
-				width: 40px;
-			}
-			
-			.mui-slider-indicator.mui-segmented-control {
-				background-color: #F2F2F1;
-			}
-			.bar_img{
-				width: 20px;
-				height: 20px;
-				margin-top: 10px;
-			}
-			body{
-				background: #F2F2F1 !important;
-			}
-.yiheader{
-	position: fixed;
-    z-index: 10;
-    right: 0;
-    left: 0;
-    height:44px;
-    padding-right: 10px;
-    padding-left: 10px;
-    border-bottom: 1px solid #e5e5e5;
-    background-color: white;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+	margin: 0;
 }
-.logos{
+
+.mui-pull-top-wrapper .mui-icon,
+.mui-pull-top-wrapper .mui-spinner {
+	margin-top: 7px;
+}
+
+.mui-pull-top-wrapper .mui-icon.mui-reverse {
+	/*-webkit-transform: rotate(180deg) translateZ(0);*/
+}
+
+.mui-pull-bottom-tips {
+	text-align: center;
+	background-color: #efeff4;
+	font-size: 15px;
+	line-height: 40px;
+	color: #777;
+}
+
+.mui-pull-top-canvas {
+	overflow: hidden;
+	background-color: #fafafa;
+	border-radius: 40px;
+	box-shadow: 0 4px 10px #bbb;
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+}
+
+.mui-pull-top-canvas canvas {
+	width: 40px;
+}
+
+.mui-slider-indicator.mui-segmented-control {
+	background-color: #F2F2F1;
+}
+
+.bar_img {
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+}
+
+body {
+	background: #F2F2F1 !important;
+}
+
+.yiheader {
+	position: fixed;
+	z-index: 10;
+	right: 0;
+	left: 0;
+	height: 44px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border-bottom: 1px solid #e5e5e5;
+	background-color: white;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.logos {
 	width: 120px;
 	height: 32px;
 	background: url(../images/logo.png) center center no-repeat;
@@ -113,71 +117,83 @@ html,
 	display: block;
 	margin-top: 3px;
 }
-.search-box{
+
+.search-box {
 	position: absolute;
 	width: 30px;
 	height: 30px;
 	top: 0;
 	right: 10px;
 }
-.search-box a{
+
+.search-box a {
 	display: block;
-	width:30px;
+	width: 30px;
 	height: 30px;
 	background: url(../images/search.png) center center no-repeat;
 }
-.banner{
+
+.banner {
 	width: 100%;
 	margin: 1rem 0;
 }
-.card1{
+
+.card1 {
 	margin: 10px;
 	border-radius: 3px;
 	box-shadow: 0 0 4px #999;
-	padding:3px 5px;
+	padding: 3px 5px;
 }
-.card_tit{
+
+.card_tit {
 	overflow: hidden;
 	padding-bottom: 0.25rem;
 	border-bottom: 1px dotted #CCCCCC;
 	margin-top: 0.25rem;
 }
-.card_tit p.card_time{
+
+.card_tit p.card_time {
 	margin: 0;
 	float: left;
 	line-height: 24px;
 }
-.card_time em{
+
+.card_time em {
 	float: left;
 	width: 24px;
 	height: 24px;
 	background: url(../images/time_cion.png) center center no-repeat;
 	margin-right: .25rem;
 }
-.card_tit p.card_Source{
+
+.card_tit p.card_Source {
 	float: right;
 	margin-right: 10px;
 	font-size: 0.875rem;
 	line-height: 24px;
 	margin: 0;
 }
-.card1_nr{
+
+.card1_nr {
 	overflow: hidden;
 }
-.card1_pic{
+
+.card1_pic {
 	overflow: hidden;
 	margin: 10px 0;
 	max-height: 6.4rem;
 	line-height: 6.4rem;
 }
-.card1_pic img{
+
+.card1_pic img {
 	float: left;
 	display: inline-block;
 	line-height: 6.4rem;
 	width: 31.33% !important;
 	margin: 0 1%;
 }
-.card1_nr h2{
+
+.card1_nr h2 {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -185,57 +201,68 @@ html,
 	color: #000000;
 	margin: 10px 0;
 }
-.card_number{
+
+.card_number {
 	overflow: hidden;
 	clear: both;
 }
-.card_number p{
+
+.card_number p {
 	float: right;
 	margin-right: 10px;
 	line-height: 21px;
 }
-.card_number p.card_xi em{
+
+.card_number p.card_xi em {
 	float: left;
 	width: 21px;
 	height: 21px;
 	background: url(../images/zan_icon.png) center center no-repeat;
 }
-.card_number p.card_xi span{
+
+.card_number p.card_xi span {
 	line-height: 21px;
 	float: left;
 	margin-left: 3px;
 }
-.card_number p.card_du em{
+
+.card_number p.card_du em {
 	float: left;
 	width: 21px;
 	height: 21px;
 	background: url(../images/yan_icon.png) center center no-repeat;
 }
-.card_number p.card_du span{
+
+.card_number p.card_du span {
 	line-height: 21px;
 	float: left;
 	margin-left: 3px;
 }
-.card2,.card3{
+
+.card2,
+.card3 {
 	margin: 10px;
 	border-radius: 3px;
 	box-shadow: 0 0 4px #999;
-	padding:3px 5px;
+	padding: 3px 5px;
 	overflow: hidden;
 }
 
-.card2_nr{
+.card2_nr {
 	overflow: hidden;
 }
-.card2_nr .card2_pic img{
+
+.card2_nr .card2_pic img {
 	width: 100%;
 	overflow: hidden;
 }
-.card2_pic{
+
+.card2_pic {
 	overflow: hidden;
 	max-height: 16rem;
 }
-.card2_nr h2{
+
+.card2_nr h2 {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -243,12 +270,14 @@ html,
 	color: #000000;
 	margin: 10px 0;
 }
-.card3 .card3_tit{
+
+.card3 .card3_tit {
 	float: left;
 	width: 47%;
 	margin-right: 5%;
 }
-.card3 .card3_tit h2{
+
+.card3 .card3_tit h2 {
 	height: 3.6rem;
 	font-size: 1.2rem;
 	color: #000000;
@@ -257,16 +286,18 @@ html,
 	overflow: hidden;
 	text-align: left;
 }
-.card3 .card3_tit p{
+
+.card3 .card3_tit p {
 	font-size: 0.75rem;
 	color: #666666;
 	line-height: 1.2rem;
-	height:6rem;
+	height: 6rem;
 	overflow: hidden;
 	text-align: justify;
 	text-indent: 2rem;
 }
-.card3_pic{
+
+.card3_pic {
 	float: right;
 	width: 47%;
 	margin-top: 10px;
