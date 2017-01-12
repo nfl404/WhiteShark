@@ -345,7 +345,9 @@
 					"list.html",
 					"images/search_search.png"
 				],
-				"refer": [],
+				"refer": [
+					"searchResult.html"
+				],
 				"priority": 0
 			},
 			"mine/login.html": {
@@ -515,7 +517,8 @@
 					"js/mui.previewimage.js",
 					"js/commentList.js",
 					"css/commentList.css",
-					"images/toupic.png"
+					"images/toupic.png",
+					"libs/jquery-1.8.3.min.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -525,7 +528,8 @@
 					"commentList.html",
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"searchList.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -700,6 +704,29 @@
 					"informationDetails.html",
 					"mine/login_new.html"
 				],
+				"priority": 0
+			},
+			"searchResult.html": {
+				"resources": [
+					"searchList.html",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"searchList.html": {
+				"resources": [
+					"css/home.css",
+					"images/yan_icon.png",
+					"images/time_cion.png",
+					"images/zan_icon.png",
+					"js/common.js",
+					"css/app.css",
+					"libs/jquery-1.8.3.min.js"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},

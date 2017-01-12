@@ -28,8 +28,6 @@
 		mui.plusReady(function() {
 			var self = plus.webview.currentWebview();
 			keyWord = self.keyWord;
-			console.log('子页面articleid：：：'+keyWord);
-			//启用双击监听
 			mui.init({
 				gestureConfig: {
 					doubletap: true
@@ -47,20 +45,6 @@
 				}]
 			});
 		});
-//		mui.init({
-//				gestureConfig: {
-//					doubletap: true
-//				},
-//				subpages: [{
-//					url: 'searchList.html',
-//					id: 'searchList.html',
-//					styles: {
-//						top: '45px',
-//						bottom: '0px',
-//					}
-//				}]
-//			});
-
 		var contentWebview = null;
 		document.querySelector('body').addEventListener('doubletap', function() {
 			if(contentWebview == null) {
