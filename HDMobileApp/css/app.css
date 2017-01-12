@@ -3,12 +3,12 @@
  * 在实际项目开发时，建议为App单独写一个css文件，从而实现项目的自定义皮肤功能；
  * 
  * */
-/*.mui-plus.mui-android header.mui-bar{
+.mui-plus.mui-android header.mui-bar{
 	display: none;
 }
 .mui-plus.mui-android .mui-bar-nav~.mui-content{
 	padding: 0;
-}*/
+}
 /*修改首页头部Android手机不显示bug-2016.11.15*/
 
 /*hm开头的表示仅为 Hello MUI示例定义*/

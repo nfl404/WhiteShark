@@ -1,14 +1,10 @@
 {
-	"@platforms": [
-		"android",
-		"iPhone",
-		"iPad"
-	],
+	"@platforms": ["android","iPhone","iPad"],
 	"id": "H5BFD5E8E",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "华地资讯",/*应用名称，程序桌面图标名称*/
 	"version": {
-		"name": "1.0.0",/*应用版本名称*/
-		"code": "83"
+		"name": "1.0",/*应用版本名称*/
+		"code": ""
 	},
 	"description": "",/*应用描述信息*/
 	"icons": {
@@ -18,7 +14,7 @@
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
-		"url": "http://www.dcloud.io"
+		"url": ""
 	},
 	"permissions": {
 		"Push": {
@@ -111,7 +107,7 @@
 	"plus": {
 		"splashscreen": {
 			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
-			"waiting": false,"delay":"300"
+			"waiting": false,"delay":"3000"
 		},
 		"allowsInlineMediaPlayback": true,/*设置ios下允许内联播放*/
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
@@ -169,10 +165,7 @@
 					"<uses-permission android:name=\"android.permission.CAMERA\"/>"
 				]
 			},
-			"orientation": [
-				"portrait-primary",
-				"portrait-secondary"
-			],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"orientation": ["portrait-primary","portrait-secondary","landscape-primary","landscape-secondary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
 			"icons": {
 				"ios": {
 					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
@@ -210,7 +203,7 @@
 			},
 			"splashscreen": {
 				"ios": {
-					"iphone": {"default":"images/startPage/320_480.png","retina55":"images/startPage/1242_2208.png","retina35":"images/startPage/640_960.png","retina40":"images/startPage/640_1136.png","retina47":"images/startPage/750_1334.png"
+					"iphone": {"default":"C:/Users/Administrator/Desktop/华地质料/startPage/startPage/320_480.png","retina55":"C:/Users/Administrator/Desktop/华地质料/startPage/startPage/1242_2208.png","retina35":"C:/Users/Administrator/Desktop/华地质料/startPage/startPage/640_960.png","retina40":"C:/Users/Administrator/Desktop/华地质料/startPage/startPage/640_1136.png","retina47":"C:/Users/Administrator/Desktop/华地质料/startPage/startPage/750_1334.png"
 						 /*iPhone3启动图片选，分辨率：320x480*/
 						/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
 						
@@ -223,15 +216,15 @@
 						 /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
 						/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
 						"landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
-						"landscape-retina7": "","portrait":"images/startPage/768_1004.png","portrait7":"images/startPage/768_1024.png","portrait-retina":"images/startPage/1536_2008.png","portrait-retina7":"images/startPage/1536_2048.png"
+						"landscape-retina7": "","portrait":"C:/Users/Administrator/Desktop/华地质料/startPage/startPage/768_1004.png","portrait7":"C:/Users/Administrator/Desktop/华地质料/startPage/startPage/768_1024.png","portrait-retina":"C:/Users/Administrator/Desktop/华地质料/startPage/startPage/1536_2008.png","portrait-retina7":"C:/Users/Administrator/Desktop/华地质料/startPage/startPage/1536_2048.png"
 					}
 				},
 				"android": {
-					"mdpi": "images/startPage/240_282.png", /*普通屏启动图片，分辨率：240x282*/
-					"ldpi": "images/startPage/320_442.png", /*大屏启动图片，分辨率：320x442*/
-					"hdpi": "images/startPage/480_762.png", /*高分屏启动图片，分辨率：480x762*/
-					"xhdpi": "images/startPage/720_1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
-					"xxhdpi": "images/startPage/1080_1882.png"
+					"mdpi": "C:/Users/Administrator/Desktop/华地质料/startPage/startPage/240_282.png", /*普通屏启动图片，分辨率：240x282*/
+					"ldpi": "C:/Users/Administrator/Desktop/华地质料/startPage/startPage/320_442.png", /*大屏启动图片，分辨率：320x442*/
+					"hdpi": "C:/Users/Administrator/Desktop/华地质料/startPage/startPage/480_762.png", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "C:/Users/Administrator/Desktop/华地质料/startPage/startPage/720_1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": "C:/Users/Administrator/Desktop/华地质料/startPage/startPage/1080_1882.png"
 				}
 			}
 		}
@@ -279,7 +272,13 @@
 					"images/tb.png",
 					"images/nav_icon_three.png",
 					"images/nav_icon_one.png",
-					"images/nav_icon_two.png"
+					"images/nav_icon_two.png",
+					"images/tabIcon/home_on.png",
+					"images/tabIcon/collection_off.png",
+					"images/tabIcon/mine_off.png",
+					"images/tabIcon/collection_on.png",
+					"images/tabIcon/mine_on.png",
+					"images/tabIcon/home_off.png"
 				],
 				"refer": [
 					"find.html",
@@ -687,6 +686,21 @@
 					"informationDetails.html"
 				],
 				"priority": 0
+			},
+			"collectionList.html": {
+				"resources": [
+					"css/home.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"libs/jquery-1.8.3.min.js"
+				],
+				"refer": [
+					"informationDetails.html",
+					"mine/login_new.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {
@@ -694,5 +708,5 @@
 				"css/mui.css"
 			]
 		}
-	}
+	},"fullscreen":false
 }

@@ -1,9 +1,7 @@
 {
   "collection.html": {
     "resources": [
-      "collectionList.html",
-      "js/mui.min.js",
-      "css/mui.min.css"
+      "collectionList.html"
     ],
     "refer": [
       "collectionList.html"
@@ -39,10 +37,7 @@
       "images/xie_icon.png",
       "images/ping_bg.png",
       "images/tel_icon.png",
-      "images/picuser.png",
-      "js/common.js",
-      "js/mui.min.js",
-      "css/mui.min.css"
+      "images/picuser.png"
     ]
   },
   "home_copy.html": {
@@ -62,9 +57,7 @@
       "css/app.css",
       "css/home_copy.css",
       "js/home_copy.js",
-      "images/nav_bgs.png",
-      "js/mui.min.js",
-      "css/mui.min.css"
+      "images/nav_bgs.png"
     ],
     "refer": [
       "informationDetails.html"
@@ -98,15 +91,4 @@
     "refer": [
       "commentList.html"
     ]
-  },
-  "collectionList.html": {
-    "resources": [
-      "css/home.css",
-      "css/app.css",
-      "libs/jquery-1.8.3.min.js",
-      "js/common.js",
-      "js/mui.min.js",
-      "css/mui.min.css"
-    ]
   }
-}

@@ -14,43 +14,45 @@
 				width: 20px;
 				height: 20px;
 				overflow: hidden;
+				margin-top: 4px;
 				}
 			.nav_nrs{
 				text-align: center;
 				font-size: 0.75rem;
-				color: #FFFFFF;
+				/*color: #CCCCCC;*/
+				color: #252830;
 			}
 
 			.nav_icon_one{
-				background: url(images/nav_icon_one.png) no-repeat center center;
+				background: url(images/tabIcon/home_off.png) no-repeat center center;
 				background-size: cover;
 			}
 			.nav_icon_two{
-				background: url(images/nav_icon_two.png) no-repeat center center;
+				background: url(images/tabIcon/collection_off.png) no-repeat center center;
 				background-size: cover;
 			}.nav_icon_three{
-				background: url(images/nav_icon_three.png) no-repeat center center;
+				background: url(images/tabIcon/mine_off.png) no-repeat center center;
 				background-size: cover;
 			}
-			.mui-active .nav_cion_bg{
-				display: block;
-				width: 80%;
-				margin: auto;
-				background: #6f96be;
-				padding-top: 4px;
-				border-radius: 3px 3px 0 0;
-				margin-top: -4px;
-
+			.mui-bar{
+				/*box-shadow: none !important;*/
 			}
-			
-			.mui-active .nav_icon_bg span.nav_icon_vido {
-				background: url(images/nav_icon_collcetion.png) no-repeat center center #393d47;
-				background-size: 80%;
+			.mui-active{
 			}
-			
-			.mui-active .nav_icon_bg span.nav_icon_mine {
-				background: url(images/nav_icon_mine_active.png) no-repeat center center #393d47;
-				background-size: 80%;
+			.mui-active .nav_nrs{
+				color: #252830;
+			}
+			.mui-active .nav_icon_one{
+				background: url(images/tabIcon/home_on.png) no-repeat center center;
+				background-size: cover;
+			}
+			.mui-active  .nav_icon_two{
+				background: url(images/tabIcon/collection_on.png) no-repeat center center;
+				background-size: cover;
+			}
+			.mui-active  .nav_icon_three{
+				background: url(images/tabIcon/mine_on.png) no-repeat center center;
+				background-size: cover;
 			}
 			/*.mui-active .nav_icon_bg span.nav_icon_collcetion {
 				background: url(images/nav_icon_collection_active.png) no-repeat center center #393d47;
@@ -60,7 +62,7 @@
 	</head>
 
 	<body style="background: none;">
-		<nav class="mui-bar mui-bar-tab" style="background: #252830;">
+		<nav class="mui-bar mui-bar-tab">
 			<a id="defaultTab" class="mui-tab-item mui-active" href="home_copy.html">
 				<span class="nav_cion_bg">
 					<span class="nav_icon nav_icon_one"></span>
