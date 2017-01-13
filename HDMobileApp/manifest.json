@@ -733,6 +733,20 @@
 					"informationDetails.html"
 				],
 				"priority": 0
+			},
+			"collectionList_new.html": {
+				"resources": [
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"collection_new.html": {
+				"resources": [
+					"collectionList_new.html"
+				],
+				"refer": [],
+				"priority": 0
 			}
 		},
 		"idle": {
