@@ -183,10 +183,13 @@
 				max-width: 100%;
 				height: auto;
 			}
-.Article{
+.Article { 
 	overflow: hidden;
 	margin:10px;
 }
+.Article p{
+	background: red !important;
+} 
 .art_tit{
 	margin-bottom: 15px;
 }

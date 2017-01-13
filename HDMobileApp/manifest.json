@@ -670,7 +670,8 @@
 					"css/app.css",
 					"pull_collection.html",
 					"fonts/mui.ttf",
-					"collectionList.html"
+					"collectionList.html",
+					"searchList.html"
 				],
 				"refer": [
 					"informationDetails.html"

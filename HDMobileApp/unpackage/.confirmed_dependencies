@@ -1,10 +1,15 @@
 {
 	"collection.html": {
 		"resources": [
-			"collectionList.html"
+			"collectionList.html",
+			"fonts/mui.ttf",
+			"searchList.html",
+			"js/mui.min.js",
+			"css/mui.min.css"
 		],
 		"refer": [
-			"collectionList.html"
+			"collectionList.html",
+			"searchList.html"
 		]
 	},
 	"index.html": {
