@@ -183,10 +183,13 @@
 				max-width: 100%;
 				height: auto;
 			}
-.Article{
+.Article { 
 	overflow: hidden;
-	margin:10px;
+	/*margin:10px;*/
+	padding: 10px;
+	background: white !important;
 }
+ 
 .art_tit{
 	margin-bottom: 15px;
 }

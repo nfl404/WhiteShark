@@ -4568,7 +4568,7 @@ body>.mui-progressbar {
 .mui-fullscreen .mui-segmented-control~.mui-slider-group {
 	position: absolute;
 	top: 40px;
-	bottom: 0;
+	bottom: -1px;
 	width: 100%;
 	height: auto
 }

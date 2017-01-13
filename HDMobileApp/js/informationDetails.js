@@ -42,7 +42,7 @@
 					 *	文章详情 
 					 */
 					document.getElementById("article_details").innerHTML = '<iframe src=' + (articleUrl) + ' id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%"></iframe>';
-
+					console.log(articleUrl);
 					/**
 					 * 获取推荐资讯列表请求
 					 * @param {Object} articleId  文章id
@@ -56,7 +56,6 @@
 							type: 'post', //HTTP请求类型
 							timeout: 10000, //超时时间设置为10秒；
 							success: function(data) {
-								console.log(JSON.stringify(data));
 								if(data.status == 200) {
 									document.getElementById("comment_num").innerText = data.result.commentnum;
 									document.getElementById("like_num").innerText = data.result.likes;
@@ -78,7 +77,6 @@
 					getInformationList(articleId);
 
 					var isColleciton = function(userId, articleId) {
-						console.log('articleid：：：' + articleId);
 						mui.ajax(Common.domain + '/fuwu/api/favorite.php', {
 							data: {
 								userid: userId,
@@ -89,7 +87,6 @@
 							type: 'post', //HTTP请求类型
 							timeout: 10000, //超时时间设置为10秒；
 							success: function(data) {
-								console.log(JSON.stringify(data));
 								if(data.status == 200) {
 									collection = data.type;
 									if(collection == 1) {
@@ -393,12 +390,12 @@
 							document.getElementById("inputeFooterid").hidden = true;
 							var content = document.getElementById("contentId").value;
 							var userId = Common.getUserid();
-							if (content.length == 0) {
+							if(content.length == 0) {
 								mui.toast('请输入评论内容...');
-							} else{
+							} else {
 								sendComment(userId, articleId, content);
 							}
-							
+
 						}
 					});
 

@@ -42,7 +42,7 @@
 		var getCollectionList; // 获取收藏列表
 
 		/**
-		 * 下拉刷新具体业务实现
+		 * 下拉刷新具体业务实现	
 		 */
 		function pulldownRefresh() {
 			setTimeout(function() {
@@ -160,17 +160,14 @@
 											li.innerHTML = '<div class="card3"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].arr[0] + '</h2><p>' + data.result[i].arr[1] + '</p></div><div class="card3_pic"><span style="background-image: url(' + (data.result[i].arr[2]) + ');"></span></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 										}
 									}
-									//if(num == 1) {
-									//  三张图片
-									//	li.innerHTML = '<div class="card1"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><span style="background-image: url(' + (data.result[i].arr[2]) + ');"></span><span style="background-image: url(' + (data.result[i].arr[3]) + ');"></span><span style="background-image: url(' + (data.result[i].arr[4]) + ');"></span></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
-									//} else
-
 								}
 								if(refresh) {
 									table.appendChild(li, table.firstChild);
 								} else {
 									table.appendChild(li, table.lastChild);
+
 								}
+
 							} else if(data.status == 250) {
 								if(refresh) {
 									$('ul li').remove();
