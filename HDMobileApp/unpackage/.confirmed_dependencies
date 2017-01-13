@@ -3,7 +3,10 @@
 		"resources": [
 			"collectionList.html",
 			"fonts/mui.ttf",
+<<<<<<< HEAD
 			"searchList.html",
+=======
+>>>>>>> 7a54e1c8d57a26ad97d90f3bcf4fbe6568285820
 			"js/mui.min.js",
 			"css/mui.min.css"
 		],
@@ -186,7 +189,10 @@
 			"js/mui.min.js",
 			"css/app.css",
 			"css/mui.min.css",
-			"libs/jquery-1.8.3.min.js"
+			"libs/jquery-1.8.3.min.js",
+			"images/yan_icon.png",
+			"images/time_cion.png",
+			"images/zan_icon.png"
 		],
 		"refer": [
 			"mine/login_new.html",
