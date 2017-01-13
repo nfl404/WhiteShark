@@ -1899,7 +1899,8 @@ input[type=submit]:enabled:active {
 }
 
 .mui-table-view-cell.mui-active {
-	background-color: #eee
+	/*background-color: #eee*/
+	background-color: white
 }
 
 .mui-table-view-cell:last-child:after,

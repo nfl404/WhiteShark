@@ -78,13 +78,13 @@
 									var num = Math.round(Math.random() * 2 + 1);
 									if(num == 1) {
 										//三张图片
-										li.innerHTML = '<div class="card1"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿1</p></div><div class="card1_nr"><div class="card1_pic"><img src= ' + (data.result[i].arr[2]) + '><img src=' + (data.result[i].arr[3]) + '><img src=' + (data.result[i].arr[4]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+										li.innerHTML = '<div class="card1"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><span style="background-image: url(' + (data.result[i].arr[2]) + ');"></span><span style="background-image: url(' + (data.result[i].arr[3]) + ');"></span><span style="background-image: url(' + (data.result[i].arr[4]) + ');"></span></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 									} else if(num == 2) {
 										//一张图片
-										li.innerHTML = '<div class="card2"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿2</p></div><div class="card2_nr"><div class="card2_pic"><img src=' + (data.result[i].arr[2]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+										li.innerHTML = '<div class="card2"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card2_nr"><div class="card2_pic"><img src=' + (data.result[i].arr[2]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 									} else {
 										//左文字右图片
-										i.innerHTML = '<div class="card3"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿3</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].arr[0] + '</h2><p>' + data.result[i].arr[1] + '</p></div><div class="card3_pic"><img src=' + (data.result[i].arr[2]) + '></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+										li.innerHTML = '<div class="card3"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].arr[0] + '</h2><p>' + data.result[i].arr[1] + '</p></div><div class="card3_pic"><span style="background-image: url(' + (data.result[i].arr[2]) + ');"></span></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 									}
 									table.appendChild(li, table.firstChild);
 								}
@@ -109,7 +109,34 @@
 			getSearchList(keyWord);
 		});
 		mui.ready(function() {
-
+			/*
+			 * 搜索列表跳转
+			 */
+			mui('#list').on('tap', 'a', function() {
+				var href = this.href;
+				var articleid = this.getAttribute('id');
+				var articleurl = this.getAttribute('deburl');
+				mui.openWindow({
+					url: 'informationDetails.html',
+					styles: {
+						popGesture: 'close',
+					},
+					extras: {
+						articleid: articleid,
+						articleurl: articleurl,
+					},
+					createNew: true, //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+					show: {
+						autoShow: true,
+						aniShow: 'slide-in-right',
+						duration: mui.os.ios ? 200 : 100
+					},
+					waiting: {
+						autoShow: true,
+						title: '正在加载...',
+					}
+				});
+			});
 		});
 	</script>
 

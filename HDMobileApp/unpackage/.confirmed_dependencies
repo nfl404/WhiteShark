@@ -38,6 +38,10 @@
 			"images/ping_bg.png",
 			"images/tel_icon.png",
 			"images/picuser.png"
+		],
+		"refer": [
+			"mine/login_new.html",
+			"mine_comment.html"
 		]
 	},
 	"home_copy.html": {
@@ -57,7 +61,9 @@
 			"css/app.css",
 			"css/home_copy.css",
 			"js/home_copy.js",
-			"images/nav_bgs.png"
+			"images/nav_bgs.png",
+			"js/mui.min.js",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"informationDetails.html",
@@ -103,10 +109,12 @@
 			"css/mui.min.css",
 			"libs/jquery-1.8.3.min.js",
 			"css/inof.css",
-			"images/xie_icon.png"
+			"images/xie_icon.png",
+			"images/collection_on.png"
 		],
 		"refer": [
-			"comment.html"
+			"comment.html",
+			"mine/login_new.html"
 		]
 	},
 	"search.html": {
@@ -143,6 +151,9 @@
 			"js/common.js",
 			"css/app.css",
 			"libs/jquery-1.8.3.min.js"
+		],
+		"refer": [
+			"informationDetails.html"
 		]
 	},
 	"mine/login_new.html": {
@@ -160,6 +171,43 @@
 			"js/mui.min.js",
 			"css/mui.min.css",
 			"js/mui.js",
+			"images/picuser.png"
+		]
+	},
+	"collectionList.html": {
+		"resources": [
+			"css/home.css",
+			"js/common.js",
+			"js/mui.min.js",
+			"css/app.css",
+			"css/mui.min.css",
+			"libs/jquery-1.8.3.min.js"
+		],
+		"refer": [
+			"mine/login_new.html",
+			"informationDetails.html"
+		]
+	},
+	"mine_comment.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"libs/jquery-1.8.3.min.js",
+			"js/common.js",
+			"fonts/mui.ttf",
+			"mine_comment_list.html"
+		],
+		"refer": [
+			"mine_comment_list.html"
+		]
+	},
+	"mine_comment_list.html": {
+		"resources": [
+			"images/time_cion.png",
+			"images/guanlian.png",
+			"images/banner.png",
+			"css/comment_mine.css",
+			"images/tel_icon.png",
 			"images/picuser.png"
 		]
 	}

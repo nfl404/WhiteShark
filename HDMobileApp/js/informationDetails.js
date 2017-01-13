@@ -393,7 +393,12 @@
 							document.getElementById("inputeFooterid").hidden = true;
 							var content = document.getElementById("contentId").value;
 							var userId = Common.getUserid();
-							sendComment(userId, articleId, content);
+							if (content.length == 0) {
+								mui.toast('请输入评论内容...');
+							} else{
+								sendComment(userId, articleId, content);
+							}
+							
 						}
 					});
 

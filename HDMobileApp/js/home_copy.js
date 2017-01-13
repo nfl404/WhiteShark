@@ -45,7 +45,7 @@ mui.init();
 			var num = Math.round(Math.random() * 2 + 1);
 			if(num == 1) {
 				li.className = 'mui-table-view-cell mui-media';
-				li.innerHTML = '<div class="card1"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><img src= ' + (data.result[i].arr[2]) + '><img src=' + (data.result[i].arr[3]) + '><img src=' + (data.result[i].arr[4]) + '></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+				li.innerHTML = '<div class="card1"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card1_nr"><div class="card1_pic"><span style="background-image: url(' + (data.result[i].arr[2]) + ');"></span><span style="background-image: url(' + (data.result[i].arr[3]) + ');"></span><span style="background-image: url(' + (data.result[i].arr[4]) + ');"></span></div><h2>' + data.result[i].arr[0] + '</h2></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 			} else if(num == 2) {
 				//卡片2
 				li.className = 'mui-table-view-cell mui-media';
@@ -53,7 +53,7 @@ mui.init();
 			} else {
 				//卡片3
 				li.className = 'mui-table-view-cell mui-media';
-				li.innerHTML = '<div class="card3"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].arr[0] + '</h2><p>' + data.result[i].arr[1] + '</p></div><div class="card3_pic"><img src=' + (data.result[i].arr[2]) + '></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
+				li.innerHTML = '<div class="card3"><a href="information_details.html" id="' + (data.result[i].id) + '" deburl="' + (data.result[i].deburl) + '" likes="' + (data.result[i].likes) + '"><div class="card_tit"><p class="card_time"><em></em><span>' + (data.result[i].addtime) + '</span></p><p class="card_Source">华地艺术网专稿</p></div><div class="card3_nr"><div class="card3_tit"><h2>' + data.result[i].arr[0] + '</h2><p>' + data.result[i].arr[1] + '</p></div><div class="card3_pic"><span style="background-image: url(' + (data.result[i].arr[2]) + ');"></span></div></div><div class="card_number"><p class="card_xi"><em></em><span>' + (data.result[i].hits) + '</span></p><p class="card_du"><em></em><span>' + (data.result[i].likes) + '</span></p></div></a></div>'
 			}
 			fragment.appendChild(li);
 			Common.closeWaiting(waiting);
@@ -438,9 +438,9 @@ mui.init();
 						}
 					} else {
 						Common.closeWaiting(waiting);
-						mui.toast('暂无数据...状态码(' + data.status + ')');
-//						self.endPullUpToRefresh();
-//						self.endPullDownToRefresh();
+						mui.toast('暂无数据(' + data.status + ')');
+						self.endPullUpToRefresh();
+						self.endPullDownToRefresh();
 						
 					}
 				},
