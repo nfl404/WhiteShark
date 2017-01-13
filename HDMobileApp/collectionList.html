@@ -28,6 +28,7 @@
 			pullRefresh: {
 				container: '#pullrefresh',
 				down: {
+					auto: true,
 					callback: pulldownRefresh
 				},
 				up: {
@@ -41,7 +42,7 @@
 		var getCollectionList; // 获取收藏列表
 
 		/**
-		 * 下拉刷新具体业务实现
+		 * 下拉刷新具体业务实现	
 		 */
 		function pulldownRefresh() {
 			setTimeout(function() {

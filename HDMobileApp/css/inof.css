@@ -185,11 +185,11 @@
 			}
 .Article { 
 	overflow: hidden;
-	margin:10px;
+	/*margin:10px;*/
+	padding: 10px;
+	background: white !important;
 }
-.Article p{
-	background: red !important;
-} 
+ 
 .art_tit{
 	margin-bottom: 15px;
 }

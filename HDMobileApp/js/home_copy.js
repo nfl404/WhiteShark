@@ -2,7 +2,7 @@ mui.init();
 (function($) {
 	var deceleration = mui.os.ios ? 0.003 : 0.0009;
 	$('.mui-scroll-wrapper').scroll({
-		bounce: false,
+		bounce: true,
 		indicators: true, //是否显示滚动条
 		deceleration: deceleration
 	});
@@ -464,7 +464,7 @@ mui.init();
 		/**
 		 *	首页列表遍历请求 
 		 */
-		waiting = Common.showWaiting();
+		waiting = Common.showWaiting(); 
 		mui('.mui-slider-group .mui-table-view').each(function(index, element) {
 			agnix(element, index, 0, 0, this);
 			mui('#list' + (index) + '').on('tap', 'a', function() {
