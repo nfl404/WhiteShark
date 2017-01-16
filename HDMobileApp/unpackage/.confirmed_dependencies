@@ -118,7 +118,9 @@
       "libs/jquery-1.8.3.min.js",
       "css/inof.css",
       "images/xie_icon.png",
-      "images/collection_on.png"
+      "images/collection_on.png",
+      "images/logo.png",
+      "css/app.css"
     ],
     "refer": [
       "comment.html",

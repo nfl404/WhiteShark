@@ -649,7 +649,9 @@
 					"images/xie_icon.png",
 					"css/informationDetails.css",
 					"images/collection_on.png",
-					"images/collection_off.png"
+					"images/collection_off.png",
+					"images/logo.png",
+					"css/app.css"
 				],
 				"refer": [
 					"mine/login_new.html",
