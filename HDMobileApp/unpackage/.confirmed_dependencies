@@ -43,7 +43,10 @@
 			"images/xie_icon.png",
 			"images/ping_bg.png",
 			"images/tel_icon.png",
-			"images/picuser.png"
+			"images/picuser.png",
+			"js/common.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"mine/login_new.html",

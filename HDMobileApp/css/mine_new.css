@@ -104,6 +104,16 @@ body{
 	height: 10px;
 	width: 100%;
 }
+.mine_main_bg_new{
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #536597;
+	border-radius: 5px;
+	height: 10px;
+	width: 100%;
+}
 .mine_box{
 	position: absolute;
 	z-index: 10;
@@ -113,45 +123,58 @@ body{
 	border: 1px solid #DDDDDD;
 	overflow: hidden;
 }
-.mine_box a{
-	width: 50%;
-	float: left;
-	text-align: center;
-	height: 10rem;
-	background-color: #FFFFFF;
-	border-top: 1px solid #DDDDDD;
-	margin-top: -1px;
-	border-left: 1px solid #DDDDDD;
-	margin-left: -1px;
-	padding-bottom: 1rem;
+.mine_box_new{
+	position: absolute;
+	z-index: 10;
+	top: 5px;
+	width: 96%;
+	left: 2%;
+	border: 1px solid #DDDDDD;
 	overflow: hidden;
 }
-.mine_box a:active{
+.mine_box_new a{
+	width: 100%;
+	text-align: center;
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #DDDDDD;
+	overflow: hidden;
+	display: block;
+	padding: 1rem;
+}
+
+.mine_box_new a:hover{
+	background-color: #F1F2F6;
+}
+
+.mine_box_new a:active{
 	background-color: #C7C7CC;
 }
-.mine_box a p{
-	text-align: center;
-	line-height: 2rem;
+
+.mine_box_new a p{
 	overflow: hidden;
-	font-size: 1.2rem;
+	margin: 0;
+	float: left;
+	height: 1.8rem;
+	line-height: 1.8rem;
+	text-align: left;
+	width: 75%;
 	color: #666666;
+	margin-left: 5%;
 }
-.mine_ping span{
+.mine_ping_new span{
 	display: block;
-	width: 150px;
-	height: 80px;
-	margin: auto;
-	background: url(../images/ping_bg.png) no-repeat center top;
-	background-size: 70% ;
-	margin-top: 2rem;
-	
+	float: left;
+	width:17.5%;
+	height: 1.8rem;
+	background: url(../images/77.png) no-repeat center center;
+	background-size: 75%;
 }
-.mine_she span{
+
+.mine_she_new span{
 	display: block;
-	width: 150px;
-	height: 80px;
-	margin: auto;
-	background: url(../images/she_bg.png) no-repeat center bottom;
-	background-size: 70% ;
-	margin-top: 2rem;
+	float: left;
+	width:17.5%;
+	height: 1.8rem;
+	background: url(../images/7.png) no-repeat  center center;
+	background-size:75%;
 }
