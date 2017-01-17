@@ -18,6 +18,12 @@
 				text-indent: -999em;
 				padding-top: 7px;
 			}
+			.arrimg{
+				width: 100%;
+				height:200px;
+				padding:0; 
+				border:0;
+			}
 		</style>
 	</head>
 
@@ -30,13 +36,23 @@
 		</header>
 
 		<div class="mui-content" id="tableViewId">
-			<div class="Article" id="article_details">
+			<div class="Article" id="article_details" >
+				<div class="mui-slider" style="margin-top: 50%;margin-bottom: 40%;" >
+					<div class="mui-slider-group" style="width: 100%;height: 200px;" id="ceshi">
+						<div class="mui-slider-item">
+							<a href="#">
+								<img id="infoimg"  src="images/cbd.jpg" /> 
+								<p class="mui-slider-title">静静看这世界</p>
+							</a>
+						</div>
+					</div>
+				</div>
 				<!--<iframe src="" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="initIframeEND();"></iframe>-->
 			</div>
-			<div class="ass_tit">
+			<div id="hiddenAssociated1" class="ass_tit">
 				<span>关联新闻</span>
 			</div>
-			<div class="Associated">
+			<div id="hiddenAssociated" class="Associated"> 
 				<ul id="list" class="mui-table-view mui-table-view-chevron" style="background: #efeff4;">
 				</ul>
 			</div>

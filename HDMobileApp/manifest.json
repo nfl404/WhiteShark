@@ -651,11 +651,17 @@
 					"images/collection_on.png",
 					"images/collection_off.png",
 					"images/logo.png",
-					"css/app.css"
+					"css/app.css",
+					"images/pic1.png",
+					"js/jquery.min.js",
+					"js/jquery.js",
+					"images/cbd.jpg"
 				],
 				"refer": [
 					"mine/login_new.html",
-					"comment.html"
+					"comment.html",
+					"new_file.html",
+					"new_information.html"
 				],
 				"priority": 0
 			},
@@ -747,6 +753,26 @@
 			"collection_new.html": {
 				"resources": [
 					"collectionList_new.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"new_file.html": {
+				"resources": [
+					"images/cbd.jpg",
+					"images/pic2.png",
+					"images/banner.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"new_information.html": {
+				"resources": [
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"images/shuijiao.jpg",
+					"images/cbd.jpg",
+					"css/app.css"
 				],
 				"refer": [],
 				"priority": 0
