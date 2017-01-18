@@ -574,14 +574,16 @@
 					"images/picuser.png",
 					"js/common.js",
 					"images/nouser_pic.png",
-					"js/mui.js"
+					"js/mui.js",
+					"images/77.png",
+					"images/7.png",
+					"mine_comment.html"
 				],
 				"refer": [
 					"mine/login.html",
 					"xiu_name.html",
 					"mine/login_new.html",
 					"mine/setting.html",
-					"mine_comment.html",
 					"mine/setting_new.html"
 				],
 				"priority": 0
@@ -655,7 +657,8 @@
 					"images/pic1.png",
 					"js/jquery.min.js",
 					"js/jquery.js",
-					"images/cbd.jpg"
+					"images/cbd.jpg",
+					"images/0.jpg"
 				],
 				"refer": [
 					"mine/login_new.html",

@@ -46,7 +46,10 @@
 			"images/picuser.png",
 			"js/common.js",
 			"js/mui.min.js",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"images/77.png",
+			"images/7.png",
+			"mine_comment.html"
 		],
 		"refer": [
 			"mine/login_new.html",
@@ -127,7 +130,8 @@
 			"images/pic1.png",
 			"js/jquery.min.js",
 			"js/jquery.js",
-			"images/cbd.jpg"
+			"images/cbd.jpg",
+			"images/0.jpg"
 		],
 		"refer": [
 			"comment.html",

@@ -48,30 +48,29 @@
 		 */
 		//					document.getElementById("article_details").innerHTML = '<iframe src=' + (articleUrl) + ' id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%"></iframe>';
 
-//		var info = function() {
-//			$.ajax({
-//				url: articleUrl,
-//				async: false,
-//				success: function(data) {
-//					var inof_connet = data;
-//					//					$(".inof_connet").html(inof_connet);
-//					console.log("成功......" + inof_connet);
-//					//					if()
-//					document.getElementById('article_details').innerHTML = '<iframe src=' + (articleUrl) + ' id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%"></iframe>';
-//
-//				}
-//
-//			});
-//		}
-		
+		//		var info = function() {
+		//			$.ajax({
+		//				url: articleUrl,
+		//				async: false,
+		//				success: function(data) {
+		//					var inof_connet = data;
+		//					//					$(".inof_connet").html(inof_connet);
+		//					console.log("成功......" + inof_connet);
+		//					//					if()
+		//					document.getElementById('article_details').innerHTML = '<iframe src=' + (articleUrl) + ' id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%"></iframe>';
+		//
+		//				}
+		//
+		//			});
+		//		}
 
 		console.log("文章ID：：" + articleUrl);
 		/**
 		 * 获取推荐资讯列表请求
 		 * @param {Object} articleId  文章id
 		 */
-		var arrimg=new Array();
-		var arrtitle=new Array();
+		var arrimg = new Array();
+		var arrtitle = new Array();
 		var getInformationList = function(articleId) {
 			mui.ajax(Common.domain + '/fuwu/api/check_article.php', {
 				data: {
@@ -85,15 +84,15 @@
 						//arrimg = data.image.length
 						//alert(arrimg);
 						//图片存储
-						for(var x = 2,y=0;x<data.image.length;x++,y++){
-							arrimg[y]=data.image[x];
+						for(var x = 2, y = 0; x < data.image.length; x++, y++) {
+							arrimg[y] = data.image[x];
 						}
 						//内容存储
-						for(var x = 0,y=0;x<data.image.length;x++,y++){
-							arrtitle[y]=data.image[0];
-//							arrtitle[y]=data.image[1];
+						for(var x = 0, y = 0; x < data.image.length; x++, y++) {
+							arrtitle[y] = data.image[0];
+							//							arrtitle[y]=data.image[1];
 						}
-//						alert(arrtitle);
+						//						alert(arrtitle);
 						console.log('beforeSend:::' + JSON.stringify(data));
 						document.getElementById("comment_num").innerText = data.result.commentnum;
 						document.getElementById("like_num").innerText = data.result.likes;
@@ -106,7 +105,7 @@
 					} else {
 						mui.toast('新闻推荐列表获取失败...状态码(' + data.status + ')');
 					}
-//					推荐资讯列表请求成功之后对详情页的展示方式做一个判断
+					//					推荐资讯列表请求成功之后对详情页的展示方式做一个判断
 					if(articlelength > 5) {
 						/**
 						 *全图隐藏关联新闻 
@@ -114,15 +113,14 @@
 						document.getElementById("hiddenAssociated").style.display = 'none';
 						document.getElementById("hiddenAssociated1").style.display = 'none';
 						$(function() {
-//							alert(arrimg.length);
 							var div = '';
-							for(var i = 0 ;i < arrimg.length; i++) {								 
-//									div += '<div class="mui-slider-item"><a href="#"><img id="infoimg"  src="'+arrimg[i]+'"  /><p class="mui-slider-title">'+i+'</p></a></div>';
-									div += '<div class="mui-slider-item"><a href="#"><img src="'+arrimg[i]+'" /><p class="mui-slider-title">' + i + '</p></a></div>';
+							var boxheight = window.screen.height 
+							for(var i = 0; i < arrimg.length; i++) {
+								div += '<div class="mui-slider-item" style="margin-top: 40%;"><a class="pic_box" ><img id="infoimg" src="' + arrimg[i] + '" style="height: 250px;"/><p class="mui-slider-title">' + arrtitle[i] + '</p></a></div>';
 							}
 							document.getElementById("ceshi").innerHTML = div;
-			
 						});
+						
 					} else {
 						/**
 						 *全图显示关联新闻 
@@ -136,9 +134,9 @@
 					mui.toast('服务器异常...错误描述：' + xhr.status);
 				}
 			});
+			
+			
 		};
-		
-		
 		
 		getInformationList(articleId);
 
@@ -464,8 +462,8 @@
 
 			}
 		});
-
 	});
+	
 	/**
 	 * 当DOM准备就绪时，指定一个函数来执行。
 	 */
@@ -473,10 +471,14 @@
 		/**
 		 * 点击评论
 		 */
+		
 		document.getElementById("xie").addEventListener("click", function() {
 			document.getElementById("footerbackgrod").hidden = true;
 			document.getElementById("inputeFooterid").hidden = false;
 			document.getElementById("contentId").focus();
 		});
+		
+
 	});
-}(mui, document));
+}(mui, document)
+);
