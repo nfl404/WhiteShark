@@ -9,7 +9,7 @@ mui.init({
 	}],
 	preloadLimit: 5 //预加载窗口数量限制(一旦超出,先进先出)默认不限制
 });
-var subpages = ['home_copy.html', 'collection.html','mine_new.html'];
+var subpages = ['home_copy.html', 'collection.html', 'mine_new.html'];
 var subpage_style = {
 	top: '0px',
 	bottom: '51px'
@@ -86,15 +86,15 @@ mui('.mui-bar-tab').on('tap', 'a', function(e) {
 	//更改当前活跃的选项卡
 	activeTab = targetTab;
 });
-//			 //自定义事件，模拟点击“首页选项卡”
-//			document.addEventListener('gohome', function() {
-//				var defaultTab = document.getElementById("defaultTab");
-//				//模拟首页点击
-//				mui.trigger(defaultTab, 'tap');
-//				//切换选项卡高亮
-//				var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
-//				if (defaultTab !== current) {
-//					current.classList.remove('mui-active');
-//					defaultTab.classList.add('mui-active');
-//				}
-//			});
+//自定义事件，模拟点击“首页选项卡”
+document.addEventListener('gohome', function() {
+	var defaultTab = document.getElementById("defaultTab");
+	//模拟首页点击
+	mui.trigger(defaultTab, 'tap');
+	//切换选项卡高亮
+	var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
+	if(defaultTab !== current) {
+		current.classList.remove('mui-active');
+		defaultTab.classList.add('mui-active');
+	}
+});
