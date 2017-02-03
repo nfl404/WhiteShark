@@ -8,23 +8,71 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/inof.css" />
 		<link rel="stylesheet" href="css/informationDetails.css" />
+		<style>
+			.logoinfo {
+				float: none;
+				width: 105px;
+				height: 32px;
+				background: url(../images/logo.png) no-repeat center center;
+				background-size: 100% 100%;
+				text-indent: -999em;
+				padding-top: 7px;
+			}
+			
+		
+			.mui-slider-title {
+				position: inherit;
+    			opacity: 1;
+				line-height: 30px;
+				width: 100%;
+				height: 30px;
+				margin: 0;
+				text-align: center;
+				text-indent: 12px;
+				background-color: #000
+			}
+		</style>
 	</head>
 
 	<body contextmenu="return false;">
 		<header class="mui-bar mui-bar-nav" style="background:  white;">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<!--<a id="collection" class=" mui-icon mui-icon-star mui-pull-right"></a>-->
-			<h1 class="mui-title">资讯详情</h1>
+			<h1 class="mui-title">
+				<img class="logoinfo" src="images/logo.png"></h1>
 		</header>
+		<style>
+			.pic_box{
+				width: 100%;
+				overflow:hidden;
+				background-color: rgba(0, 0, 0, 0.45);
+			}
+			.pic_box img{
+				width: 100%;
+			}
+			.pic_box p{
+				max-height: 60px;
+			}
+		</style>
 
 		<div class="mui-content" id="tableViewId">
 			<div class="Article" id="article_details">
+				<div class="mui-slider" style="z-index: 99; overflow: hidden; width: 100%; height: 100%; top:44px; bottom:50px;left: 0; right: 0; position: fixed; background:rgba(0, 0, 0, 1) ;">
+					<div class="mui-slider-group" id="ceshi" >
+						<div class="mui-slider-item">
+							<a class="pic_box">
+								<img id="infoimg" src="" />
+								<p class="mui-slider-title">静静看这世界</p>
+							</a>
+						</div>
+					</div>
+				</div>
 				<!--<iframe src="" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="initIframeEND();"></iframe>-->
 			</div>
-			<div class="ass_tit">
+			<div id="hiddenAssociated1" class="ass_tit">
 				<span>关联新闻</span>
 			</div>
-			<div class="Associated">
+			<div id="hiddenAssociated" class="Associated">
 				<ul id="list" class="mui-table-view mui-table-view-chevron" style="background: #efeff4;">
 				</ul>
 			</div>
@@ -59,10 +107,29 @@
 
 			</div>
 		</footer>
-		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" src="libs/jquery-1.8.3.min.js"></script>
+	
+		<script src="js/mui.min.js"></script>
 		<script src="js/common.js"></script>
 		<script src="js/informationDetails.js"></script>
+
+		<script>
+		
+//		$(document).ready(function(){
+			
+//		    $(".pic_box img").on("load",function(){
+//		    	alert(1);
+//	    	var h = $(window).height();
+//	        var w = $(this).height();
+//	        var s = $(this).next("p").height()/2;
+//	        var hem = h-w-s-94;
+//	        var hes = hem/2;
+//	        $(this).css("margin-top",hes);
+//		    });
+		    
+//		});
+		</script>
+				
 	</body>
 
 </html>
