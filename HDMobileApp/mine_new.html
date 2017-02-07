@@ -16,9 +16,6 @@
 			<h1 class="mui-title">个人中心</h1>
 		</header>
 		<div id="refreshhuilai">
-			<!--<div class="mine_tit">
-				<h1>个人中心</h1>
-			</div>-->
 			<div class="user_box" id="hide_login">
 				<img src="images/picuser.png">
 				<div class="user_name" id="name_gai">
@@ -37,11 +34,11 @@
 			<div class="mine_main">
 				<p class="mine_main_bg_new"></p>
 				<div class="mine_box_new">
-					<a href="mine_comment.html" class="mine_ping_new " id="ping">
+					<a class="mine_ping_new" id="ping">
 						<span></span>
 						<p>我的评论 &nbsp;&nbsp;My comment</p>
 					</a>
-					<a href="#" class="mine_she_new" id="setting">
+					<a class="mine_she_new" id="setting">
 						<span></span>
 						<p>设置&nbsp;&nbsp;Set up</p>
 					</a>
@@ -99,10 +96,10 @@
 						createNew: false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
 					});
 				});
-				/**
+				/**   
 				 * 我的评论
 				 */
-				mui('.mine_box').on('tap', '#ping', function() {
+				mui('#ping').on('tap', 'p', function() {
 					/**
 					 *	用户未登陆 
 					 */
@@ -129,7 +126,7 @@
 				/**
 				 * 设置
 				 */
-				mui('.mine_box').on('tap', '#setting', function() {
+				mui('#setting').on('tap', 'p', function() {
 					/**
 					 *	用户未登陆 
 					 */

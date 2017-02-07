@@ -143,11 +143,11 @@ body{
 }
 
 .mine_box_new a:hover{
-	background-color: #F1F2F6;
+	/*background-color: #F1F2F6;*/
 }
 
 .mine_box_new a:active{
-	background-color: #C7C7CC;
+	/*background-color: #C7C7CC;*/
 }
 
 .mine_box_new a p{
@@ -164,7 +164,7 @@ body{
 .mine_ping_new span{
 	display: block;
 	float: left;
-	width:17.5%;
+	width: 43px;
 	height: 1.8rem;
 	background: url(../images/77.png) no-repeat center center;
 	background-size: 75%;
@@ -173,7 +173,7 @@ body{
 .mine_she_new span{
 	display: block;
 	float: left;
-	width:17.5%;
+	width: 43px;
 	height: 1.8rem;
 	background: url(../images/7.png) no-repeat  center center;
 	background-size:75%;
